@@ -32,11 +32,8 @@ namespace Unstable.UI
         private void Start()
         {
             Canvas canvas = GetComponentInParent<Canvas>();
-            if (canvas != null)
-            {
-                canvasRectTransform = canvas.transform as RectTransform;
-                panelRectTransform = transform as RectTransform;
-            }
+            canvasRectTransform = canvas.transform as RectTransform;
+            panelRectTransform = transform as RectTransform;
         }
 
         private void FixedUpdate()
