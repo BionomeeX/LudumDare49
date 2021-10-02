@@ -6,7 +6,7 @@ namespace Unstable.UI
     public class EventLoader : MonoBehaviour
     {
         [SerializeField]
-        private RectTransform _choicesTransform;
+        private RectTransform _choicesTransform; // where cards go !
 
         [SerializeField]
         private RectTransform _eventPanel;
@@ -15,7 +15,7 @@ namespace Unstable.UI
         private Text _title, _description;
 
         [SerializeField]
-        private GameObject _choicePrefab;
+        private GameObject _choicePrefab; // card
         private RectTransform _choicePrefabTransform;
 
         [SerializeField]
@@ -42,15 +42,18 @@ namespace Unstable.UI
             _title.text = e.Name;
             _description.text = e.Description;
 
-            var choiceSizeX = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1)) / e.Choices.Length;
+            //var choiceSizeX = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1)) / e.Choices.Length;
+            var interChoiceSize = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1) - e.Choices.Length * _choicePrefabTransform.sizeDelta.x) / (e.Choices.Length + 1);
 
             Debug.Log(e.Choices.Length);
             //foreach (var choice in e.Choices)
             for (int i = 0; i < e.Choices.Length; ++i)
             {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
-                // TODO: Set position
-                choiceObject.transform.position = new Vector3(_leftRightMargin + i * (choiceSizeX + _interChoiceMargin), _eventPanel.sizeDelta.y - _BottomMargin - _choicePrefabTransform.sizeDelta.y, 0);
+                ((RectTransform)choiceObject.transform).anchoredPosition = new Vector2(
+                    _leftRightMargin + interChoiceSize + i * (_choicePrefabTransform.sizeDelta.x + interChoiceSize + _interChoiceMargin),
+                    _BottomMargin
+                );
                 choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
             }
         }
