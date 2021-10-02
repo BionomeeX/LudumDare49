@@ -27,13 +27,10 @@ namespace Unstable.UI
         [SerializeField]
         private int _interChoiceMargin;
 
-        private void Start()
-        {
-            _choicePrefabTransform = (RectTransform)_choicePrefab.transform;
-        }
-
         public void Load(Model.Event e)
         {
+            _choicePrefabTransform ??= (RectTransform)_choicePrefab.transform;
+
             _eventPanel.gameObject.SetActive(true);
             // Destroy all choices that were still here
             for (int i = 0; i < _choicesTransform.childCount; i++)
@@ -47,6 +44,7 @@ namespace Unstable.UI
 
             var choiceSizeX = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1)) / e.Choices.Length;
 
+            Debug.Log(e.Choices.Length);
             //foreach (var choice in e.Choices)
             for (int i = 0; i < e.Choices.Length; ++i)
             {
