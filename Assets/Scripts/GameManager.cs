@@ -142,7 +142,7 @@ namespace Unstable
                     new()
                     {
                         MethodName = "ADD",
-                        Argument = $"{leader?.Trigram ?? "NIL"} {card.Item1} {count}"
+                        Argument = $"{leader?.Trigram ?? "null"} {card.Item1} {count}"
                     }
                 }
             };

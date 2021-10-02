@@ -16,7 +16,7 @@ namespace Unstable
 
                         for (int i = 0; i < int.Parse(s[2]); i++)
                         {
-                            GameManager.Instance.AddCard(GameManager.Instance.GetCard(trigram, cardTrigram));
+                            GameManager.Instance.AddCard(GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram));
                         }
                     }
                     break;
