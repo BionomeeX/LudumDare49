@@ -605,13 +605,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e23e17f78fcc046a2f57575e1534a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _choicesTransform: {fileID: 1740172656}
-  _eventPanel: {fileID: 2057621734}
+  _choicesTransform: {fileID: 2057621735}
+  _eventPanel: {fileID: 1740172656}
   _title: {fileID: 1740172658}
   _description: {fileID: 1740172657}
   _choicePrefab: {fileID: 1096706484946995655, guid: c8895607c6108b84985ea9841427ad0a, type: 3}
---- !u!1 &2057621734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2057621734, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+  _leftRightMargin: 0
+  _BottomMargin: 0
+  _interChoiceMargin: 0
+--- !u!224 &2057621735 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2057621735, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
   m_PrefabInstance: {fileID: 1740172655}
   m_PrefabAsset: {fileID: 0}
