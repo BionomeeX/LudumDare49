@@ -47,7 +47,8 @@ namespace Unstable.UI
         public void OnPointerDown(PointerEventData data)
         {
             panelRectTransform.SetAsLastSibling();
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRectTransform, data.position, data.pressEventCamera, out pointerOffset);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, data.position, data.pressEventCamera, out pointerOffset);
+
         }
 
         public void OnDrag(PointerEventData data)
