@@ -26,8 +26,18 @@ namespace Unstable
         /// </summary>
         private List<Model.Event> _standardEvents, _crisisEvents;
 
+        /// <summary>
+        /// Get a Leader object from its trigram
+        /// </summary>
         public Leader GetLeaderFromTrigram(string trigram)
         {
+            if (trigram == null)
+            {
+                return new()
+                {
+                    DomainName = "Crew"
+                };
+            }
             return _leaders.FirstOrDefault(x => x.Trigram == trigram);
         }
 
@@ -48,14 +58,17 @@ namespace Unstable
 
         private void Start()
         {
+            // Load JSON objects
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
             var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
 
+            // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
             Assert.IsNotNull(events, "Events info failed to load");
             Assert.IsTrue(_leaders.Count > 0, "No leader was found");
             Assert.IsTrue(events.Length > 0, "No event was found");
 
+            // Split events between the standards and crisis ones
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
 
@@ -70,10 +83,71 @@ namespace Unstable
         {
             var isCrisis = _numberOfRoundsWithoutCrisis > 5;
 
-            var e = isCrisis ? _crisisEvents[Random.Range(0, _crisisEvents.Count)] : _standardEvents[Random.Range(0, _standardEvents.Count)];
-            _eventLoader.Load(e);
+            if (isCrisis)
+            {
+                _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+            }
+            else
+            {
+                // Generate a choice between 2 units we can earn
+                List<(Leader leader, (string, Model.Card) card)> allUnits = _leaders.SelectMany(leader =>
+                {
+                    return leader.Cards.Select(x => (leader, (x.Key, x.Value)));
+                }).ToList();
+
+                var tmp = allUnits[Random.Range(0, allUnits.Count)];
+                var choice1 = CreateEventChoice(tmp.leader, tmp.card, 1);
+                allUnits.Remove(tmp);
+                tmp = allUnits[Random.Range(0, allUnits.Count)];
+                var choice2 = CreateEventChoice(tmp.leader, tmp.card, 1);
+
+                if (Random.value < .75f) // We get "normal" unit instead of specialized one
+                {
+                    var unit = CreateEventChoice(null, ("NEU", new()
+                    {
+                        Name = "staff members"
+                    }), 10);
+                    if (Random.value < .5f)
+                    {
+                        choice1 = unit;
+                    }
+                    else
+                    {
+                        choice2 = unit;
+                    }
+                }
+
+                _eventLoader.Load(
+                    new()
+                    {
+                        Name = "New personal available",
+                        Description = "New personal is available, please choose what you want to focus on",
+                        IsCrisis = false,
+                        Choices = new EventChoice[] { choice1, choice2 }
+                    }
+                );
+            }
 
             _numberOfRoundsWithoutCrisis++;
+        }
+
+        private EventChoice CreateEventChoice(Leader leader, (string, Model.Card) card, int count)
+        {
+            return new()
+            {
+                Description = $"Earn {count} new {card.Item2.Name}",
+                TargetTrigram = leader?.Trigram,
+                Cost = 0,
+                Requirements = new(),
+                Effects = new Function[]
+                {
+                    new()
+                    {
+                        MethodName = "ADD",
+                        Argument = $"{leader?.Trigram ?? "NIL"} {card.Item1} {count}"
+                    }
+                }
+            };
         }
 
         private void AddCard(Model.Card card)

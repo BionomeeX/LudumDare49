@@ -25,14 +25,73 @@
                 "effects": {
                     "MED_SUR": 5
                 }
+            },
+            "PSY": {
+                "name": "Psychologist"
+            },
+            "TRA": {
+                "name": "Transhumanist"
             }
-        },
-        "requirements": {
-            "MED_SUR": 5
         }
     },
     {
         "trigram": "ENG",
-        "domainName": "Engineering"
+        "domainName": "Engineering",
+        "cards": {
+            "MEC": {
+                "name": "Mechanician"
+            },
+            "AIS": {
+                "name": "AI Specialist"
+            },
+            "WAR": {
+                "name": "Warhouseman"
+            }
+        }
+    },
+    {
+        "trigram": "DEF",
+        "domainName": "Defense",
+        "cards": {
+            "SPY": {
+                "name": "Spy"
+            },
+            "SPE": {
+                "name": "Special Forces"
+            },
+            "POL": {
+                "name": "Policeman"
+            }
+        }
+    },
+    {
+        "trigram": "FAI",
+        "domainName": "Faith",
+        "cards": {
+            "PRI": {
+                "name": "Priest"
+            },
+            "INQ": {
+                "name": "Inquisitor"
+            },
+            "CUL": {
+                "name": "Cultist"
+            }
+        }
+    },
+    {
+        "trigram": "RAD",
+        "domainName": "R&D",
+        "cards": {
+            "EXP": {
+                "name": "Explorator"
+            },
+            "RES": {
+                "name": "Researcher"
+            },
+            "BIO": {
+                "name": "BioNutritionist"
+            }
+        }
     }
 ]

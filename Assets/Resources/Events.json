@@ -2,7 +2,7 @@
     {
         "name": "Something bad happened",
         "description": "Something bad happened in this sample event",
-        "isCrisis": false,
+        "isCrisis": true,
         "choices": [
             {
                 "description": "Use medical department",
@@ -13,7 +13,10 @@
                         "methodName": "",
                         "arguments": ""
                     }
-                ]
+                ],
+                "requirements": {
+                    "MED_SUR": 5
+                }
             },
             {
                 "description": "Use engineering department",

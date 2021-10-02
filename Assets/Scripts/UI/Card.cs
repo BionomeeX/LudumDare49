@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 namespace Unstable.UI
 {
-    // Movements from https://github.com/Xwilarg/HadipoRun/blob/master/Assets/Scripts/Controller/DragDropController.cs
     public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
         [SerializeField]
