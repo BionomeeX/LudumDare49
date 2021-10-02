@@ -16,6 +16,9 @@
         /// </summary>
         public bool IsCrisis { set; get; }
 
-
+        /// <summary>
+        /// All the choices of the event
+        /// </summary>
+        public EventChoice[] Choices { set; get; }
     }
 }

@@ -1,5 +1,34 @@
 [
     {
-        "trigram": "MED"
+        "trigram": "MED",
+        "domainName": "Medical",
+        "leaderName": "",
+        "maxSanity": 10,
+        "sentencesConversation": {
+            "0": [
+                "Sample conversation"
+            ]
+        },
+        "sentencesEvent": {
+            "0": [
+            ]
+        },
+        "sentencesCrisis": {
+            "0": [
+
+            ]
+        },
+        "cards": {
+            "SUR": {
+                "name": "Surgeon",
+                "description": "",
+                "effects": {
+                    "MED_SUR": 5
+                }
+            }
+        },
+        "requirements": {
+            "MED_SUR": 5
+        }
     }
 ]
