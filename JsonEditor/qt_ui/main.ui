@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>779</width>
-    <height>787</height>
+    <height>847</height>
    </rect>
   </property>
   <property name="baseSize">
@@ -43,103 +43,8 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Max Gauge</string>
+     <string>Max Sanity</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>250</y>
-      <width>371</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Sentences Conversation</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="sentencesConversation">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>300</y>
-      <width>711</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addDialogButton">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>600</y>
-      <width>161</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add Dialog</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="textDialog">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>600</y>
-      <width>261</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Dialog Text</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="textDangerLevel">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>600</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Danger Level</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="typeOfSentence">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>600</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="editable">
-     <bool>true</bool>
-    </property>
-    <item>
-     <property name="text">
-      <string>sentencesCrisis</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>sentencesConversation</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>sentencesEvent</string>
-     </property>
-    </item>
    </widget>
    <widget class="QPushButton" name="selectFileButton">
     <property name="geometry">
@@ -171,29 +76,19 @@
     </property>
    </widget>
    <widget class="QPushButton" name="updateJsonButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>710</y>
+      <x>190</x>
+      <y>750</y>
       <width>151</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>Update JSON</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="textTrigram">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>80</y>
-      <width>411</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>Trigram</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="textDomainName">
@@ -209,68 +104,15 @@
      <string>Domain Name</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>360</y>
-      <width>371</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Sentences Crisis</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="sentencesCrisis">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>410</y>
-      <width>711</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>470</y>
-      <width>371</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Sentences Event</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="sentencesEvent">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>520</y>
-      <width>711</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>482</x>
-      <y>720</y>
-      <width>101</width>
+      <x>360</x>
+      <y>760</y>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -279,11 +121,14 @@
     </property>
    </widget>
    <widget class="QLabel" name="statusMessage">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>720</y>
-      <width>101</width>
+      <x>440</x>
+      <y>760</y>
+      <width>301</width>
       <height>31</height>
      </rect>
     </property>
@@ -342,6 +187,446 @@
     <property name="text">
      <string>Leader Index</string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="trigram">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>411</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>MED</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ENG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>SCI</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FAI</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>DEF</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QRadioButton" name="radioSentenceMod">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>260</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sentences Mod</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioCardMod">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>260</y>
+      <width>77</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cards Mod</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="sentenceMod">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>280</y>
+      <width>731</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPlainTextEdit" name="textDialog">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>360</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Dialog Text</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="addDialogButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>360</y>
+       <width>161</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Dialog</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSentenceCrisis">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Sentences Crisis</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSentenceConversation">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Sentences Conversation</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="sentencesConversation">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>711</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="sentencesCrisis">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>711</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="sentencesEvent">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>711</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textDangerLevel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>360</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Danger Level</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSentenceEvent">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>230</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Sentences Event</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="typeOfSentence">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>360</y>
+       <width>181</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>sentencesCrisis</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>sentencesConversation</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>sentencesEvent</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="cardMod">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>721</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="labelSentenceConversation_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cards</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSentenceConversation_3">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Add Card</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textCardDescription">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>180</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Description</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textCardName">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Name</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="addEffectButton">
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>220</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Effect</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textEffectValue">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>220</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Effect Value</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="cards">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>671</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="Effects">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>671</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Effects</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textEffectKey">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Effect Key </string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

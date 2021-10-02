@@ -20,22 +20,53 @@ class UI(QtWidgets.QMainWindow):
         self.reduceButton.clicked.connect(self.reduce_leader_idx)
         self.increaseButton.clicked.connect(self.increase_leader_idx)
         self.addDialogButton.clicked.connect(lambda: self.add_new_conversation(self.typeOfSentence.currentText()))
+        self.addEffectButton.clicked.connect(self.add_effect)
 
+        self.radioSentenceMod.clicked.connect(self.show_sentence_mod)
+        self.radioCardMod.clicked.connect(self.show_card_mod)
         self.reduceButton.setEnabled(False)
         self.increaseButton.setEnabled(False)
+        self.show_sentence_mod()
         self.show()
 
+    def add_effect(self):
+        try:
+            if self.textEffectKey.toPlainText() == "" or self.textEffectValue.toPlainText() == "":
+                self.statusMessage.setText("ERROR: effectKey and effectValue must be filled")
+            else:
+                self.effects[self.textEffectKey.toPlainText()] = self.textEffectValue.toPlainText()
+                self.Effects.setPlainText(str(self.effects))
+        except Exception as e:
+            print(e)
+
+    def reset_effects(self):
+        self.effects = dict()
+        self.Effects.setPlainText("")
+
+    def show_card_mod(self):
+        self.reset_effects()
+        self.sentenceMod.setVisible(False)
+        self.cardMod.setVisible(True)
+
+    def show_sentence_mod(self):
+        self.sentenceMod.setVisible(True)
+        self.cardMod.setVisible(False)
+
     def reduce_leader_idx(self):
+        self.reset_effects()
+        self.statusMessage.setText("")
         if self.leader_idx > 0:
             self.leader_idx -= 1
             self.leaderIdx.setPlainText(str(self.leader_idx))
             self.switch_leader()
 
-
     def increase_leader_idx(self):
+        self.reset_effects()
+        self.statusMessage.setText("")
         self.leader_idx += 1
         self.leaderIdx.setPlainText(str(self.leader_idx))
-        if self.leader_idx < len(self.leader_data) - 1:
+        print(len(self.leader_data))
+        if self.leader_idx <= len(self.leader_data) - 1:
             self.switch_leader(False)
         else:
             self.switch_leader(True)
@@ -49,7 +80,7 @@ class UI(QtWidgets.QMainWindow):
     def switch_leader(self, is_new=False):
         if is_new == False:
             try:
-                self.textTrigram.setPlainText(self.leader_data[self.leader_idx]["trigram"])
+                self.trigram.setCurrentText(self.leader_data[self.leader_idx]["trigram"])
                 self.textName.setPlainText(self.leader_data[self.leader_idx]["leaderName"])
                 self.textDomainName.setPlainText(self.leader_data[self.leader_idx]["domainName"])
                 self.textMaxSanity.setPlainText(str(self.leader_data[self.leader_idx]["maxSanity"]))
@@ -58,12 +89,17 @@ class UI(QtWidgets.QMainWindow):
 
                 self.sentencesCrisis.setPlainText(str(self.leader_data[self.leader_idx]["sentencesCrisis"]))
                 self.sentencesEvent.setPlainText(str(self.leader_data[self.leader_idx]["sentencesEvent"]))
+
+                self.cards.setPlainText(str(self.leader_data[self.leader_idx]["cards"]))
                 self.reduceButton.setEnabled(True)
                 self.increaseButton.setEnabled(True)
             except Exception as e:
                 print(e)
         else:
-            self.textTrigram.setPlainText("")
+            self.leader_data.append(dict())
+            self.leader_data[self.leader_idx]["sentencesConversation"] = dict()
+            self.leader_data[self.leader_idx]["sentencesCrisis"] = dict()
+            self.leader_data[self.leader_idx]["sentencesEvent"] = dict()
             self.textName.setPlainText("")
             self.textDomainName.setPlainText("")
             self.textMaxSanity.setPlainText("")
@@ -87,19 +123,29 @@ class UI(QtWidgets.QMainWindow):
 
     def update_json(self):
         try:
-            self.leader_data[self.leader_idx]["trigram"] = self.textTrigram.toPlainText()
-            self.leader_data[self.leader_idx]["leader_name"] = self.textName.toPlainText()
-            self.leader_data[self.leader_idx]["domainName"] = self.textMaxSanity.toPlainText()
+            self.leader_data[self.leader_idx]["trigram"] = self.trigram.currentText()
+            self.leader_data[self.leader_idx]["leaderName"] = self.textName.toPlainText()
+            self.leader_data[self.leader_idx]["domainName"] = self.textDomainName.toPlainText()
             self.leader_data[self.leader_idx]["maxSanity"] = self.textMaxSanity.toPlainText()
+
+
             with open(self.selectedFilePath.text(), "w") as f:
                 json.dump(self.leader_data, f)
+            self.statusMessage.setText("SUCCESS:")
         except Exception as e:
+            self.statusMessage.setText("ERROR:")
             print(e)
 
     def add_new_conversation(self, typeOfSentence):
         try:
-            if self.textDialog.toPlainText() != "" and \
-                    0 <= int(self.textDangerLevel.toPlainText()) <= int(self.textMaxSanity.toPlainText()):
+            print(self.textDangerLevel.toPlainText())
+            print(self.textMaxSanity.toPlainText())
+            if self.textDialog.toPlainText() == "" or self.textMaxSanity.toPlainText() == "":
+                self.statusMessage.setText("ERROR: some fields are empty")
+            elif int(self.textDangerLevel.toPlainText()) < 0 or \
+                    int(self.textDangerLevel.toPlainText()) > int(self.textMaxSanity.toPlainText()):
+                self.statusMessage.setText("ERROR: danger level must be lower than max sanity")
+            else:
                 if not self.textDangerLevel.toPlainText() in self.leader_data[self.leader_idx][typeOfSentence]:
                     self.leader_data[self.leader_idx][typeOfSentence][self.textDangerLevel.toPlainText()] = []
                     self.leader_data[self.leader_idx][typeOfSentence][self.textDangerLevel.toPlainText()].append(
@@ -110,11 +156,7 @@ class UI(QtWidgets.QMainWindow):
                 self.sentencesConversation.setPlainText(str(self.leader_data[self.leader_idx][typeOfSentence]))
                 self.textDialog.setPlainText("")
                 self.textDangerLevel.setPlainText("")
-                self.statusMessage.setPlainText("SUCCESS")
-            else:
-                self.statusMessage.setPlainText("ERROR some fields are empty")
-
-
+                self.statusMessage.setText("SUCCESS:")
         except Exception as e:
             print(e)
 
