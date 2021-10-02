@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Unstable.Model
+namespace Unstable.UI
 {
     public class EventLoader : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace Unstable.Model
         [SerializeField]
         private GameObject _choicePrefab;
 
-        public void Load(Event e)
+        public void Load(Model.Event e)
         {
             _eventPanel.SetActive(true);
             // Destroy all choices that were still here
