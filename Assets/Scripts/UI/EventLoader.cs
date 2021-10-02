@@ -50,11 +50,11 @@ namespace Unstable.UI
             for (int i = 0; i < e.Choices.Length; ++i)
             {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
-                // TODO: Set position
                 ((RectTransform)choiceObject.transform).anchoredPosition = new Vector2(
                     _leftRightMargin + interChoiceSize + i * (_choicePrefabTransform.sizeDelta.x + interChoiceSize + _interChoiceMargin),
                     _BottomMargin
                 );
+                choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
             }
         }
 
