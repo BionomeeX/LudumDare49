@@ -71,8 +71,6 @@ namespace Unstable
             // Split events between the standards and crisis ones
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
-
-            NextEvent();
         }
 
         private Model.Card _staffCard = new()
@@ -132,6 +130,11 @@ namespace Unstable
             }
 
             _numberOfRoundsWithoutCrisis++;
+        }
+
+        public void EndEvent()
+        {
+            _eventLoader.UnLoad();
         }
 
         private EventChoice CreateEventChoice(Leader leader, (string, Model.Card) card, int count)

@@ -44,7 +44,7 @@ namespace Unstable.UI
             {
                 EventManager.DoAction(effect.MethodName, effect.Argument);
             }
-            GameManager.Instance.NextEvent();
+            GameManager.Instance.EndEvent();
         }
     }
 }
