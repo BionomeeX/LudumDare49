@@ -72,12 +72,13 @@ namespace Unstable
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
 
-            // DEBUG
-            AddCard(_leaders[0].Cards.First(x => true).Value);
-            AddCard(_leaders[0].Cards.First(x => true).Value);
-
             NextEvent();
         }
+
+        private Model.Card _staffCard = new()
+        {
+            Name = "staff members"
+        };
 
         public void NextEvent()
         {
@@ -103,10 +104,7 @@ namespace Unstable
 
                 if (Random.value < .75f) // We get "normal" unit instead of specialized one
                 {
-                    var unit = CreateEventChoice(null, ("NEU", new()
-                    {
-                        Name = "staff members"
-                    }), 10);
+                    var unit = CreateEventChoice(null, ("NEU", _staffCard), 10);
                     if (Random.value < .5f)
                     {
                         choice1 = unit;
@@ -150,7 +148,16 @@ namespace Unstable
             };
         }
 
-        private void AddCard(Model.Card card)
+        public Model.Card GetCard(string leaderTrigram, string cardTrigram)
+        {
+            if (leaderTrigram == null)
+            {
+                return _staffCard;
+            }
+            return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
+        }
+
+        public void AddCard(Model.Card card)
         {
             var cardGo = Instantiate(_cardPrefab, _hand);
             var cardIns = cardGo.GetComponent<UI.Card>();

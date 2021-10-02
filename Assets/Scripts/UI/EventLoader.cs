@@ -35,7 +35,7 @@ namespace Unstable.UI
             // Destroy all choices that were still here
             for (int i = 0; i < _choicesTransform.childCount; i++)
             {
-                Destroy(_choicesTransform.GetChild(i));
+                Destroy(_choicesTransform.GetChild(i).gameObject);
             }
 
             // Display current info
