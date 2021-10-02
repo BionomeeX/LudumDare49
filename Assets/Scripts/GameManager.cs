@@ -1,4 +1,6 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Unstable.Model;
@@ -7,18 +9,32 @@ namespace Unstable
 {
     public class GameManager : MonoBehaviour
     {
-        private Leader[] _leaders;
-        private Model.Event[] _events;
+        /// <summary>
+        /// List of all the leaders
+        /// </summary>
+        private List<Leader> _leaders;
+        /// <summary>
+        /// List of all the events
+        /// </summary>
+        private List<Model.Event> _standardEvents, _crisisEvents;
+
+        /// <summary>
+        /// Number of rounds where we just got "normal" events
+        /// </summary>
+        public int _numberOfRoundsWithoutCrisis = 0;
 
         private void Start()
         {
-            _leaders = JsonConvert.DeserializeObject<Leader[]>(Resources.Load<TextAsset>("Leaders").text);
-            _events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
+            _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
+            var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
 
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
-            Assert.IsNotNull(_events, "Events info failed to load");
-            Assert.IsTrue(_leaders.Length > 0, "No leader was found");
-            Assert.IsTrue(_events.Length > 0, "No event was found");
+            Assert.IsNotNull(events, "Events info failed to load");
+            Assert.IsTrue(_leaders.Count > 0, "No leader was found");
+            Assert.IsTrue(events.Length > 0, "No event was found");
+
+            _standardEvents = events.Where(x => !x.IsCrisis).ToList();
+            _crisisEvents = events.Where(x => !x.IsCrisis).ToList();
         }
     }
 }
