@@ -60,7 +60,6 @@ namespace Unstable.UI
         public void OnPointerExit(PointerEventData pointerEventData)
         {
             _is_Hover = false;
-            transform.position = transform.position - new Vector3(0.0f, 40.0f, 0.0f);
         }
 
         public void OnPointerUp(PointerEventData eventData)
