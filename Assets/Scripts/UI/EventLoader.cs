@@ -17,6 +17,15 @@ namespace Unstable.UI
         [SerializeField]
         private GameObject _choicePrefab;
 
+        [SerializeField]
+        private int _leftRightMargin;
+
+        [SerializeField]
+        private int _BottomMargin;
+
+        [SerializeField]
+        private int _interChoiceMargin;
+
         public void Load(Model.Event e)
         {
             _eventPanel.SetActive(true);
@@ -30,10 +39,14 @@ namespace Unstable.UI
             _title.text = e.Name;
             _description.text = e.Description;
 
-            foreach (var choice in e.Choices)
+            int choiceSizeX = (_eventPanel.transform.Width - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1)) / e.Choices.Length;
+
+            //foreach (var choice in e.Choices)
+            for (int i = 0; i < e.Choices.Length; ++i)
             {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
                 // TODO: Set position
+                choiceObject.transform.position = new Vector3(_leftRightMargin + i * (choiceSizeX + _interChoiceMargin), _eventPanel.transform.Height - _BottomMargin - _choicePrefab.transform.Height, 0);
             }
         }
 
