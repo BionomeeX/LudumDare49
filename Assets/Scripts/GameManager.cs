@@ -10,6 +10,13 @@ namespace Unstable
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { set; get; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         /// <summary>
         /// List of all the leaders
         /// </summary>
@@ -18,6 +25,11 @@ namespace Unstable
         /// List of all the events
         /// </summary>
         private List<Model.Event> _standardEvents, _crisisEvents;
+
+        public Leader GetLeaderFromTrigram(string trigram)
+        {
+            return _leaders.FirstOrDefault(x => x.Trigram == trigram);
+        }
 
         /// <summary>
         /// Number of rounds where we just got "normal" events

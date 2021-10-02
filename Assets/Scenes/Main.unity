@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
+  _eventLoader: {fileID: 1757280077}
 --- !u!1 &703665548
 GameObject:
   m_ObjectHideFlags: 0

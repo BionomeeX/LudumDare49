@@ -1,11 +1,11 @@
 [
     {
-        "name": "Sample event",
-        "description": "",
+        "name": "Something bad happened",
+        "description": "Something bad happened in this sample event",
         "isCrisis": false,
         "choices": [
             {
-                "description": "",
+                "description": "Use medical department",
                 "targetTrigram": "MED",
                 "cost": 2,
                 "effects": [
@@ -16,8 +16,8 @@
                 ]
             },
             {
-                "description": "",
-                "targetTrigram": "ING",
+                "description": "Use engineering department",
+                "targetTrigram": "ENG",
                 "cost": 3,
                 "effects": []
             }
