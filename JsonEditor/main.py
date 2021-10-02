@@ -16,11 +16,29 @@ class UI(QtWidgets.QMainWindow):
         uic.loadUi('qt_ui/main.ui', self)
 
         self.selectFileButton.clicked.connect(self.select_file)
-        self.updateJsonButton.clicked.connect(self.updateJson)
+        self.updateJsonButton.clicked.connect(self.update_json)
+        self.reduceButton.clicked.connect(self.reduce_leader_idx)
+        self.increaseButton.clicked.connect(self.increase_leader_idx)
+        self.addDialogButton.clicked.connect(lambda: self.add_new_conversation(self.typeOfSentence.currentText()))
 
-        self.addDialogButton.clicked.connect(lambda: self.addNewConversation(self.typeOfSentence.currentText()))
-
+        self.reduceButton.setEnabled(False)
+        self.increaseButton.setEnabled(False)
         self.show()
+
+    def reduce_leader_idx(self):
+        if self.leader_idx > 0:
+            self.leader_idx -= 1
+            self.leaderIdx.setPlainText(str(self.leader_idx))
+            self.switch_leader()
+
+
+    def increase_leader_idx(self):
+        self.leader_idx += 1
+        self.leaderIdx.setPlainText(str(self.leader_idx))
+        if self.leader_idx < len(self.leader_data) - 1:
+            self.switch_leader(False)
+        else:
+            self.switch_leader(True)
 
     def select_file(self):
         # fname = QFileDialog.getOpenFileName(self, 'Open file', '', 'Images (*.json)')
@@ -28,50 +46,68 @@ class UI(QtWidgets.QMainWindow):
         self.selectedFilePath.setText(fname[0])
         self.load_json(fname[0])
 
+    def switch_leader(self, is_new=False):
+        if is_new == False:
+            try:
+                self.textTrigram.setPlainText(self.leader_data[self.leader_idx]["trigram"])
+                self.textName.setPlainText(self.leader_data[self.leader_idx]["leaderName"])
+                self.textDomainName.setPlainText(self.leader_data[self.leader_idx]["domainName"])
+                self.textMaxSanity.setPlainText(str(self.leader_data[self.leader_idx]["maxSanity"]))
+
+                self.sentencesConversation.setPlainText(str(self.leader_data[self.leader_idx]["sentencesConversation"]))
+
+                self.sentencesCrisis.setPlainText(str(self.leader_data[self.leader_idx]["sentencesCrisis"]))
+                self.sentencesEvent.setPlainText(str(self.leader_data[self.leader_idx]["sentencesEvent"]))
+                self.reduceButton.setEnabled(True)
+                self.increaseButton.setEnabled(True)
+            except Exception as e:
+                print(e)
+        else:
+            self.textTrigram.setPlainText("")
+            self.textName.setPlainText("")
+            self.textDomainName.setPlainText("")
+            self.textMaxSanity.setPlainText("")
+
+            self.sentencesConversation.setPlainText("")
+
+            self.sentencesCrisis.setPlainText("")
+            self.sentencesEvent.setPlainText("")
+            self.reduceButton.setEnabled(True)
+            self.increaseButton.setEnabled(True)
+
+
     def load_json(self, path):
+        self.leader_idx = 0
         with open(path, "r") as f:
             try:
-                self.leader_data = json.load(f)[0]
+                self.leader_data = json.load(f)
             except JSONDecodeError:
-                self.leader_data = dict()
-        print(self.leader_data)
+                self.leader_data = list()
+        self.switch_leader()
 
+    def update_json(self):
         try:
-            self.textTrigram.setPlainText(self.leader_data["trigram"])
-            self.textName.setPlainText(self.leader_data["leaderName"])
-            self.textDomainName.setPlainText(self.leader_data["domainName"])
-            self.textMaxSanity.setPlainText(str(self.leader_data["maxSanity"]))
-
-            self.sentencesConversation.setPlainText(str(self.leader_data["sentencesConversation"]))
-
-            self.sentencesCrisis.setPlainText(str(self.leader_data["sentencesCrisis"]))
-            self.sentencesEvent.setPlainText(str(self.leader_data["sentencesEvent"]))
-        except Exception as e:
-            print(e)
-
-    def updateJson(self):
-        try:
-            self.leader_data["trigram"] = self.textTrigram.toPlainText()
-            self.leader_data["leader_name"] = self.textName.toPlainText()
-            self.leader_data["domainName"] = self.textMaxSanity.toPlainText()
-            self.leader_data["maxSanity"] = self.textMaxSanity.toPlainText()
-
+            self.leader_data[self.leader_idx]["trigram"] = self.textTrigram.toPlainText()
+            self.leader_data[self.leader_idx]["leader_name"] = self.textName.toPlainText()
+            self.leader_data[self.leader_idx]["domainName"] = self.textMaxSanity.toPlainText()
+            self.leader_data[self.leader_idx]["maxSanity"] = self.textMaxSanity.toPlainText()
             with open(self.selectedFilePath.text(), "w") as f:
                 json.dump(self.leader_data, f)
         except Exception as e:
             print(e)
 
-    def addNewConversation(self, typeOfSentence):
+    def add_new_conversation(self, typeOfSentence):
         try:
             if self.textDialog.toPlainText() != "" and \
                     0 <= int(self.textDangerLevel.toPlainText()) <= int(self.textMaxSanity.toPlainText()):
-                if not self.textDangerLevel.toPlainText() in self.leader_data[typeOfSentence]:
-                    self.leader_data[typeOfSentence][self.textDangerLevel.toPlainText()] = []
-                    self.leader_data[typeOfSentence][self.textDangerLevel.toPlainText()].append(self.textDialog.toPlainText())
-                else:
-                    self.leader_data[typeOfSentence][self.textDangerLevel.toPlainText()].append(
+                if not self.textDangerLevel.toPlainText() in self.leader_data[self.leader_idx][typeOfSentence]:
+                    self.leader_data[self.leader_idx][typeOfSentence][self.textDangerLevel.toPlainText()] = []
+                    self.leader_data[self.leader_idx][typeOfSentence][self.textDangerLevel.toPlainText()].append(
                         self.textDialog.toPlainText())
-                self.sentencesConversation.setPlainText(str(self.leader_data[typeOfSentence]))
+                else:
+                    self.leader_data[self.leader_idx][typeOfSentence][self.textDangerLevel.toPlainText()].append(
+                        self.textDialog.toPlainText())
+                self.sentencesConversation.setPlainText(str(self.leader_data[self.leader_idx][typeOfSentence]))
                 self.textDialog.setPlainText("")
                 self.textDangerLevel.setPlainText("")
                 self.statusMessage.setPlainText("SUCCESS")
@@ -81,12 +117,6 @@ class UI(QtWidgets.QMainWindow):
 
         except Exception as e:
             print(e)
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
