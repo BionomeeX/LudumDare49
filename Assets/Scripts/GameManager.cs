@@ -34,7 +34,7 @@ namespace Unstable
             Assert.IsTrue(events.Length > 0, "No event was found");
 
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
-            _crisisEvents = events.Where(x => !x.IsCrisis).ToList();
+            _crisisEvents = events.Where(x => x.IsCrisis).ToList();
         }
     }
 }
