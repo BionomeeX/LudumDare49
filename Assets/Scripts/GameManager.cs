@@ -77,8 +77,13 @@ namespace Unstable
 
         private Model.Card _staffCard = new()
         {
-            Name = "staff members"
+            Name = "Staff",
+            Effects = new()
+            {
+                { "NEU", _staffPower }
+            }
         };
+        private const int _staffPower = 5;
 
         public void NextEvent()
         {
@@ -104,7 +109,7 @@ namespace Unstable
 
                 if (Random.value < .75f) // We get "normal" unit instead of specialized one
                 {
-                    var unit = CreateEventChoice(null, ("NEU", _staffCard), 10);
+                    var unit = CreateEventChoice(null, ("NEU", _staffCard), 2);
                     if (Random.value < .5f)
                     {
                         choice1 = unit;
@@ -133,7 +138,7 @@ namespace Unstable
         {
             return new()
             {
-                Description = $"Earn {count} new {card.Item2.Name}",
+                Description = $"Earn {(card.Item1 == "NEU" ? count * _staffPower : count)} new {card.Item2.Name}",
                 TargetTrigram = leader?.Trigram,
                 Cost = 0,
                 Requirements = new(),

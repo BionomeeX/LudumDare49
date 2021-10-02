@@ -15,9 +15,9 @@ namespace Unstable.Model
 
         /// <summary>
         /// Effects of the card
-        /// Key: Function to call
-        /// Value: Parameter given to the function
+        /// Key: Target ability
+        /// Value: Number of unit
         /// </summary>
-        public Dictionary<string, string> Effets { set; get; }
+        public Dictionary<string, int> Effects { set; get; }
     }
 }
