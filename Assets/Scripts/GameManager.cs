@@ -21,7 +21,14 @@ namespace Unstable
         /// <summary>
         /// Number of rounds where we just got "normal" events
         /// </summary>
-        public int _numberOfRoundsWithoutCrisis = 0;
+        private int _numberOfRoundsWithoutCrisis = 0;
+
+        [SerializeField]
+        private RectTransform _hand;
+        private List<UI.Card> _cards = new();
+
+        [SerializeField]
+        private GameObject _cardPrefab;
 
         private void Start()
         {
@@ -35,6 +42,25 @@ namespace Unstable
 
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
+
+            // DEBUG
+            AddCard(_leaders[0].Cards.First(x => true).Value);
+            AddCard(_leaders[0].Cards.First(x => true).Value);
+        }
+
+        private void AddCard(Model.Card card)
+        {
+            var cardGo = Instantiate(_cardPrefab, _hand);
+            var cardIns = cardGo.GetComponent<UI.Card>();
+            cardIns.Init(card);
+            _cards.Add(cardIns);
+
+            var cardSize = 100;
+            var half = _cards.Count / 2f;
+            for (int i = 0; i < _cards.Count; i++)
+            {
+                _cards[i].SetTarget(_hand.transform.position + (Vector3.right * (i - half) * cardSize - (Vector3.right * half)));
+            }
         }
     }
 }
