@@ -29,12 +29,12 @@ namespace Unstable.UI
 
         // Drag and drop
         private bool _isHold;
-        private bool _is_Hover;
+        private bool _hasMoved;
         private Vector2 _offset;
 
         private void FixedUpdate()
         {
-            if (!_isHold)
+            if ((!_isHold & !_hasMoved)| !_hasMoved)
             {
                 transform.position = Vector3.Slerp(transform.position, new Vector2(_canvas.sizeDelta.x / 2f, 0) + _target, .1f);
             }
@@ -53,19 +53,26 @@ namespace Unstable.UI
 
         public void OnPointerEnter(PointerEventData pointerEventData)
         {
-            _is_Hover = true;
-            transform.position = transform.position + new Vector3(0.0f, 40.0f, 0.0f);
+            if (!_isHold)
+            {
+                _hasMoved = true;
+                transform.position = transform.position + new Vector3(0.0f, 40.0f, 0.0f);
+            }
         }
 
         public void OnPointerExit(PointerEventData pointerEventData)
         {
-            _is_Hover = false;
-            transform.position = transform.position - new Vector3(0.0f, 40.0f, 0.0f);
+            if (!_isHold)
+            {
+                transform.position = transform.position - new Vector3(0.0f, 40.0f, 0.0f);
+                _hasMoved = false;
+            }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             _isHold = false;
+            _hasMoved = false;
         }
     }
 }
