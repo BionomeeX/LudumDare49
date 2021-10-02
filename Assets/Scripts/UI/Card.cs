@@ -5,10 +5,12 @@ using UnityEngine.UI;
 namespace Unstable.UI
 {
     // Movements from https://github.com/Xwilarg/HadipoRun/blob/master/Assets/Scripts/Controller/DragDropController.cs
-    public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler
+    public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
         [SerializeField]
         private Text _title;
+
+        private Vector3 _target;
 
         public void Init(Model.Card card)
         {
@@ -20,36 +22,51 @@ namespace Unstable.UI
         private RectTransform canvasRectTransform;
         private RectTransform panelRectTransform;
 
-		private void Start()
-		{
-			Canvas canvas = GetComponentInParent<Canvas>();
-			if (canvas != null)
-			{
-				canvasRectTransform = canvas.transform as RectTransform;
-				panelRectTransform = transform as RectTransform;
-			}
-		}
+        private bool _isHold;
 
-		public void OnPointerDown(PointerEventData data)
-		{
-			panelRectTransform.SetAsLastSibling();
-			RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRectTransform, data.position, data.pressEventCamera, out pointerOffset);
-		}
+        private void Start()
+        {
+            Canvas canvas = GetComponentInParent<Canvas>();
+            if (canvas != null)
+            {
+                canvasRectTransform = canvas.transform as RectTransform;
+                panelRectTransform = transform as RectTransform;
+            }
 
-		public void OnDrag(PointerEventData data)
-		{
-			if (panelRectTransform == null)
-				return;
+            _target = transform.position;
+        }
 
-			Vector2 pointerPosition = data.position;
+        private void FixedUpdate()
+        {
+            if (!_isHold)
+            {
+                transform.position = Vector3.Slerp(transform.position, _target, .1f);
+            }
+        }
 
-			Vector2 localPointerPosition;
-			if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-				canvasRectTransform, pointerPosition, data.pressEventCamera, out localPointerPosition
-				))
-			{
-				panelRectTransform.localPosition = localPointerPosition - pointerOffset;
-			}
-		}
-	}
+        public void OnPointerDown(PointerEventData data)
+        {
+            panelRectTransform.SetAsLastSibling();
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRectTransform, data.position, data.pressEventCamera, out pointerOffset);
+        }
+
+        public void OnDrag(PointerEventData data)
+        {
+            _isHold = true;
+
+            Vector2 pointerPosition = data.position;
+
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvasRectTransform, pointerPosition, data.pressEventCamera, out Vector2 localPointerPosition
+                ))
+            {
+                panelRectTransform.localPosition = localPointerPosition - pointerOffset;
+            }
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _isHold = false;
+        }
+    }
 }
