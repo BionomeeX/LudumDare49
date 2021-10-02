@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Unstable.Model
 {

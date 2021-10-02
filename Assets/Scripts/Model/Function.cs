@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Model
+﻿namespace Unstable.Model
 {
     public class Function
     {
