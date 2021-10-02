@@ -46,6 +46,9 @@ namespace Unstable
         [SerializeField]
         private EventLoader _eventLoader;
 
+        public Vector3 GetHandPosition()
+            => _hand.position;
+
         private void Start()
         {
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);

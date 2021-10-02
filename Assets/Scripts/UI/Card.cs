@@ -40,7 +40,7 @@ namespace Unstable.UI
         {
             if (!_isHold)
             {
-                transform.position = Vector3.Slerp(transform.position, _target, .1f);
+                transform.position = Vector3.Slerp(transform.position, _target + GameManager.Instance.GetHandPosition(), .1f);
             }
         }
 
