@@ -34,7 +34,7 @@ namespace Unstable.UI
 
         private void FixedUpdate()
         {
-            if (!_isHold && !_is_Hover)
+            if (!_isHold)
             {
                 transform.position = Vector3.Slerp(transform.position, new Vector2(_canvas.sizeDelta.x / 2f, 0) + _target, .1f);
             }
@@ -54,13 +54,13 @@ namespace Unstable.UI
         public void OnPointerEnter(PointerEventData pointerEventData)
         {
             _is_Hover = true;
-            transform.position = transform.position + new Vector3(0.0f, 20.0f, 0.0f);
+            transform.position = transform.position + new Vector3(0.0f, 40.0f, 0.0f);
         }
 
         public void OnPointerExit(PointerEventData pointerEventData)
         {
             _is_Hover = false;
-            transform.position = transform.position - new Vector3(0.0f, 20.0f, 0.0f);
+            transform.position = transform.position - new Vector3(0.0f, 40.0f, 0.0f);
         }
 
         public void OnPointerUp(PointerEventData eventData)
