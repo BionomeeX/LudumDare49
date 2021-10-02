@@ -46,9 +46,6 @@ namespace Unstable
         [SerializeField]
         private EventLoader _eventLoader;
 
-        public Vector3 GetHandPosition()
-            => _hand.position;
-
         private void Start()
         {
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
@@ -81,7 +78,7 @@ namespace Unstable
 
         private void AddCard(Model.Card card)
         {
-            var cardGo = Instantiate(_cardPrefab, _hand);
+            var cardGo = Instantiate(_cardPrefab, _hand.transform.parent);
             var cardIns = cardGo.GetComponent<UI.Card>();
             cardIns.Init(card);
             _cards.Add(cardIns);

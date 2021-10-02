@@ -45,7 +45,6 @@ namespace Unstable.UI
             //var choiceSizeX = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1)) / e.Choices.Length;
             var interChoiceSize = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1) - e.Choices.Length * _choicePrefabTransform.sizeDelta.x) / (e.Choices.Length + 1);
 
-            Debug.Log(e.Choices.Length);
             //foreach (var choice in e.Choices)
             for (int i = 0; i < e.Choices.Length; ++i)
             {

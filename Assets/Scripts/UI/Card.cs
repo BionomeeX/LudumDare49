@@ -23,46 +23,26 @@ namespace Unstable.UI
         }
 
         // Drag and drop
-        private Vector2 pointerOffset;
-        private RectTransform canvasRectTransform;
-        private RectTransform panelRectTransform;
-
         private bool _isHold;
-
-        private void Start()
-        {
-            Canvas canvas = GetComponentInParent<Canvas>();
-            canvasRectTransform = canvas.transform as RectTransform;
-            panelRectTransform = transform as RectTransform;
-        }
+        private Vector2 _offset;
 
         private void FixedUpdate()
         {
             if (!_isHold)
             {
-                transform.position = Vector3.Slerp(transform.position, _target + GameManager.Instance.GetHandPosition(), .1f);
+                transform.position = Vector3.Slerp(transform.position, _target, .1f);
             }
         }
 
         public void OnPointerDown(PointerEventData data)
         {
-            panelRectTransform.SetAsLastSibling();
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, data.position, data.pressEventCamera, out pointerOffset);
-
+            _isHold = true;
+            _offset = (Vector2)transform.position - data.position;
         }
 
         public void OnDrag(PointerEventData data)
         {
-            _isHold = true;
-
-            Vector2 pointerPosition = data.position;
-
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvasRectTransform, pointerPosition, data.pressEventCamera, out Vector2 localPointerPosition
-            ))
-            {
-                panelRectTransform.localPosition = localPointerPosition - pointerOffset;
-            }
+            transform.position = data.position + _offset;
         }
 
         public void OnPointerUp(PointerEventData eventData)
