@@ -10,14 +10,20 @@ namespace Unstable.UI
         [SerializeField]
         private Text _title;
 
-        private Vector3 _target;
+        private Vector2 _target;
+        private RectTransform _canvas;
+
+        private void Start()
+        {
+            _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
+        }
 
         public void Init(Model.Card card)
         {
             _title.text = card.Name;
         }
 
-        public void SetTarget(Vector3 pos)
+        public void SetTarget(Vector2 pos)
         {
             _target = pos;
         }
@@ -30,7 +36,7 @@ namespace Unstable.UI
         {
             if (!_isHold)
             {
-                transform.position = Vector3.Slerp(transform.position, _target, .1f);
+                transform.position = Vector3.Slerp(transform.position, new Vector2(_canvas.sizeDelta.x / 2f, 0) + _target, .1f);
             }
         }
 

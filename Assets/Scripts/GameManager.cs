@@ -78,7 +78,7 @@ namespace Unstable
 
         private void AddCard(Model.Card card)
         {
-            var cardGo = Instantiate(_cardPrefab, _hand.transform.parent);
+            var cardGo = Instantiate(_cardPrefab, _hand);
             var cardIns = cardGo.GetComponent<UI.Card>();
             cardIns.Init(card);
             _cards.Add(cardIns);
@@ -87,7 +87,7 @@ namespace Unstable
             var half = _cards.Count / 2f;
             for (int i = 0; i < _cards.Count; i++)
             {
-                _cards[i].SetTarget(_hand.transform.position + (Vector3.right * (i - half) * cardSize - (Vector3.right * half)));
+                _cards[i].SetTarget(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / 2f));
             }
         }
     }
