@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Unstable.Model;
+using Unstable.UI;
 
 namespace Unstable
 {
@@ -30,6 +31,9 @@ namespace Unstable
         [SerializeField]
         private GameObject _cardPrefab;
 
+        [SerializeField]
+        private EventLoader _eventLoader;
+
         private void Start()
         {
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
@@ -46,6 +50,18 @@ namespace Unstable
             // DEBUG
             AddCard(_leaders[0].Cards.First(x => true).Value);
             AddCard(_leaders[0].Cards.First(x => true).Value);
+
+            NextEvent();
+        }
+
+        public void NextEvent()
+        {
+            var isCrisis = _numberOfRoundsWithoutCrisis > 5;
+
+            var e = isCrisis ? _crisisEvents[Random.Range(0, _crisisEvents.Count)] : _standardEvents[Random.Range(0, _standardEvents.Count)];
+            _eventLoader.Load(e);
+
+            _numberOfRoundsWithoutCrisis++;
         }
 
         private void AddCard(Model.Card card)
