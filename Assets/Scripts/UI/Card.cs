@@ -17,6 +17,11 @@ namespace Unstable.UI
             _title.text = card.Name;
         }
 
+        public void SetTarget(Vector3 pos)
+        {
+            _target = pos;
+        }
+
         // Drag and drop
         private Vector2 pointerOffset;
         private RectTransform canvasRectTransform;
@@ -32,8 +37,6 @@ namespace Unstable.UI
                 canvasRectTransform = canvas.transform as RectTransform;
                 panelRectTransform = transform as RectTransform;
             }
-
-            _target = transform.position;
         }
 
         private void FixedUpdate()
@@ -58,7 +61,7 @@ namespace Unstable.UI
 
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvasRectTransform, pointerPosition, data.pressEventCamera, out Vector2 localPointerPosition
-                ))
+            ))
             {
                 panelRectTransform.localPosition = localPointerPosition - pointerOffset;
             }
