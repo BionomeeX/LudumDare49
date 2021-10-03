@@ -1,6 +1,6 @@
 [
     {
-        "name": "Help me find an event name",
+        "name": "Psychosis",
         "description": "A crew member lost his mind and is now attacking anyone on sight",
         "isCrisis": true,
         "choices": [
@@ -27,7 +27,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "2"
+                        "argument": "ANY 2"
                     }
                 ]
             }
@@ -140,7 +140,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "2"
+                        "argument": "ANY 2"
                     }
                 ]
             },
@@ -159,7 +159,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "2"
+                        "argument": "ANY 2"
                     }
                 ]
             }
@@ -180,7 +180,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "3"
+                        "argument": "ANY 3"
                     }
                 ]
             },
@@ -314,6 +314,34 @@
             },
             {
                 "description": "Let them celebrate",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Spaceship state report",
+        "description": "You are still waiting for the spaceship report",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Send us to investigate",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SPY": 3
+                }
+            },
+            {
+                "description": "Everything is alright",
+                "targetTrigram": "ENG",
+                "cost": 4,
+                "requirements": {
+                    "MEC": 3
+                }
+            },
+            {
+                "description": "Give them a delay",
                 "targetTrigram": null,
                 "cost": 0,
             }
