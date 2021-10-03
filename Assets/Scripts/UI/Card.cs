@@ -14,10 +14,12 @@ namespace Unstable.UI
 
         [SerializeField]
         private Image _background;
-
-        private Vector2 _target;
+        private Vector3 _target;
         private RectTransform _canvas;
 
+        // Drag and drop
+        private bool _isHold;
+        private Vector2 _offset;
         private void Start()
         {
             _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
@@ -37,14 +39,10 @@ namespace Unstable.UI
             _target = pos;
         }
 
-        // Drag and drop
-        private bool _isHold;
-        private bool _hasMoved;
-        private Vector2 _offset;
 
         private void FixedUpdate()
         {
-            if ((!_isHold & !_hasMoved)| !_hasMoved)
+            if (!_isHold && transform.localPosition != _target)
             {
                 transform.localPosition = Vector3.Slerp(transform.localPosition, _target, .1f);
             }
@@ -68,7 +66,6 @@ namespace Unstable.UI
             transform.SetAsLastSibling();
             if (!_isHold)
             {
-                _hasMoved = true;
                 transform.localPosition = transform.localPosition + new Vector3(0.0f, 40.0f, 0.0f);
             }
         }
@@ -82,14 +79,12 @@ namespace Unstable.UI
             if (!_isHold)
             {
                 transform.localPosition = transform.localPosition - new Vector3(0.0f, 40.0f, 0.0f);
-                _hasMoved = false;
             }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             _isHold = false;
-            _hasMoved = false;
         }
     }
 }
