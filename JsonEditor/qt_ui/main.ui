@@ -24,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>120</y>
+      <y>100</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>160</y>
+      <y>140</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -50,7 +50,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>30</y>
+      <y>20</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>30</y>
+      <y>20</y>
       <width>461</width>
       <height>31</height>
      </rect>
@@ -95,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>200</y>
+      <y>180</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -145,6 +145,9 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
     <property name="placeholderText">
      <string>0</string>
     </property>
@@ -192,7 +195,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>60</y>
       <width>411</width>
       <height>31</height>
      </rect>
@@ -509,7 +512,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Add Card</string>
+      <string>Add New Card</string>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="textCardDescription">
@@ -520,7 +523,7 @@
       <rect>
        <x>190</x>
        <y>180</y>
-       <width>161</width>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
@@ -627,6 +630,61 @@
       <string>Effect Key </string>
      </property>
     </widget>
+    <widget class="QPlainTextEdit" name="textCardTrigram">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>180</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>textTrigramCard</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="resetEffectButton">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>220</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reset Effect</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="addCardButton">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>400</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Card</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPlainTextEdit" name="textDescription">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>220</y>
+      <width>411</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Description</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

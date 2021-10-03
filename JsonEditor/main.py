@@ -21,6 +21,9 @@ class UI(QtWidgets.QMainWindow):
         self.increaseButton.clicked.connect(self.increase_leader_idx)
         self.addDialogButton.clicked.connect(lambda: self.add_new_conversation(self.typeOfSentence.currentText()))
         self.addEffectButton.clicked.connect(self.add_effect)
+        self.resetEffectButton.clicked.connect(self.reset_effects)
+
+        self.addCardButton.clicked.connect(self.add_card)
 
         self.radioSentenceMod.clicked.connect(self.show_sentence_mod)
         self.radioCardMod.clicked.connect(self.show_card_mod)
@@ -29,6 +32,13 @@ class UI(QtWidgets.QMainWindow):
         self.show_sentence_mod()
         self.show()
 
+    def add_card(self):
+        self.leader_data[self.leader_idx]["cards"][self.textCardTrigram.toPlainText()] = dict()
+        self.leader_data[self.leader_idx]["cards"]["textCardTrigram"]["name"] = self.textCardName.toPlainText()
+        self.leader_data[self.leader_idx]["cards"]["textCardTrigram"]["description"] = self.textCardDescription.toPlainText()
+        self.leader_data[self.leader_idx]["cards"]["textCardTrigram"]["effects"] = self.effects
+
+        self.cards.setPlainText(str(self.leader_data[self.leader_idx]["cards"]))
     def add_effect(self):
         try:
             if self.textEffectKey.toPlainText() == "" or self.textEffectValue.toPlainText() == "":
@@ -53,6 +63,7 @@ class UI(QtWidgets.QMainWindow):
         self.cardMod.setVisible(False)
 
     def reduce_leader_idx(self):
+        self.update_json()
         self.reset_effects()
         self.statusMessage.setText("")
         if self.leader_idx > 0:
@@ -60,7 +71,9 @@ class UI(QtWidgets.QMainWindow):
             self.leaderIdx.setPlainText(str(self.leader_idx))
             self.switch_leader()
 
+
     def increase_leader_idx(self):
+        self.update_json()
         self.reset_effects()
         self.statusMessage.setText("")
         self.leader_idx += 1
@@ -84,6 +97,7 @@ class UI(QtWidgets.QMainWindow):
                 self.textName.setPlainText(self.leader_data[self.leader_idx]["leaderName"])
                 self.textDomainName.setPlainText(self.leader_data[self.leader_idx]["domainName"])
                 self.textMaxSanity.setPlainText(str(self.leader_data[self.leader_idx]["maxSanity"]))
+                self.textDescription.setPlainText(str(self.leader_data[self.leader_idx]["description"]))
 
                 self.sentencesConversation.setPlainText(str(self.leader_data[self.leader_idx]["sentencesConversation"]))
 
@@ -100,17 +114,20 @@ class UI(QtWidgets.QMainWindow):
             self.leader_data[self.leader_idx]["sentencesConversation"] = dict()
             self.leader_data[self.leader_idx]["sentencesCrisis"] = dict()
             self.leader_data[self.leader_idx]["sentencesEvent"] = dict()
+            self.leader_data[self.leader_idx]["cards"] = dict()
+
             self.textName.setPlainText("")
             self.textDomainName.setPlainText("")
             self.textMaxSanity.setPlainText("")
+            self.textDescription.setPlainText("")
 
             self.sentencesConversation.setPlainText("")
-
+            self.cards.setPlainText("")
             self.sentencesCrisis.setPlainText("")
             self.sentencesEvent.setPlainText("")
             self.reduceButton.setEnabled(True)
             self.increaseButton.setEnabled(True)
-
+        print(self.leader_data)
 
     def load_json(self, path):
         self.leader_idx = 0
@@ -127,6 +144,8 @@ class UI(QtWidgets.QMainWindow):
             self.leader_data[self.leader_idx]["leaderName"] = self.textName.toPlainText()
             self.leader_data[self.leader_idx]["domainName"] = self.textDomainName.toPlainText()
             self.leader_data[self.leader_idx]["maxSanity"] = self.textMaxSanity.toPlainText()
+            self.leader_data[self.leader_idx]["description"] = self.textDescription.toPlainText()
+
 
 
             with open(self.selectedFilePath.text(), "w") as f:
@@ -138,9 +157,7 @@ class UI(QtWidgets.QMainWindow):
 
     def add_new_conversation(self, typeOfSentence):
         try:
-            print(self.textDangerLevel.toPlainText())
-            print(self.textMaxSanity.toPlainText())
-            if self.textDialog.toPlainText() == "" or self.textMaxSanity.toPlainText() == "":
+            if self.textDialog.toPlainText() == "" or self.textMaxSanity.toPlainText() == "" or self.textDangerLevel.toPlainText() == "":
                 self.statusMessage.setText("ERROR: some fields are empty")
             elif int(self.textDangerLevel.toPlainText()) < 0 or \
                     int(self.textDangerLevel.toPlainText()) > int(self.textMaxSanity.toPlainText()):
