@@ -49,6 +49,8 @@ namespace Unstable
         [SerializeField]
         private LeaderSpriteInfo[] _leadersImages;
 
+        private LeaderSanity[] _leaderSanities;
+
         /// <summary>
         /// Get a Leader object from its trigram
         /// </summary>
@@ -113,6 +115,15 @@ namespace Unstable
             _panelLights.gameObject.SetActive(false);
             _eventLoader.UnLoad();
             _nextDayButton.gameObject.SetActive(true);
+
+            _leaderSanities = _leadersImages.Select(x =>
+            {
+                return new LeaderSanity()
+                {
+                    Image = x.Sprite,
+                    Sanity = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram).MaxSanity
+                };
+            }).ToArray();
         }
 
         private const float _lightOffset = .005f;
