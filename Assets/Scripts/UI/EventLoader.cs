@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Unstable.UI
 {
@@ -29,6 +30,9 @@ namespace Unstable.UI
 
         public Model.Event CurrentEvent { private set; get; }
 
+        [SerializeField]
+        private List<GameObject> _choicePlaces;
+
         public void Load(Model.Event e)
         {
             _choicePrefabTransform ??= (RectTransform)_choicePrefab.transform;
@@ -44,17 +48,24 @@ namespace Unstable.UI
             _title.text = e.Name;
             _description.text = e.Description;
 
-            var interChoiceSize = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1) - e.Choices.Length * _choicePrefabTransform.sizeDelta.x) / (e.Choices.Length + 1);
-
-            for (int i = 0; i < e.Choices.Length; ++i)
-            {
+            for(int i = 0; i < e.Choices.Length; ++i) {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
-                ((RectTransform)choiceObject.transform).anchoredPosition = new Vector2(
-                    _leftRightMargin + interChoiceSize + i * (_choicePrefabTransform.sizeDelta.x + interChoiceSize + _interChoiceMargin),
-                    _BottomMargin
-                );
+                // ((RectTransform)choiceObject.transform).anchoredPosition = _choicePlaces[i].GetComponent<RectTransform>().anchoredPosition;
+                ((RectTransform)choiceObject.transform).position = _choicePlaces[i].GetComponent<RectTransform>().position;
                 choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
             }
+
+            // var interChoiceSize = (_eventPanel.sizeDelta.x - 2 * _leftRightMargin - _interChoiceMargin * (e.Choices.Length - 1) - e.Choices.Length * _choicePrefabTransform.sizeDelta.x) / (e.Choices.Length + 1);
+
+            // for (int i = 0; i < e.Choices.Length; ++i)
+            // {
+            //     var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
+            //     ((RectTransform)choiceObject.transform).anchoredPosition = new Vector2(
+            //         _leftRightMargin + interChoiceSize + i * (_choicePrefabTransform.sizeDelta.x + interChoiceSize + _interChoiceMargin),
+            //         _BottomMargin
+            //     );
+            //     choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
+            // }
         }
 
         public void UnLoad()

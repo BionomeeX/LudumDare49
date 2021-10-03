@@ -25,7 +25,7 @@
                 {
                     "description": "We must prioritizing stopping him",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 6
                     }
@@ -33,7 +33,7 @@
                 {
                     "description": "Just let him be",
                     "targetTrigram": null,
-                    "cost": 4,
+                    "cost": "MED",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -51,7 +51,7 @@
                 {
                     "description": "It must be a sign of God, infected must pray",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 6
                     },
@@ -65,7 +65,7 @@
                 {
                     "description": "Everyone should be vaccinated",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MED": 6
                     }
@@ -73,7 +73,7 @@
                 {
                     "description": "We should put infected in quarantine",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 3
                     }
@@ -81,7 +81,7 @@
                 {
                     "description": "We should wait",
                     "targetTrigram": null,
-                    "cost": 4,
+                    "cost": "MED",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -99,7 +99,7 @@
                 {
                     "description": "This kind of attitude must be nip in the bud",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "SEC": 6
                     }
@@ -107,7 +107,7 @@
                 {
                     "description": "He is doing a great job, we should give him better gadgets",
                     "targetTrigram": "ENG",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MAI": 3
                     },
@@ -125,7 +125,7 @@
                 {
                     "description": "This is just rumours",
                     "targetTrigram": null,
-                    "cost": 4,
+                    "cost": "MED",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -143,7 +143,7 @@
                 {
                     "description": "This is insanity, we should stop them",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 6,
                         "SEC": 3
@@ -152,7 +152,7 @@
                 {
                     "description": "We should prevent cults of having too much influence on the ship",
                     "targetTrigram": "DEF",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "SEC": 6
                     },
@@ -166,7 +166,7 @@
                 {
                     "description": "As long as they do not represent a threat lets ignore them",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -178,7 +178,7 @@
                 {
                     "description": "This attack must be taken seriously, send us to stop them",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 6
                     },
@@ -192,7 +192,7 @@
                 {
                     "description": "We must take care of injured people first",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "SUR": 3
                     }
@@ -200,7 +200,7 @@
                 {
                     "description": "As long as the ship is intact...",
                     "targetTrigram": null,
-                    "cost": 2,
+                    "cost": "LOW",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -218,7 +218,7 @@
                 {
                     "description": "Population is higher than production, let us equalize this",
                     "targetTrigram": "DEF",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "PAC": 6
                     },
@@ -232,7 +232,7 @@
                 {
                     "description": "We should make human sacrifices for better harvest",
                     "targetTrigram": "FAI",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "REL": 3
                     },
@@ -246,7 +246,7 @@
                 {
                     "description": "We could create a nutrition program to reduce food use",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "BIO": 6
                     }
@@ -254,7 +254,7 @@
                 {
                     "description": "Lets hope this will stabilize",
                     "targetTrigram": null,
-                    "cost": 6,
+                    "cost": "MED",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -272,7 +272,7 @@
                 {
                     "description": "We must send us to investigate and eliminate the contamination origin",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "ANA": 3,
                         "SEC": 3
@@ -281,7 +281,7 @@
                 {
                     "description": "We should fix this contamination, and dump contaminated food",
                     "targetTrigram": "ENG",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "REP": 3
                     }
@@ -289,7 +289,7 @@
                 {
                     "description": "We should treat people that are contaminated",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MED": 3
                     }
@@ -297,7 +297,7 @@
                 {
                     "description": "Lets dump contaminated food",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -309,7 +309,7 @@
                 {
                     "description": "You must send us",
                     "targetTrigram": "DEF",
-                    "cost": 0,
+                    "cost": "NONE",
                     "requirements": {
                         "PAC": 9,
                         "SEC": 9
@@ -318,7 +318,7 @@
                 {
                     "description": "They will calm down eventually",
                     "targetTrigram": null,
-                    "cost": 12,
+                    "cost": "EX",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -336,7 +336,7 @@
                 {
                     "description": "We don't need this money, god does",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 3
                     }
@@ -344,7 +344,7 @@
                 {
                     "description": "You should send us to avoid this celebration",
                     "targetTrigram": "DEF",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "SEC": 3
                     },
@@ -358,7 +358,7 @@
                 {
                     "description": "We don't have money for this",
                     "targetTrigram": null,
-                    "cost": 4
+                    "cost": "MED"
                 }
             ]
         },
@@ -370,7 +370,7 @@
                 {
                     "description": "Let us use the common room for our celebration",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 3
                     }
@@ -378,7 +378,7 @@
                 {
                     "description": "You need to send us to avoid riot",
                     "targetTrigram": "DEF",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "PAC": 3
                     },
@@ -392,7 +392,7 @@
                 {
                     "description": "Ignore them",
                     "targetTrigram": null,
-                    "cost": 4
+                    "cost": "MED"
                 }
             ]
         },
@@ -404,7 +404,7 @@
                 {
                     "description": "Send us to investigate",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "SEC": 3,
                         "ANA": 3
@@ -413,7 +413,7 @@
                 {
                     "description": "Everything is alright",
                     "targetTrigram": "ENG",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "MAI": 3
                     }
@@ -421,7 +421,7 @@
                 {
                     "description": "Give them a delay",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -433,7 +433,7 @@
                 {
                     "description": "Send us to destroy these toaster",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 9
                     }
@@ -441,7 +441,7 @@
                 {
                     "description": "We should be able to cut their power source",
                     "targetTrigram": "ENG",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "REP": 3,
                         "ANA": 3
@@ -450,7 +450,7 @@
                 {
                     "description": "Wait until they are unloaded",
                     "targetTrigram": null,
-                    "cost": 12,
+                    "cost": "EX",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -468,7 +468,7 @@
                 {
                     "description": "We don't need android, let us recycle them",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 3
                     }
@@ -476,7 +476,7 @@
                 {
                     "description": "Don't worry we will get new materials",
                     "targetTrigram": "ENG",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MAI": 6
                     }
@@ -484,7 +484,7 @@
                 {
                     "description": "This must be an error in the inventory, ignore this",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -496,7 +496,7 @@
                 {
                     "description": "This must be a new disease, we must hide this to population and kill them before contamination spread itself",
                     "targetTrigram": "DEF",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "SEC": 3
                     },
@@ -510,7 +510,7 @@
                 {
                     "description": "We must analyse them and find a cure",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MED": 3
                     }
@@ -518,7 +518,7 @@
                 {
                     "description": "This is a message from God, we need to sacrifice two Policeman to be saved",
                     "targetTrigram": "FAI",
-                    "cost": 4,
+                    "cost": "MED",
                     "requirements": {
                         "REL": 6
                     },
@@ -532,7 +532,7 @@
                 {
                     "description": "This is probably nothing, give them aspirin and wait",
                     "targetTrigram": null,
-                    "cost": 6,
+                    "cost": "HIGH",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -550,7 +550,7 @@
                 {
                     "description": "We should lock them both in jail",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "SEC": 3
                     }
@@ -558,7 +558,7 @@
                 {
                     "description": "This is insane, they must be converted to our god",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "ANY": 3
                     }
@@ -566,7 +566,7 @@
                 {
                     "description": "We should let them fix this on their own",
                     "targetTrigram": null,
-                    "cost": 4
+                    "cost": "MED"
                 }
             ]
         },
@@ -578,7 +578,7 @@
                 {
                     "description": "You must send us to repair that hull",
                     "targetTrigram": "OXY",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "ANY": 6
                     }
@@ -586,7 +586,7 @@
                 {
                     "description": "You must authorize me to send a space patrol to destroy asteroid",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 9
                     }
@@ -594,7 +594,7 @@
                 {
                     "description": "This is a little scratch, it should be fine",
                     "targetTrigram": null,
-                    "cost": 12
+                    "cost": "EX"
                 }
             ]
         },
@@ -606,7 +606,7 @@
                 {
                     "description": "You must send someone to stop that fire",
                     "targetTrigram": "OXY",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "ANY": 6
                     }
@@ -614,7 +614,7 @@
                 {
                     "description": "Send us to find out who light up that fire",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "ANA": 9
                     }
@@ -622,7 +622,7 @@
                 {
                     "description": "Pretend that there is no fire",
                     "targetTrigram": null,
-                    "cost": 12,
+                    "cost": "EX",
                     "effects": [
                         {
                             "methodName": "REM",
@@ -640,7 +640,7 @@
                 {
                     "description": "Send us to stop this threat",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 6
                     }
@@ -648,7 +648,7 @@
                 {
                     "description": "This man need us, we must try to help him",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PSY": 6
                     }
@@ -656,7 +656,7 @@
                 {
                     "description": "This man has been forsaken by god, we must convert him",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 6
                     }
@@ -664,7 +664,7 @@
                 {
                     "description": "This was probably a temporary madness, leave it alone",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         }

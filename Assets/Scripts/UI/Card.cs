@@ -77,7 +77,7 @@ namespace Unstable.UI
                 }
             } else if (_in && !_isHold && transform.localPosition == _target) {
                 _magnified = true;
-                transform.localPosition = transform.localPosition + new Vector3(0.0f, ((RectTransform)transform).sizeDelta.y * 0.7f, 0.0f);
+                transform.localPosition = transform.localPosition + new Vector3(0.0f, ((RectTransform)transform).sizeDelta.y * 0.5f, 0.0f);
             }
         }
 
