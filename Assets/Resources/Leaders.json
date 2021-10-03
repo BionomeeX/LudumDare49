@@ -106,7 +106,8 @@
                 "Don't worry about us",
                 "...It's okay, you can take care of the others departments",
                 "We are doing fine",
-                "Everything is doing well"
+                "Everything is doing well",
+                "I don't think there is good or bad situation"
             ],
             "0": [
                 "I was wrong, it's too late...",
@@ -174,7 +175,8 @@
                 "Sounds like a perfect job for us",
                 "Ready to deploy",
                 "Our objectif is clear, we can do it",
-                "We will bring order back, give us this job"
+                "We will bring order back, give us this job",
+                "Ready to round up the usual suspect"
             ],
             "4": [
                 "Most important thing is order, let us do that",
@@ -298,7 +300,8 @@
         "sentencesConversation": {
             "0": [
                 "The R&D deparment is progressing well",
-                "Everything is going well on our side"
+                "Everything is going well on our side",
+                "Houston we don't have a problem"
             ]
         },
         "sentencesCrisis": {
@@ -338,7 +341,9 @@
             "7": [
                 "Of course we are doing well, I'm here",
                 "Don't forget that I'm the only one you need to keep alive, without me, no oxygen",
-                "Life is like a box of gaz, you will allways need oxygen"
+                "Life is like a box of gaz, you will allways need oxygen",
+                "May you keep oxygen level high",
+                "Oxygen levels are doing well, thanks to me"
             ],
             "3": [
                 "Don't forget that by keeping me alive, the whole ship survive",
@@ -356,18 +361,25 @@
         "sentencesCrisis": {
             "7": [
                 "Of course oxygen is the most important",
-                "My needs are the most important ones here"
+                "My needs are the most important ones here",
+                "Your choice is obvious, what's more precious than oxygen in space?",
+                "I know you will chose me, I'm the more important one",
+                "Don't blame yourself, you don't really have choice, you just need me"
+
             ],
             "4": [
                 "You're going in the wrong way, oxygen needs more fundings",
                 "Science first year : every humanbeing need oxygen to live",
                 "What didn't you understand in : If you don't choose me, we all gonna die ?",
-                "There is nothing more important than oxygen, we are in space for god sake"
+                "There is nothing more important than oxygen, we are in space for god sake",
+                "What we've got here is failure to communicate, you need me, you choose me."
             ],
             "0": [
                 "There is only one solution if you want to survive and you know it",
                 "Don't be a fool, you need to chose me if you want to live!",
-                "The oxygen problem is not the problem, the problem is your attitude about the problem"
+                "The oxygen problem is not the problem, the problem is your attitude about the problem",
+                "You can't handle the thruth : Oxygen is what you need",
+                "If you still not choosing me, we all going to die"
             ]
         },
         "cards": {}
