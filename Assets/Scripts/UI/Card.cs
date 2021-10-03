@@ -20,6 +20,7 @@ namespace Unstable.UI
         public void Init(Model.Card card)
         {
             _title.text = card.Name;
+            name = "Card " + card.Name;
         }
 
         public void SetTarget(Vector2 pos)
@@ -55,6 +56,7 @@ namespace Unstable.UI
 
         public void OnPointerEnter(PointerEventData pointerEventData)
         {
+            transform.SetAsLastSibling();
             if (!_isHold)
             {
                 _hasMoved = true;
