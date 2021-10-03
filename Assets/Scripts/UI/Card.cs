@@ -36,19 +36,19 @@ namespace Unstable.UI
         {
             if ((!_isHold & !_hasMoved)| !_hasMoved)
             {
-                transform.position = Vector3.Slerp(transform.position, new Vector2(_canvas.sizeDelta.x / 2f, 0) + _target, .1f);
+                transform.localPosition = Vector3.Slerp(transform.localPosition, _target, .1f);
             }
         }
 
         public void OnPointerDown(PointerEventData data)
         {
             _isHold = true;
-            _offset = (Vector2)transform.position - data.position;
+            _offset = (Vector2)transform.localPosition - data.position;
         }
 
         public void OnDrag(PointerEventData data)
         {
-            transform.position = data.position + _offset;
+            transform.localPosition = data.position + _offset;
         }
 
         public void OnPointerEnter(PointerEventData pointerEventData)
@@ -56,7 +56,7 @@ namespace Unstable.UI
             if (!_isHold)
             {
                 _hasMoved = true;
-                transform.position = transform.position + new Vector3(0.0f, 40.0f, 0.0f);
+                transform.localPosition = transform.localPosition + new Vector3(0.0f, 40.0f, 0.0f);
             }
         }
 
@@ -64,7 +64,7 @@ namespace Unstable.UI
         {
             if (!_isHold)
             {
-                transform.position = transform.position - new Vector3(0.0f, 40.0f, 0.0f);
+                transform.localPosition = transform.localPosition - new Vector3(0.0f, 40.0f, 0.0f);
                 _hasMoved = false;
             }
         }
