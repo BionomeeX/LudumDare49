@@ -59,7 +59,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# IDE
 .idea
-
-# vscode
 .vscode
+
+# Text Mesh Pro
+Assets/TextMesh Pro*
