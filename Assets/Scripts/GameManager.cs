@@ -265,11 +265,31 @@ namespace Unstable
                 avCards.RemoveAt(index);
                 count--;
             }
+            UpdateCardPositions();
         }
 
         public void RemoveCard(UI.Card card) {
             Destroy(card.gameObject);
             _cards.Remove(card);
+            UpdateCardPositions();
+        }
+
+        public void UpdateCardPositions() {
+            // if <= 6 cards => classic setting
+            float step;
+            if(_cards.Count <= 6) {
+                step = 1.5f;
+            } else {
+                // if 7 cards or more ??
+                step = (_cards.Count - 1f) / 3f;
+            }
+
+            var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / step;
+            var half = _cards.Count / 2f;
+            for (int i = 0; i < _cards.Count; i++)
+            {
+                _cards[i].SetTarget(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / step));
+            }
         }
 
         public void AddCard(Model.Card card, string leaderTrigram)
@@ -280,12 +300,7 @@ namespace Unstable
             cardIns.Init(card, GetFactionInfo(leaderTrigram));
             _cards.Add(cardIns);
 
-            var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / 1.5f;
-            var half = _cards.Count / 2f;
-            for (int i = 0; i < _cards.Count; i++)
-            {
-                _cards[i].SetTarget(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / 1.5f));
-            }
+            UpdateCardPositions();
         }
     }
 }

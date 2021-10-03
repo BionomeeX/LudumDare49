@@ -17,7 +17,14 @@ namespace Unstable.UI
         private GameObject _requirementPanel;
 
         [SerializeField]
+        private GameObject _effectPanel;
+
+
+        [SerializeField]
         private TMP_Text _requirementText;
+
+        [SerializeField]
+        private TMP_Text _effectText;
 
         private Image _image;
         private Color _baseColor;
@@ -25,6 +32,7 @@ namespace Unstable.UI
         private EventChoice _choiceData;
 
         private Dictionary<string, int> _requirements;
+        private List<string> _effects;
 
         public void Init(EventChoice choice)
         {
@@ -35,6 +43,7 @@ namespace Unstable.UI
             _choiceData = choice;
 
             _requirements = new();
+            _effects = new();
 
             if (choice.Requirements != null && choice.Requirements.Any())
             {
@@ -43,6 +52,11 @@ namespace Unstable.UI
                     return (r.Key, r.Value);
                 }).ToDictionary(x => x.Item1, x => x.Item2);
             }
+            if (choice.Effects != null && choice.Effects.Any())
+            {
+                _effects = _choiceData.Effects.Select(x => EventManager.ActionToString(x.MethodName, x.Argument)).ToList();
+            }
+
             UpdateRequirementDisplay();
         }
 
@@ -54,7 +68,7 @@ namespace Unstable.UI
                 _baseColor = _image.color;
             }
 
-            if (_requirements.Any())
+            if (_choiceData.Requirements != null && _requirements.Any())
             {
                 _requirementPanel.SetActive(true);
                 _requirementText.text = string.Join("\n", _requirements.Select(r =>
@@ -70,14 +84,16 @@ namespace Unstable.UI
                 _image.color = _baseColor;
             }
 
-            if (_choiceData.Effects != null && _choiceData.Effects.Any())
+            if (_choiceData.Effects != null && _effects.Any())
             {
-                if (!string.IsNullOrWhiteSpace(_requirementText.text))
-                {
-                    _requirementText.text += "\n\n";
-                }
-
-                _requirementText.text += string.Join("\n", _choiceData.Effects.Select(x => EventManager.ActionToString(x.MethodName, x.Argument)));
+                _effectPanel.SetActive(true);
+                _effectText.text = string.Join("\n", _effects);
+            }
+            else
+            {
+                _effectPanel.SetActive(false);
+                _effectText.text = "";
+                _image.color = _baseColor;
             }
         }
 
