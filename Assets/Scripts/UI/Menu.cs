@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour
 
     public void OptionIsClicked()
     {
-        SceneManager.LoadScene("Option");
+        
     }
 
     public void ExitIsClicked()
