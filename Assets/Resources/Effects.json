@@ -1,0 +1,18 @@
+{
+    "MED": "Medical",
+    "SUR": "Surgery",
+    "PSY": "Psychology",
+
+    "REP": "Repair",
+    "MAI": "Maintenance",
+
+    "INT": "Intelligence",
+    "SEC": "Security",
+    "PAC": "Pacification",
+
+    "REL": "Religion",
+
+    "BIO": "Biology",
+    "AST": "Astronomy",
+    "AIS": "AI"
+}

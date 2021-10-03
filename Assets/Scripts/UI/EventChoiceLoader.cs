@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Unstable.Model;
@@ -9,6 +10,12 @@ namespace Unstable.UI
     {
         [SerializeField]
         private Text _title, _description;
+
+        [SerializeField]
+        private GameObject _requirementPanel;
+
+        [SerializeField]
+        private Text _requirementText;
 
         private Image _image;
         private Color _baseColor;
@@ -26,6 +33,20 @@ namespace Unstable.UI
             _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
             _description.text = choice.Description;
             _choiceData = choice;
+
+            if (choice.Requirements.Any())
+            {
+                _requirementPanel.SetActive(false);
+                _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
+                {
+                    var s = r.Key.Split(' ');
+                    return GameManager.Instance.GetCard(s[0], s[1]).Name + ": " + r.Value;
+                }));
+            }
+            else
+            {
+                _requirementPanel.SetActive(false);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

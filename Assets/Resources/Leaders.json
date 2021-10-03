@@ -21,16 +21,24 @@
         "cards": {
             "SUR": {
                 "name": "Surgeon",
-                "description": "",
                 "effects": {
-                    "MED_SUR": 5
+                    "MED": 10,
+                    "SUR": 10
                 }
             },
             "PSY": {
-                "name": "Psychologist"
+                "name": "Psychologist",
+                "effects": {
+                    "PSY": 10
+                }
             },
             "TRA": {
-                "name": "Transhumanist"
+                "name": "Transhumanist",
+                "effects": {
+                    "MED": 5,
+                    "SUR": 5,
+                    "REP": 5
+                }
             }
         }
     },
@@ -39,13 +47,25 @@
         "domainName": "Engineering",
         "cards": {
             "MEC": {
-                "name": "Mechanician"
+                "name": "Mechanician",
+                "effects": {
+                    "REP": 10,
+                    "MAI": 5
+                }
             },
             "AIS": {
-                "name": "AI Specialist"
+                "name": "AI Specialist",
+                "effects": {
+                    "REP": 5,
+                    "MAI": 5,
+                    "AIS": 10
+                }
             },
             "WAR": {
-                "name": "Warhouseman"
+                "name": "Warhouseman",
+                "effects": {
+                    "MAI": 20
+                }
             }
         }
     },
@@ -54,13 +74,24 @@
         "domainName": "Defense",
         "cards": {
             "SPY": {
-                "name": "Spy"
+                "name": "Spy",
+                "effects": {
+                    "INT": 10
+                }
             },
             "SPE": {
-                "name": "Special Forces"
+                "name": "Special Forces",
+                "effects": {
+                    "SEC": 5,
+                    "PAC": 10
+                }
             },
             "POL": {
-                "name": "Policeman"
+                "name": "Policeman",
+                "effects": {
+                    "SEC": 10,
+                    "PAC": 5
+                }
             }
         }
     },
@@ -69,13 +100,24 @@
         "domainName": "Faith",
         "cards": {
             "PRI": {
-                "name": "Priest"
+                "name": "Priest",
+                "effects": {
+                    "REL": 10
+                }
             },
             "INQ": {
-                "name": "Inquisitor"
+                "name": "Inquisitor",
+                "effects": {
+                    "REL": 10,
+                    "PAC": 5
+                }
             },
             "CUL": {
-                "name": "Cultist"
+                "name": "Cultist",
+                "effects": {
+                    "REL": 10,
+                    "INT": 5
+                }
             }
         }
     },
@@ -84,13 +126,23 @@
         "domainName": "R&D",
         "cards": {
             "EXP": {
-                "name": "Explorator"
+                "name": "Explorator",
+                "effects": {
+                    "AST": 10
+                }
             },
             "RES": {
-                "name": "Researcher"
+                "name": "Researcher",
+                "effects": {
+                    "AIS": 5,
+                    "AST": 5
+                }
             },
             "BIO": {
-                "name": "BioNutritionist"
+                "name": "BioNutritionist",
+                "effects": {
+                    "BIO": 10
+                }
             }
         }
     }
