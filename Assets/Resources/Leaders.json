@@ -239,19 +239,31 @@
                 "It's not good, you must believe, it's the only escape",
                 "See the light of God, this is the only answer",
                 "My son, the path you are taking is wrong",
-                "God is still beliving in you, don't loose it"
+                "God is still beliving in you, don't loose it",
+                "Heretic, at the stake !"
             ]
         },
         "sentencesCrisis": {
             "7": [
                 "The faith is staying strong, you can rely on us",
-                "You are doing a great job, let us help you with this crisis"
+                "You are doing a great job, let us help you with this crisis",
+                "God is just, we must be just to, we will do that well",
+                "Prove your faith, belive in us",
+                "You are a wise man, let God take care of this"
             ],
             "4": [
-                "Believe in God more, let us do this"
+                "Believe in God more, let us do this",
+                "You are being tested, prove your faith and choose us",
+                "I know you understand that only us can deal with sin",
+                "God is still counting on you, prove him right and choose his side",
+                "I still have faith in you, choose God side and prove me right"
             ],
             "0": [
-                "No it's not good, you need to believe, let faith handle it!"
+                "No it's not good, you need to believe, let faith handle it!",
+                "You need to repent ! You need to confess your sins and start again to belive in us",
+                "Heretic, repent your sin and choose me as the hand of god",
+                "God is talking threw me, only me is able to solve this",
+                "Your lack of faith in us is incomprehensible, only God can save us all"
             ]
         },
         "cards": {
@@ -325,15 +337,20 @@
         "sentencesConversation": {
             "7": [
                 "Of course we are doing well, I'm here",
-                "Don't forget that I'm the only one you need to keep alive, without me, no oxygen"
+                "Don't forget that I'm the only one you need to keep alive, without me, no oxygen",
+                "Life is like a box of gaz, you will allways need oxygen"
             ],
             "3": [
                 "Don't forget that by keeping me alive, the whole ship survive",
-                "Don't deny us too many requests, it would be bad for all us me"
+                "Don't deny us too many requests, it would be bad for all us me",
+                "I'm going to make you an offer you can't refuse : oxygen",
+                "When you speak of oxygen, it's like money, everybody is concerned, don't forget that"
             ],
             "0": [
                 "Do you really intend to kill us all?",
-                "We are nearly out of oxygen, what are you planning to do after that?"
+                "We are nearly out of oxygen, what are you planning to do after that?",
+                "Are you insane ? You need oxygen to live, this mean you need me!",
+                "There is nothing more important than oxygen, we are in space for god sake"
             ]
         },
         "sentencesCrisis": {
@@ -342,10 +359,15 @@
                 "My needs are the most important ones here"
             ],
             "4": [
-                "You're going in the wrong way, oxygen needs more fundings"
+                "You're going in the wrong way, oxygen needs more fundings",
+                "Science first year : every humanbeing need oxygen to live",
+                "What didn't you understand in : If you don't choose me, we all gonna die ?",
+                "There is nothing more important than oxygen, we are in space for god sake"
             ],
             "0": [
-                "There is only one solution if you want to survive and you know it"
+                "There is only one solution if you want to survive and you know it",
+                "Don't be a fool, you need to chose me if you want to live!",
+                "The oxygen problem is not the problem, the problem is your attitude about the problem"
             ]
         },
         "cards": {}
