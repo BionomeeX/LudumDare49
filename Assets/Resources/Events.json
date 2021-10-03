@@ -472,5 +472,153 @@
                 "cost": 15
             }
         ]
-    }
+    },
+    {
+        "name": "Breach in the hull detected",
+        "description": "An asteroid has damaged the hull we must fix this",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "You must send us to repair that hull",
+                "targetTrigram": "OXY",
+                "cost": 6,
+                "requirements": {
+                    "ANY": 5
+                }
+            },
+            {
+                "description": "You must authorize me to send a space patrol to destroy asteroid",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "This is a little scratch, it should be fine",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "Plants on fire",
+        "description": "A fire has been declared in oxygen production room",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "You must send someone to stop that fire",
+                "targetTrigram": "OXY",
+                "cost": 6,
+                "requirements": {
+                    "ANY": 5
+                }
+            },
+            {
+                "description": "Send us to find out who light up that fire",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "SEC": 5
+                }
+            },
+            {
+                "description": "Pretend that there is no fire",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "Mad men journey",
+        "description": "A mad men is attacking random crewmate in inferior levels",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Send us to stop this threat",
+                "targetTrigram": "DEF",
+                "cost": 6,
+                "requirements": {
+                    "SEC": 5
+                }
+            },
+            {
+                "description": "This man need help, we must try to help him",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "PSY": 5
+                }
+            },
+            {
+                "description": "This man has been forsaken by god, we must convert him",
+                "targetTrigram": "FAI",
+                "cost": 4,
+                "requirements": {
+                    "REL": 5
+                }
+            },
+            {
+                "description": "This was probably a temporary madness, leave it alone",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "Payday",
+        "description": "A group of overarmed masked crewmate has attack second floor and steal their precious good",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Send us after them, we need to put them in jail",
+                "targetTrigram": "DEF",
+                "cost": 6,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "We need to send an unit for psychological support",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "PSY": 5
+                }
+            },
+            {
+                "description": "Leave them alone, they will maybe blame themself and give it back",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "He is among us",
+        "description": "A crewmate has been infected by unknown host, he already have hurt someone, electricity is out",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We need to kill him before he kill us",
+                "targetTrigram": "DEF",
+                "cost": 6,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "We need to find him and try to cure him",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "SUR": 5
+                }
+            },
+            {
+                "description": "Maybe someone could take care of electricity",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
 ]

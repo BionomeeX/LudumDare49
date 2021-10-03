@@ -22,6 +22,9 @@ namespace Unstable.UI
         private bool _isHold;
         private Vector2 _offset;
 
+        private bool _magnified = false;
+        private bool _in = false;
+
         public Dictionary<string, int> Effects { get; private set; }
 
         public static int RefId = 0;
@@ -47,6 +50,11 @@ namespace Unstable.UI
             _background.sprite = _faction.CardBackground;
 
             Id = RefId++;
+
+            foreach (var el in this.GetComponentsInChildren<TMP_Text>())
+            {
+                el.raycastTarget = false;
+            }
         }
 
         public void SetTarget(Vector2 pos)
@@ -57,35 +65,47 @@ namespace Unstable.UI
 
         private void FixedUpdate()
         {
-            if (!_isHold && transform.localPosition != _target)
+            if (!_isHold && !_magnified && transform.localPosition != _target)
             {
-                transform.localPosition = Vector3.Slerp(transform.localPosition, _target, .1f);
+                if ((transform.localPosition - _target).magnitude < 5.0f)
+                {
+                    transform.localPosition = _target;
+                }
+                else
+                {
+                    transform.localPosition = Vector3.Slerp(transform.localPosition, _target, .1f);
+                }
+            } else if (_in && !_isHold && transform.localPosition == _target) {
+                _magnified = true;
+                transform.localPosition = transform.localPosition + new Vector3(0.0f, ((RectTransform)transform).sizeDelta.y * 0.7f, 0.0f);
             }
         }
 
-        public void OnBeginDrag(PointerEventData eventData){
+        public void OnBeginDrag(PointerEventData eventData)
+        {
             _isHold = true;
             Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             _offset = (Vector2)transform.localPosition - localPosition;
             this.GetComponent<Image>().raycastTarget = false;
-            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
-                el.raycastTarget = false;
-            }
+
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             transform.localPosition = localPosition + _offset;
+            _magnified = false;
+        }
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            _isHold = false;
+            this.GetComponent<Image>().raycastTarget = true;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             transform.SetAsLastSibling();
-            if (!_isHold)
-            {
-                transform.localPosition = transform.localPosition + new Vector3(0.0f, 40.0f, 0.0f);
-            }
+            _in = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -94,19 +114,10 @@ namespace Unstable.UI
             {
                 elem.SetAsLastSibling();
             }
-            if (!_isHold)
-            {
-                transform.localPosition = transform.localPosition - new Vector3(0.0f, 40.0f, 0.0f);
-            }
+            _magnified = false;
+            _in = false;
         }
 
-        public void OnEndDrag(PointerEventData eventData){
-            _isHold = false;
-            this.GetComponent<Image>().raycastTarget = true;
-            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
-                el.raycastTarget = true;
-            }
-        }
 
         public override int GetHashCode()
         {
