@@ -65,3 +65,6 @@ crashlytics-build.properties
 
 # Text Mesh Pro
 Assets/TextMesh Pro*
+
+# Excel
+~$*
