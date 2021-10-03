@@ -9,7 +9,7 @@
                 "targetTrigram": "FAI",
                 "cost": 2,
                 "requirements": {
-                    "REL": 10
+                    "REL": 6
                 }
             },
             {
@@ -17,17 +17,17 @@
                 "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
-                    "PAC": 10
+                    "PAC": 6
                 }
             },
             {
                 "description": "Just let him be",
                 "targetTrigram": null,
-                "cost": 3,
+                "cost": 0,
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": 2
+                        "argument": "2"
                     }
                 ]
             }

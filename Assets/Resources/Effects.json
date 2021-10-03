@@ -14,5 +14,7 @@
 
     "BIO": "Biology",
     "AST": "Astronomy",
-    "AIS": "AI"
+    "AIS": "AI",
+
+    "ANY": "Any"
 }

@@ -26,7 +26,7 @@ namespace Unstable
         /// <summary>
         /// List of all the events
         /// </summary>
-        private List<Model.Event> _standardEvents, _crisisEvents;
+        private List<Model.Event> _standardEvents, _crisisEvents, _tutorialEvents;
         /// <summary>
         /// Effects
         /// Key: Trigram
@@ -47,7 +47,7 @@ namespace Unstable
         /// </summary>
         public Leader GetLeaderFromTrigram(string trigram)
         {
-            if (trigram == null)
+            if (trigram == null || trigram == "NEU")
             {
                 return new()
                 {
@@ -90,6 +90,7 @@ namespace Unstable
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
             var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
             _effects = JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("Effects").text);
+            _tutorialEvents = JsonConvert.DeserializeObject<List<Model.Event>>(Resources.Load<TextAsset>("Tutorial").text);
 
             // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
@@ -136,8 +137,17 @@ namespace Unstable
 
             if (isCrisis)
             {
-                _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
-                _numberOfRoundsWithoutCrisis = 0;
+                if (_tutorialEvents.Count > 0)
+                {
+                    var ev = _tutorialEvents[0];
+                    _eventLoader.Load(ev);
+                    _tutorialEvents.RemoveAt(0);
+                }
+                else
+                {
+                    _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+                    _numberOfRoundsWithoutCrisis = 0;
+                }
             }
             else
             {
