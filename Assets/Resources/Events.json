@@ -9,7 +9,7 @@
                 "targetTrigram": "FAI",
                 "cost": 2,
                 "requirements": {
-                    "REL": 10
+                    "REL": 6
                 }
             },
             {
@@ -17,13 +17,47 @@
                 "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
-                    "PAC": 10
+                    "PAC": 6
                 }
             },
             {
                 "description": "Just let him be",
                 "targetTrigram": null,
-                "cost": 3,
+                "cost": 0,
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Influenza epidemic",
+        "description": "Medics report few case of influenza epidemic",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "It must be a sign of God, infected must pray",
+                "targetTrigram": "FAI",
+                "cost": 2,
+                "requirements": {
+                    "REL": 3
+                }
+            },
+            {
+                "description": "Everyone should be vaccinated",
+                "targetTrigram": "MED",
+                "cost": 2,
+                "requirements": {
+                    "MED": 10
+                }
+            },
+            {
+                "description": "We should put infected in quarantine",
+                "targetTrigram": null,
+                "cost": 0,
                 "effects": [
                     {
                         "methodName": "REM",
@@ -32,5 +66,61 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "The vigilanty",
+        "description": "Their is rumours about a guy doing justice on his own",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "He must be stop, he is stilling our jobs",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SEC": 5
+                }
+            },
+            {
+                "description": "He is doing a great job, we should give him better gadgets",
+                "targetTrigram": "ENG",
+                "cost": 2,
+                "requirements": {
+                    "WAR": 3
+                }
+            },
+            {
+                "description": "This is just rumours",
+                "targetTrigram": null,
+                "cost": 0
+            }
+        ]
+    },
+    {
+      "name": "Coffee machine - major blackout",
+      "description": "The situation is critical, coffee machine are down",
+      "isCrisis": true,
+      "choices": [
+        {
+            "description": "We must create a device to directly inject coffee in our blood",
+            "targetTrigram": "ENG",
+            "cost": 5,
+            "requirements": {
+                "AIS": 3
+            }
+        },
+        {
+            "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
+            "targetTrigram": "Med",
+            "cost": 3,
+            "requirements": {
+                "PSY": 3
+            }
+        },
+        {
+            "description": "Whatever, tea machine are still up",
+            "targetTrigram": null,
+            "cost": 0
+        }
+      ]
     }
 ]

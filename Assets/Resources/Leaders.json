@@ -3,7 +3,7 @@
         "trigram": "MED",
         "domainName": "Medical",
         "leaderName": "",
-        "maxSanity": 10,
+        "maxSanity": 6,
         "sentencesConversation": {
             "0": [
                 "Sample conversation"
@@ -22,22 +22,22 @@
             "SUR": {
                 "name": "Surgeon",
                 "effects": {
-                    "MED": 10,
-                    "SUR": 10
+                    "MED": 6,
+                    "SUR": 6
                 }
             },
             "PSY": {
                 "name": "Psychologist",
                 "effects": {
-                    "PSY": 10
+                    "PSY": 6
                 }
             },
             "TRA": {
                 "name": "Transhumanist",
                 "effects": {
-                    "MED": 5,
-                    "SUR": 5,
-                    "REP": 5
+                    "MED": 3,
+                    "SUR": 3,
+                    "REP": 3
                 }
             }
         }
@@ -49,16 +49,16 @@
             "MEC": {
                 "name": "Mechanician",
                 "effects": {
-                    "REP": 10,
-                    "MAI": 5
+                    "REP": 6,
+                    "MAI": 3
                 }
             },
             "AIS": {
                 "name": "AI Specialist",
                 "effects": {
-                    "REP": 5,
-                    "MAI": 5,
-                    "AIS": 10
+                    "REP": 3,
+                    "MAI": 3,
+                    "AIS": 6
                 }
             },
             "WAR": {
@@ -76,21 +76,21 @@
             "SPY": {
                 "name": "Spy",
                 "effects": {
-                    "INT": 10
+                    "INT": 6
                 }
             },
             "SPE": {
                 "name": "Special Forces",
                 "effects": {
-                    "SEC": 5,
-                    "PAC": 10
+                    "SEC": 3,
+                    "PAC": 6
                 }
             },
             "POL": {
                 "name": "Policeman",
                 "effects": {
-                    "SEC": 10,
-                    "PAC": 5
+                    "SEC": 6,
+                    "PAC": 3
                 }
             }
         }
@@ -102,21 +102,22 @@
             "PRI": {
                 "name": "Priest",
                 "effects": {
-                    "REL": 10
+                    "REL": 6,
+                    "PSY": 3
                 }
             },
             "INQ": {
                 "name": "Inquisitor",
                 "effects": {
-                    "REL": 10,
-                    "PAC": 5
+                    "REL": 6,
+                    "PAC": 3
                 }
             },
             "CUL": {
                 "name": "Cultist",
                 "effects": {
-                    "REL": 10,
-                    "INT": 5
+                    "REL": 6,
+                    "INT": 3
                 }
             }
         }
@@ -128,20 +129,20 @@
             "EXP": {
                 "name": "Explorator",
                 "effects": {
-                    "AST": 10
+                    "AST": 6
                 }
             },
             "RES": {
                 "name": "Researcher",
                 "effects": {
-                    "AIS": 5,
-                    "AST": 5
+                    "AIS": 3,
+                    "AST": 3
                 }
             },
             "BIO": {
                 "name": "BioNutritionist",
                 "effects": {
-                    "BIO": 10
+                    "BIO": 6
                 }
             }
         }

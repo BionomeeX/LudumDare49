@@ -614,38 +614,6 @@
       <string>Effects</string>
      </property>
     </widget>
-    <widget class="QPlainTextEdit" name="textEffectKey">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>220</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>Effect Key </string>
-     </property>
-    </widget>
-    <widget class="QPlainTextEdit" name="textCardTrigram">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>180</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>textTrigramCard</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="resetEffectButton">
      <property name="geometry">
       <rect>
@@ -670,6 +638,126 @@
      </property>
      <property name="text">
       <string>Add Card</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="RemoveCardButton">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>400</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remove Card</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textTrigramEdit">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>400</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Trigram to Remove</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="effectKeyComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>MED</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>SUR</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PSY</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>REP</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MAI</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>INT</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>SEC</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PAC</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>REL</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>BIO</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>AST</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>AIS</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ANY</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPlainTextEdit" name="textTrigramCard">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>180</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Card trigram</string>
      </property>
     </widget>
    </widget>

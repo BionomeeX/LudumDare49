@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Tutorial 1 - Inventory",
+        "description": "Everyone just woke up... We need to be sure everything is still in order",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Verify the ship integrity",
+                "targetTrigram": null,
+                "cost": 0,
+                "requirements": {
+                    "ANY": 3
+                }
+            }
+        ]
+    },
+    {
+        "name": "Tutorial 2 - Main engine",
+        "description": "We are currently running on the auxilliary engine, we need to restart the main one",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Restart the engine",
+                "targetTrigram": "ENG",
+                "cost": 0,
+                "requirements": {
+                    "REP": 3
+                }
+            }
+        ]
+    },
+    {
+        "name": "Tutorial 3 - Trouble",
+        "description": "Everyone is still a bit confused by what is happening, we need a way to rally everyone",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Faith is the answer",
+                "targetTrigram": "REP",
+                "cost": 4,
+                "requirements": {
+                    "REL": 6
+                }
+            },
+            {
+                "description": "We need to enforce the rules",
+                "targetTrigram": "DEF",
+                "cost": 2,
+                "requirements": {
+                    "POL": 3
+                }
+            },
+            {
+                "description": "Let them be",
+                "targetTrigram": null,
+                "cost": 0,
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "2"
+                    }
+                ]
+            }
+        ]
+    }
+]

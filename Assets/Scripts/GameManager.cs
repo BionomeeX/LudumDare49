@@ -26,7 +26,7 @@ namespace Unstable
         /// <summary>
         /// List of all the events
         /// </summary>
-        private List<Model.Event> _standardEvents, _crisisEvents;
+        private List<Model.Event> _standardEvents, _crisisEvents, _tutorialEvents;
         /// <summary>
         /// Effects
         /// Key: Trigram
@@ -47,7 +47,7 @@ namespace Unstable
         /// </summary>
         public Leader GetLeaderFromTrigram(string trigram)
         {
-            if (trigram == null)
+            if (trigram == null || trigram == "NEU")
             {
                 return new()
                 {
@@ -90,6 +90,7 @@ namespace Unstable
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
             var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
             _effects = JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("Effects").text);
+            _tutorialEvents = JsonConvert.DeserializeObject<List<Model.Event>>(Resources.Load<TextAsset>("Tutorial").text);
 
             // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
@@ -136,8 +137,17 @@ namespace Unstable
 
             if (isCrisis)
             {
-                _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
-                _numberOfRoundsWithoutCrisis = 0;
+                if (_tutorialEvents.Count > 0)
+                {
+                    var ev = _tutorialEvents[0];
+                    _eventLoader.Load(ev);
+                    _tutorialEvents.RemoveAt(0);
+                }
+                else
+                {
+                    _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+                    _numberOfRoundsWithoutCrisis = 0;
+                }
             }
             else
             {
@@ -215,9 +225,21 @@ namespace Unstable
             return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
         }
 
+        public void RemoveCard(int count)
+        {
+            while (count > 0 && _cards.Count > 0)
+            {
+                var index = Random.Range(0, _cards.Count);
+                Destroy(_cards[index]);
+                _cards.RemoveAt(index);
+                count--;
+            }
+        }
+
         public void AddCard(Model.Card card, string leaderTrigram)
         {
             var cardGo = Instantiate(_cardPrefab, _hand);
+            cardGo.transform.Translate(-Vector2.up * 10f);
             var cardIns = cardGo.GetComponent<UI.Card>();
             cardIns.Init(card, GetFactionInfo(leaderTrigram));
             _cards.Add(cardIns);
