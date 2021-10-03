@@ -330,6 +330,7 @@ MonoBehaviour:
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
   _eventLoader: {fileID: 1757280077}
+  _info: {fileID: 11400000, guid: d08b1b772002cac438aff63f0e0d713a, type: 2}
 --- !u!1 &574458525
 GameObject:
   m_ObjectHideFlags: 0
