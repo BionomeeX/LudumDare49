@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &358226333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1567cdc8730bae4498ab833631afeeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panelLights: {fileID: 358226334}
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
   _eventLoader: {fileID: 1757280077}
@@ -839,7 +840,7 @@ RectTransform:
   m_Children:
   - {fileID: 1504453255}
   m_Father: {fileID: 1757280076}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1209,8 +1210,8 @@ RectTransform:
   m_Children:
   - {fileID: 1734104223}
   - {fileID: 1270274061}
-  - {fileID: 1740172656}
   - {fileID: 1650709611}
+  - {fileID: 1740172656}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

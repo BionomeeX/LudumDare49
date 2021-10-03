@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 using Unstable.Model;
 using Unstable.SO;
 using Unstable.UI;
@@ -32,6 +33,9 @@ namespace Unstable
         /// Value: Full name
         /// </summary>
         private Dictionary<string, string> _effects;
+
+        [SerializeField]
+        private Image _panelLights;
 
         /// <summary>
         /// Get a Leader object from its trigram
@@ -85,6 +89,29 @@ namespace Unstable
             // Split events between the standards and crisis ones
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
+
+            // Make sure things aren't active on game start
+            _panelLights.gameObject.SetActive(false);
+            _eventLoader.UnLoad();
+        }
+
+        private const float _lightOffset = .005f;
+        private float _lightObjective = 0.5f;
+        private void FixedUpdate()
+        {
+            var oldVal = _panelLights.color.a;
+            _panelLights.color = new Color(
+                _panelLights.color.r,
+                _panelLights.color.g,
+                _panelLights.color.b,
+                _panelLights.color.a + (_panelLights.color.a > _lightObjective ? -_lightOffset : _lightOffset)
+            );
+
+            if ((oldVal < _lightObjective && _lightObjective < _panelLights.color.a) ||
+                (oldVal > _lightObjective && _lightObjective > _panelLights.color.a))
+            {
+                _lightObjective = Random.Range(.5f, 1f);
+            }
         }
 
         private Model.Card _staffCard = new()
@@ -145,10 +172,12 @@ namespace Unstable
             }
 
             _numberOfRoundsWithoutCrisis++;
+            _panelLights.gameObject.SetActive(true);
         }
 
         public void EndEvent()
         {
+            _panelLights.gameObject.SetActive(false);
             _eventLoader.UnLoad();
         }
 
