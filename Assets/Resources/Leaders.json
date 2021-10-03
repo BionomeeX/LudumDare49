@@ -43,13 +43,15 @@
                 "name": "Surgeon",
                 "effects": {
                     "MED": 6,
-                    "SUR": 6
+                    "SUR": 6,
+                    "BIO": 3
                 }
             },
             "PSY": {
                 "name": "Psychologist",
                 "effects": {
-                    "PSY": 6
+                    "PSY": 6,
+                    "ANA": 3
                 }
             },
             "TRA": {
@@ -104,9 +106,10 @@
                 }
             },
             "WAR": {
-                "name": "Warhouseman",
+                "name": "Electrician",
                 "effects": {
-                    "MAI": 20
+                    "MAI": 3,
+                    "AIS": 3
                 }
             }
         }
@@ -147,7 +150,9 @@
             "SPY": {
                 "name": "Spy",
                 "effects": {
-                    "INT": 6
+                    "INT": 6,
+                    "PSY": 3,
+                    "ANA": 3
                 }
             },
             "SPE": {
@@ -161,7 +166,8 @@
                 "name": "Policeman",
                 "effects": {
                     "SEC": 6,
-                    "PAC": 3
+                    "PAC": 3,
+                    "ANA": 3
                 }
             }
         }
@@ -215,7 +221,8 @@
                 "name": "Cultist",
                 "effects": {
                     "REL": 6,
-                    "INT": 3
+                    "INT": 3,
+                    "ANA": 3
                 }
             }
         }
@@ -247,7 +254,8 @@
                 "name": "Researcher",
                 "effects": {
                     "AIS": 3,
-                    "AST": 3
+                    "AST": 3,
+                    "ANA": 3
                 }
             },
             "BIO": {
