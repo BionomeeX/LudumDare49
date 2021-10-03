@@ -1,0 +1,35 @@
+{
+    "name": "Humor",
+    "description": "Decks with cards giving up physic and math for humour",
+    "author": "BionomeeX (Ludum Dare 49)",
+    "cards": [
+        {
+          "name": "Coffee machine - major blackout",
+          "description": "The situation is critical, coffee machine are down",
+          "isCrisis": true,
+          "choices": [
+            {
+                "description": "We must create a device to directly inject coffee in our blood",
+                "targetTrigram": "SCI",
+                "cost": 5,
+                "requirements": {
+                    "AIS": 3
+                }
+            },
+            {
+                "description": "Nevermind, coffee is bad for people health, I will create an anti-addiction program",
+                "targetTrigram": "MED",
+                "cost": 3,
+                "requirements": {
+                    "PSY": 3
+                }
+            },
+            {
+                "description": "Whatever, tea machine are still up",
+                "targetTrigram": null,
+                "cost": 0
+            }
+          ]
+        }
+    ]
+}

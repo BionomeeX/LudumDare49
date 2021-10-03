@@ -11,7 +11,7 @@
                 {
                     "description": "He must have lost his faith in God",
                     "targetTrigram": "FAI",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "REL": 6
                     },
@@ -150,12 +150,18 @@
                     }
                 },
                 {
-                    "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
+                    "description": "We should prevent cults of having too much influence on the ship",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": 4,
                     "requirements": {
-                        "SEC": 3
-                    }
+                        "SEC": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "FAI 4"
+                        }
+                    ]
                 },
                 {
                     "description": "As long as they do not represent a threat lets ignore them",
@@ -164,5 +170,503 @@
                 }
             ]
         },
+        {
+            "name": "Rebellion attack",
+            "description": "Report say that rebbels have escape after an attack, few people are injured",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "This attack must be taken seriously, send us to stop them",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We must take care of injured people first",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "SUR": 3
+                    }
+                },
+                {
+                    "description": "As long as the ship is intact...",
+                    "targetTrigram": null,
+                    "cost": 2,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Food shortage",
+            "description": "Food is eaten faster than created",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "Population is higher than production, let us equalize this",
+                    "targetTrigram": "DEF",
+                    "cost": 4,
+                    "requirements": {
+                        "PAC": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 3"
+                        }
+                    ]
+                },
+                {
+                    "description": "We should make human sacrifices for better harvest",
+                    "targetTrigram": "FAI",
+                    "cost": 4,
+                    "requirements": {
+                        "REL": 3
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We could create a nutrition program to reduce food use",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "BIO": 6
+                    }
+                },
+                {
+                    "description": "Lets hope this will stabilize",
+                    "targetTrigram": null,
+                    "cost": 6,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Food intoxication",
+            "description": "Contaminated food has been eaten and people are begining to be sick",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We must send us to investigate and eliminate the contamination origin",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "ANA": 3,
+                        "SEC": 3
+                    }
+                },
+                {
+                    "description": "We should fix this contamination, and dump contaminated food",
+                    "targetTrigram": "ENG",
+                    "cost": 4,
+                    "requirements": {
+                        "REP": 3
+                    }
+                },
+                {
+                    "description": "We should treat people that are contaminated",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "MED": 3
+                    }
+                },
+                {
+                    "description": "Lets dump contaminated food",
+                    "targetTrigram": null,
+                    "cost": 6
+                }
+            ]
+        },
+        {
+            "name": "RIOT",
+            "description": "A riot breaks out in cafeteria",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "You must send us",
+                    "targetTrigram": "DEF",
+                    "cost": 0,
+                    "requirements": {
+                        "PAC": 9,
+                        "SEC": 9
+                    }
+                },
+                {
+                    "description": "They will calm down eventually",
+                    "targetTrigram": null,
+                    "cost": 12,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 10"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Cult need money",
+            "description": "To prepare the next cult celebration, cult need money",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We don't need this money, god does",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 3
+                    }
+                },
+                {
+                    "description": "You should send us to avoid this celebration",
+                    "targetTrigram": "DEF",
+                    "cost": 4,
+                    "requirements": {
+                        "SEC": 3
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "FAI 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We don't have money for this",
+                    "targetTrigram": null,
+                    "cost": 4
+                }
+            ]
+        },
+        {
+            "name": "Cult celebration",
+            "description": "The cult celebration has just begun",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "Let us use the common room for our celebration",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 3
+                    }
+                },
+                {
+                    "description": "You need to send us to avoid riot",
+                    "targetTrigram": "DEF",
+                    "cost": 4,
+                    "requirements": {
+                        "PAC": 3
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "FAI 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "Ignore them",
+                    "targetTrigram": null,
+                    "cost": 4
+                }
+            ]
+        },
+        {
+            "name": "Spaceship state report",
+            "description": "You are still waiting for the spaceship report",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "Send us to investigate",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "SEC": 3,
+                        "ANA": 3
+                    }
+                },
+                {
+                    "description": "Everything is alright",
+                    "targetTrigram": "ENG",
+                    "cost": 4,
+                    "requirements": {
+                        "MAI": 3
+                    }
+                },
+                {
+                    "description": "Give them a delay",
+                    "targetTrigram": null,
+                    "cost": 6
+                }
+            ]
+        },
+        {
+            "name": "Android riot",
+            "description": "Android has started to attack crew member, they think human is a flew that must be destroyed",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "Send us to destroy these toaster",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 9
+                    }
+                },
+                {
+                    "description": "We should be able to cut their power source",
+                    "targetTrigram": "ENG",
+                    "cost": 4,
+                    "requirements": {
+                        "REP": 3,
+                        "ANA": 3
+                    }
+                },
+                {
+                    "description": "Wait until they are unloaded",
+                    "targetTrigram": null,
+                    "cost": 12,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 10"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Material crisis",
+            "description": "Androids need a lot of materials to be repaired, we are begining to be in lack of raw material",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We don't need android, let us recycle them",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 3
+                    }
+                },
+                {
+                    "description": "Don't worry we will get new materials",
+                    "targetTrigram": "ENG",
+                    "cost": 2,
+                    "requirements": {
+                        "MAI": 6
+                    }
+                },
+                {
+                    "description": "This must be an error in the inventory, ignore this",
+                    "targetTrigram": null,
+                    "cost": 6
+                }
+            ]
+        },
+        {
+            "name": "Unknown disease detected",
+            "description": "Crew member are begining to complain about headache and yellow turning skin",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "This must be a new disease, we must hide this to population and kill them before contamination spread itself",
+                    "targetTrigram": "DEF",
+                    "cost": 4,
+                    "requirements": {
+                        "SEC": 3
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We must analyse them and find a cure",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "MED": 3
+                    }
+                },
+                {
+                    "description": "This is a message from God, we need to sacrifice two Policeman to be saved",
+                    "targetTrigram": "FAI",
+                    "cost": 4,
+                    "requirements": {
+                        "REL": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "SEC 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "This is probably nothing, give them aspirin and wait",
+                    "targetTrigram": null,
+                    "cost": 6,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Love triangle",
+            "description": "Two crew member have fight because they love the same person",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We should lock them both in jail",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "SEC": 3
+                    }
+                },
+                {
+                    "description": "This is insane, they must be converted to our god",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "ANY": 3
+                    }
+                },
+                {
+                    "description": "We should let them fix this on their own",
+                    "targetTrigram": null,
+                    "cost": 4
+                }
+            ]
+        },
+        {
+            "name": "Breach in the hull detected",
+            "description": "An asteroid has damaged the hull we must fix this",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "You must send us to repair that hull",
+                    "targetTrigram": "OXY",
+                    "cost": 2,
+                    "requirements": {
+                        "ANY": 6
+                    }
+                },
+                {
+                    "description": "You must authorize me to send a space patrol to destroy asteroid",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 9
+                    }
+                },
+                {
+                    "description": "This is a little scratch, it should be fine",
+                    "targetTrigram": null,
+                    "cost": 12
+                }
+            ]
+        },
+        {
+            "name": "Plants on fire",
+            "description": "A fire has been declared in oxygen production room",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "You must send someone to stop that fire",
+                    "targetTrigram": "OXY",
+                    "cost": 2,
+                    "requirements": {
+                        "ANY": 6
+                    }
+                },
+                {
+                    "description": "Send us to find out who light up that fire",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "ANA": 9
+                    }
+                },
+                {
+                    "description": "Pretend that there is no fire",
+                    "targetTrigram": null,
+                    "cost": 12,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Mad men journey",
+            "description": "A mad men is attacking random crewmate in inferior levels",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "Send us to stop this threat",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 6
+                    }
+                },
+                {
+                    "description": "This man need us, we must try to help him",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "PSY": 6
+                    }
+                },
+                {
+                    "description": "This man has been forsaken by god, we must convert him",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 6
+                    }
+                },
+                {
+                    "description": "This was probably a temporary madness, leave it alone",
+                    "targetTrigram": null,
+                    "cost": 6
+                }
+            ]
+        }
     ]
 }
