@@ -8,12 +8,214 @@ from PyQt5.QtCore import QObject, QThread, pyqtSignal, QFile
 
 from PyQt5.QtWidgets import QLabel, QComboBox, QPushButton, QFileDialog
 import json
+import pprint
 
-
-class UI(QtWidgets.QMainWindow):
+class EditorSelector(QtWidgets.QMainWindow):
     def __init__(self):
-        super(UI, self).__init__()
-        uic.loadUi('qt_ui/main.ui', self)
+        super(EditorSelector, self).__init__()
+        uic.loadUi('qt_ui/editorSelector.ui', self)
+
+        self.openEditorButton.clicked.connect(self.openEditor)
+        self.show()
+
+    def openEditor(self):
+        try:
+
+            if self.leaderRadioButton.isChecked():
+                self.window = LeaderEditor()
+            else:
+                self.window = EventEditor()
+            window.show()
+            self.hide()
+        except Exception as e:
+            print(e)
+
+
+class EventEditor(QtWidgets.QMainWindow):
+    def __init__(self):
+        try:
+            super(EventEditor, self).__init__()
+            uic.loadUi('qt_ui/eventEditor.ui', self)
+            self.event_idx = 0
+            self.selectFileButton.clicked.connect(self.select_file)
+
+            self.addChoiceButton.clicked.connect(self.add_choice)
+
+            self.reduceButton.clicked.connect(self.reduce_event_idx)
+            self.increaseButton.clicked.connect(self.increase_event_idx)
+
+            self.addRequirementButton.clicked.connect(self.add_requirement)
+            self.resetRequirementButton.clicked.connect(self.reset_requirements)
+            self.updateJsonButton.clicked.connect(self.update_json)
+            self.endIdxButton.clicked.connect(self.go_to_end_idx)
+
+            self.addEffectButton.clicked.connect(self.add_effects)
+            self.resetEffectButton.clicked.connect(self.reset_effects)
+            self.reset_requirements()
+            self.reset_effects()
+
+            self.show()
+        except Exception as e:
+            print(e)
+
+
+    def select_file(self):
+        # fname = QFileDialog.getOpenFileName(self, 'Open file', '', 'Images (*.json)')
+        fname = QFileDialog.getOpenFileName(self, 'Open file', '')
+        self.selectedFilePath.setText(fname[0])
+        if fname[0].endswith('.json'):
+            self.load_json(fname[0])
+            self.statusMessage.setText("")
+        else:
+            self.statusMessage.setText("ERROR: Loaded file must .json")
+
+    def load_json(self, path):
+        print("OK")
+        self.restore_empty_UI()
+        self.event_idx = 0
+        with open(path, "r") as f:
+            try:
+                self.event_data = json.load(f)
+                self.switch_event(False)
+            except JSONDecodeError as e:
+                self.event_data = list()
+                self.switch_event(True)
+
+    def restore_empty_UI(self):
+        self.textName.setPlainText("")
+        self.textDescription.setPlainText("")
+
+        self.choices.setPlainText("")
+
+        self.textChoiceDescription.setPlainText("")
+        self.textChoiceCost.setPlainText("")
+
+        self.existingRequirements.setPlainText("")
+        self.textRequirementValue.setPlainText("")
+
+    def switch_event(self, is_new=False):
+        print(is_new)
+        try:
+            if is_new == False:
+                print(self.event_idx)
+                self.textName.setPlainText(self.event_data[self.event_idx]["name"])
+                self.textDescription.setPlainText(self.event_data[self.event_idx]["description"])
+
+                self.isCrisisCheckbox.setCheckState(self.event_data[self.event_idx]["isCrisis"])
+                self.choices.setPlainText(str(self.event_data[self.event_idx]["choices"]))
+                self.reduceButton.setEnabled(True)
+                self.increaseButton.setEnabled(True)
+            else:
+                self.init_base_structure()
+                self.restore_empty_UI()
+                self.reduceButton.setEnabled(True)
+                self.increaseButton.setEnabled(True)
+        except Exception as e:
+            print(e)
+
+    def add_choice(self):
+        try:
+            if self.textChoiceDescription.toPlainText() == "" or self.textChoiceCost.toPlainText() == "":
+                self.statusMessage.setText("ERROR: name, description and cost must be filled")
+            else:
+                tmpdict = dict()
+                tmpdict["description"] = self.textChoiceDescription.toPlainText()
+                tmpdict["targetTrigram"] = self.choiceTrigram.currentText()
+                tmpdict["cost"] = self.textChoiceCost.toPlainText()
+                tmpdict["requirements"] = self.requirements
+                tmpdict["effects"] = self.effects
+                self.event_data[self.event_idx]["choices"].append(tmpdict)
+
+                self.choices.setPlainText(str(self.event_data[self.event_idx]["choices"]))
+        except Exception as e:
+            print(e)
+
+
+
+    def add_requirement(self):
+        try:
+            if self.textRequirementValue.toPlainText() == "":
+                self.statusMessage.setText("ERROR: requirement must be filled must be filled")
+            else:
+                self.requirements[self.requirementKeyComboBox.currentText()] = self.textRequirementValue.toPlainText()
+                self.existingRequirements.setPlainText(str(self.requirements))
+        except Exception as e:
+            print(e)
+
+    def reset_requirements(self):
+        self.requirements = dict()
+        self.existingRequirements.setPlainText("")
+
+    def add_effects(self):
+        try:
+            if self.textMethodName.toPlainText() == "":
+                self.statusMessage.setText("ERROR: textMethodName must be filled must be filled")
+            else:
+                tmpdict = dict()
+                tmpdict["methodName"] = self.textMethodName.toPlainText()
+                tmpdict["argument"] = self.textArgument.toPlainText()
+                self.effects.append(tmpdict)
+                self.existingEffects.setPlainText(str(self.effects))
+        except Exception as e:
+            print(e)
+
+    def reset_effects(self):
+        self.effects = list()
+        self.existingEffects.setPlainText("")
+
+    def go_to_end_idx(self):
+        self.event_idx = len(self.event_data) - 1
+        self.eventIdx.setPlainText(str(self.event_idx))
+        self.switch_event(False)
+
+    def reduce_event_idx(self):
+        self.reset_effects()
+        self.update_json()
+        self.reset_requirements()
+        self.statusMessage.setText("")
+        if self.event_idx > 0:
+            self.event_idx -= 1
+            self.eventIdx.setPlainText(str(self.event_idx))
+            self.switch_event(False)
+
+    def increase_event_idx(self):
+        try:
+            self.update_json()
+            self.reset_effects()
+            self.reset_requirements()
+            self.statusMessage.setText("")
+            self.event_idx += 1
+            self.eventIdx.setPlainText(str(self.event_idx))
+            if self.event_idx <= len(self.event_data) - 1:
+                self.switch_event(False)
+            else:
+                self.switch_event(True)
+        except Exception as e:
+            print(e)
+
+    def init_base_structure(self):
+        self.event_data.append(dict())
+        self.event_data[self.event_idx]["choices"] = list()
+
+    def update_json(self):
+        try:
+            self.event_data[self.event_idx]["name"] = self.textName.toPlainText()
+            self.event_data[self.event_idx]["description"] = self.textDescription.toPlainText()
+            self.event_data[self.event_idx]["isCrisis"] = self.isCrisisCheckbox.isChecked()
+
+            with open(self.selectedFilePath.text(), "w") as f:
+                json.dump(self.event_data, f)
+            self.statusMessage.setText("SUCCESS:")
+        except Exception as e:
+            self.statusMessage.setText("ERROR:")
+            print(e)
+
+
+
+class LeaderEditor(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(LeaderEditor, self).__init__()
+        uic.loadUi('qt_ui/leaderEditor.ui', self)
 
 
         self.selectFileButton.clicked.connect(self.select_file)
@@ -120,8 +322,6 @@ class UI(QtWidgets.QMainWindow):
         self.statusMessage.setText("")
         self.leader_idx += 1
         self.leaderIdx.setPlainText(str(self.leader_idx))
-        print(self.leader_idx)
-        print(len(self.leader_data) - 1)
         if self.leader_idx <= len(self.leader_data) - 1:
             self.switch_leader(False)
         else:
@@ -139,7 +339,6 @@ class UI(QtWidgets.QMainWindow):
     def switch_leader(self, is_new=False):
         if is_new == False:
             try:
-                print("HERE")
                 self.trigram.setCurrentText(self.leader_data[self.leader_idx]["trigram"])
                 self.textName.setPlainText(self.leader_data[self.leader_idx]["leaderName"])
                 self.textDomainName.setPlainText(self.leader_data[self.leader_idx]["domainName"])
@@ -228,8 +427,11 @@ class UI(QtWidgets.QMainWindow):
             print(e)
 
 
+
+
+
 if __name__ == '__main__':
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
     app = QtWidgets.QApplication(sys.argv)
-    window = UI()
+    window = EditorSelector()
     app.exec_()
