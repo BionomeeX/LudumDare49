@@ -116,13 +116,8 @@ namespace Unstable
 
         private Model.Card _staffCard = new()
         {
-            Name = "Staff",
-            Effects = new()
-            {
-                { "NEU", _staffPower }
-            }
+            Name = "Staff"
         };
-        private const int _staffPower = 5;
 
         public void NextEvent()
         {
@@ -185,7 +180,7 @@ namespace Unstable
         {
             return new()
             {
-                Description = $"Earn {(card.Item1 == "NEU" ? count * _staffPower : count)} new {card.Item2.Name}",
+                Description = $"Earn {count} new {card.Item2.Name}",
                 TargetTrigram = leader?.Trigram,
                 Cost = 0,
                 Requirements = new(),

@@ -8,7 +8,7 @@ namespace Unstable.UI
     public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
-        private TMP_Text _title;
+        private TMP_Text _title, _description;
 
         private Vector3 _target;
         private RectTransform _canvas;
@@ -24,6 +24,7 @@ namespace Unstable.UI
         public void Init(Model.Card card)
         {
             _title.text = card.Name;
+            _description.text = card.Effects == null ? "" : string.Join("\n", card.Effects.Select(e => GameManager.Instance.GetEffect(e.Key) + ": " + e.Value));
             name = "Card " + card.Name;
         }
 
