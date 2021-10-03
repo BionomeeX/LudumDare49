@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Unstable.UI
 {
@@ -12,7 +12,7 @@ namespace Unstable.UI
         private RectTransform _eventPanel;
 
         [SerializeField]
-        private Text _title, _description;
+        private TMP_Text _title, _description;
 
         [SerializeField]
         private GameObject _choicePrefab; // card

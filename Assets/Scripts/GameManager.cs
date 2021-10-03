@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 using Unstable.Model;
+using Unstable.SO;
 using Unstable.UI;
 
 namespace Unstable
@@ -31,6 +33,9 @@ namespace Unstable
         /// Value: Full name
         /// </summary>
         private Dictionary<string, string> _effects;
+
+        [SerializeField]
+        private Image _panelLights;
 
         /// <summary>
         /// Get a Leader object from its trigram
@@ -62,6 +67,9 @@ namespace Unstable
         [SerializeField]
         private EventLoader _eventLoader;
 
+        [SerializeField]
+        private GameInfo _info;
+
         public string GetEffect(string trigram)
             => _effects[trigram];
 
@@ -81,6 +89,29 @@ namespace Unstable
             // Split events between the standards and crisis ones
             _standardEvents = events.Where(x => !x.IsCrisis).ToList();
             _crisisEvents = events.Where(x => x.IsCrisis).ToList();
+
+            // Make sure things aren't active on game start
+            _panelLights.gameObject.SetActive(false);
+            _eventLoader.UnLoad();
+        }
+
+        private const float _lightOffset = .005f;
+        private float _lightObjective = 0.5f;
+        private void FixedUpdate()
+        {
+            var oldVal = _panelLights.color.a;
+            _panelLights.color = new Color(
+                _panelLights.color.r,
+                _panelLights.color.g,
+                _panelLights.color.b,
+                _panelLights.color.a + (_panelLights.color.a > _lightObjective ? -_lightOffset : _lightOffset)
+            );
+
+            if ((oldVal < _lightObjective && _lightObjective < _panelLights.color.a) ||
+                (oldVal > _lightObjective && _lightObjective > _panelLights.color.a))
+            {
+                _lightObjective = Random.Range(.5f, 1f);
+            }
         }
 
         private Model.Card _staffCard = new()
@@ -95,11 +126,12 @@ namespace Unstable
 
         public void NextEvent()
         {
-            var isCrisis = _numberOfRoundsWithoutCrisis > 5;
+            var isCrisis = _numberOfRoundsWithoutCrisis > _info.MinTurnBeforeCrisis;
 
             if (isCrisis)
             {
                 _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+                _numberOfRoundsWithoutCrisis = 0;
             }
             else
             {
@@ -115,9 +147,9 @@ namespace Unstable
                 tmp = allUnits[Random.Range(0, allUnits.Count)];
                 var choice2 = CreateEventChoice(tmp.leader, tmp.card, 1);
 
-                if (Random.value < .75f) // We get "normal" unit instead of specialized one
+                if (Random.value < _info.StaffMemberChance) // We get "normal" unit instead of specialized one
                 {
-                    var unit = CreateEventChoice(null, ("NEU", _staffCard), 2);
+                    var unit = CreateEventChoice(null, ("NEU", _staffCard), _info.StaffCount);
                     if (Random.value < .5f)
                     {
                         choice1 = unit;
@@ -140,10 +172,12 @@ namespace Unstable
             }
 
             _numberOfRoundsWithoutCrisis++;
+            _panelLights.gameObject.SetActive(true);
         }
 
         public void EndEvent()
         {
+            _panelLights.gameObject.SetActive(false);
             _eventLoader.UnLoad();
         }
 

@@ -22,7 +22,7 @@
             },
             {
                 "description": "Just let him be",
-                "targetTrigram": "ENG",
+                "targetTrigram": null,
                 "cost": 3,
                 "effects": [
                     {

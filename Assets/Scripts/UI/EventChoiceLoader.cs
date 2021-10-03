@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,13 +10,13 @@ namespace Unstable.UI
     public class EventChoiceLoader : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         [SerializeField]
-        private Text _title, _description;
+        private TMP_Text _title, _description;
 
         [SerializeField]
         private GameObject _requirementPanel;
 
         [SerializeField]
-        private Text _requirementText;
+        private TMP_Text _requirementText;
 
         private Image _image;
         private Color _baseColor;
@@ -30,13 +31,16 @@ namespace Unstable.UI
 
         public void Init(EventChoice choice)
         {
-            _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
+            if (choice.TargetTrigram != null)
+            {
+                _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
+            }
             _description.text = choice.Description;
             _choiceData = choice;
 
-            if (choice.Requirements.Any())
+            if (choice.Requirements != null && choice.Requirements.Any())
             {
-                _requirementPanel.SetActive(false);
+                _requirementPanel.SetActive(true);
                 _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
                 {
                     return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
