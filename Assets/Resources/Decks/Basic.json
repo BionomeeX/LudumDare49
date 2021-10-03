@@ -693,7 +693,7 @@
             "choices": [
                 {
                     "description": "We will invest in this",
-                    "targetTrigram": "SCI",
+                    "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
                         "BIO": "MED"
@@ -713,7 +713,7 @@
             "choices": [
                 {
                     "description": "We will invest in this",
-                    "targetTrigram": "SCI",
+                    "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
                         "PAC": "MED"
@@ -733,7 +733,7 @@
             "choices": [
                 {
                     "description": "We will invest in this",
-                    "targetTrigram": "SCI",
+                    "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
                         "AIS": "MED"
@@ -741,6 +741,32 @@
                 },
                 {
                     "description": "We don't have the time and resources",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Formation",
+            "description": "We can train an unit into a new specialization",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "Let's take this opportunity",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "ANY": "ONE"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 1"
+                        }
+                    ]
+                },
+                {
+                    "description": "There is no need",
                     "targetTrigram": null,
                     "cost": "NONE"
                 }

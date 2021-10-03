@@ -68,6 +68,7 @@ namespace Unstable
         {
             return value.ToUpperInvariant() switch
             {
+                "ONE" => 1,
                 "LOW" => 3,
                 "MED" => 6,
                 "HIGH" => 9,
@@ -272,40 +273,47 @@ namespace Unstable
             }
             else
             {
-                // Generate a choice between 2 units we can earn
-                List<(Leader leader, (string, Model.Card) card)> allUnits = _leaders.SelectMany(leader =>
+                if (_tutorialEvents.Count == 0 && Random.value < .5f) // Random events are only for when we are done with the tutorial
                 {
-                    return leader.Cards.Select(x => (leader, (x.Key, x.Value)));
-                }).ToList();
-
-                var tmp = allUnits[Random.Range(0, allUnits.Count)];
-                var choice1 = CreateEventChoice(tmp.leader, tmp.card, 1);
-                allUnits.Remove(tmp);
-                tmp = allUnits[Random.Range(0, allUnits.Count)];
-                var choice2 = CreateEventChoice(tmp.leader, tmp.card, 1);
-
-                if (Random.value < _info.StaffMemberChance) // We get "normal" unit instead of specialized one
-                {
-                    var unit = CreateEventChoice(null, ("NEU", _staffCard), _info.StaffCount);
-                    if (Random.value < .5f)
-                    {
-                        choice1 = unit;
-                    }
-                    else
-                    {
-                        choice2 = unit;
-                    }
+                    _eventLoader.Load(_standardEvents[Random.Range(0, _standardEvents.Count)]);
                 }
-
-                _eventLoader.Load(
-                    new()
+                else
+                {
+                    // Generate a choice between 2 units we can earn
+                    List<(Leader leader, (string, Model.Card) card)> allUnits = _leaders.SelectMany(leader =>
                     {
-                        Name = "New personnel available",
-                        Description = "New personnel is available, select which one you want to add to your team.",
-                        IsCrisis = false,
-                        Choices = new EventChoice[] { choice1, choice2 }
+                        return leader.Cards.Select(x => (leader, (x.Key, x.Value)));
+                    }).ToList();
+
+                    var tmp = allUnits[Random.Range(0, allUnits.Count)];
+                    var choice1 = CreateEventChoice(tmp.leader, tmp.card, 1);
+                    allUnits.Remove(tmp);
+                    tmp = allUnits[Random.Range(0, allUnits.Count)];
+                    var choice2 = CreateEventChoice(tmp.leader, tmp.card, 1);
+
+                    if (Random.value < _info.StaffMemberChance) // We get "normal" unit instead of specialized one
+                    {
+                        var unit = CreateEventChoice(null, ("NEU", _staffCard), _info.StaffCount);
+                        if (Random.value < .5f)
+                        {
+                            choice1 = unit;
+                        }
+                        else
+                        {
+                            choice2 = unit;
+                        }
                     }
-                );
+
+                    _eventLoader.Load(
+                        new()
+                        {
+                            Name = "New personnel available",
+                            Description = "New personnel is available, select which one you want to add to your team.",
+                            IsCrisis = false,
+                            Choices = new EventChoice[] { choice1, choice2 }
+                        }
+                    );
+                }
                 _numberOfRoundsWithoutCrisis++;
             }
 
@@ -344,6 +352,11 @@ namespace Unstable
             if (leaderTrigram == null)
             {
                 return _staffCard;
+            }
+            if (leaderTrigram == "ANY")
+            {
+                var cards = _leaders[Random.Range(0, _leaders.Count)].Cards.ToArray();
+                return cards[Random.Range(0, cards.Length)].Value;
             }
             return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
         }

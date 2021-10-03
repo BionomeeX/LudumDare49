@@ -44,6 +44,10 @@ namespace Unstable
                         string[] s = argument.Split(' ');
                         var trigram = s[0];
                         var cardTrigram = s[1];
+                        if (trigram == "ANY")
+                        {
+                            return $"Earn {s[2]} card";
+                        }
                         var card = GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram);
                         return $"Earn {s[2]} {card.Name.ToLowerInvariant()}";
                     }
