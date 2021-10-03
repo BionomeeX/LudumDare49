@@ -194,7 +194,7 @@
             },
             {
                 "description": "We could create a nutrition program to reduce food use",
-                "targetTrigram": "RAD",
+                "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
                     "BIO": 3
@@ -217,7 +217,7 @@
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
-                    "SEC": 5
+                    "ANA": 5
                 }
             },
             {
@@ -421,7 +421,7 @@
                 "targetTrigram": "MED",
                 "cost": 4,
                 "requirements": {
-                    "MED": 5
+                    "ANA": 5
                 }
             },
             {
@@ -519,7 +519,7 @@
                 "targetTrigram": "DEF",
                 "cost": 4,
                 "requirements": {
-                    "SEC": 5
+                    "ANA": 5
                 }
             },
             {
@@ -611,7 +611,7 @@
                 "targetTrigram": "MED",
                 "cost": 4,
                 "requirements": {
-                    "SUR": 5
+                    "ANA": 5
                 }
             },
             {
@@ -620,5 +620,61 @@
                 "cost": 15
             }
         ]
+    },
+    {
+      "name": "Coffee machine - major blackout",
+      "description": "The situation is critical, coffee machine are down",
+      "isCrisis": true,
+      "choices": [
+        {
+            "description": "We must create a device to directly inject coffee in our blood",
+            "targetTrigram": "ENG",
+            "cost": 5,
+            "requirements": {
+                "AIS": 3
+            }
+        },
+        {
+            "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
+            "targetTrigram": "MED",
+            "cost": 3,
+            "requirements": {
+                "PSY": 3
+            }
+        },
+        {
+            "description": "Whatever, tea machine are still up",
+            "targetTrigram": null,
+            "cost": 0
+        }
+      ]
+    },
+    {
+      "name": "A new cult has appear",
+      "description": "A cult has emmerged, people are thinking that the big answear is 42",
+      "isCrisis": true,
+      "choices": [
+        {
+            "description": "But what was the question, We should try investigate on this point ",
+            "targetTrigram": "ENG",
+            "cost": 5,
+            "requirements": {
+                "AIS": 3
+            }
+        },
+        {
+            "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
+            "targetTrigram": "MED",
+            "cost": 3,
+            "requirements": {
+                "PSY": 3
+            }
+        },
+        {
+            "description": "Whatever, tea machine are still up",
+            "targetTrigram": null,
+            "cost": 0
+        }
+      ]
     }
 ]
