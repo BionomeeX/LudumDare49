@@ -1,0 +1,48 @@
+{
+    "name": "Basic",
+    "description": "Basic cards deck",
+    "author": "BionomeeX (Ludum Dare 49)",
+    "cards": [
+        {
+            "name": "Psychosis",
+            "description": "A crew member lost his mind and is now attacking anyone on sight",
+            "isCrisis": true,
+            "deck": "basic",
+            "choices": [
+                {
+                    "description": "He must have lost his faith in God",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 1"
+                        }
+                    ]
+                },
+                {
+                    "description": "We must prioritizing stopping him",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 6
+                    }
+                },
+                {
+                    "description": "Just let him be",
+                    "targetTrigram": null,
+                    "cost": 4,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                }
+            ]
+        },
+    ]
+}
