@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine.UI;
 
 namespace Unstable.Leaders
@@ -9,5 +10,6 @@ namespace Unstable.Leaders
         public string Trigram;
 
         public Image Sprite;
+        public TMP_Text DebugSanity;
     }
 }

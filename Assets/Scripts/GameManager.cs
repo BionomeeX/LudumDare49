@@ -148,10 +148,12 @@ namespace Unstable
 
             _leaderSanities = _leadersImages.Select(x =>
             {
+                var leader = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram);
+                x.DebugSanity.text = leader.MaxSanity.ToString();
                 return (x.Trigram, new LeaderSanity()
                 {
                     Image = x.Sprite,
-                    Sanity = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram).MaxSanity
+                    Sanity = leader.MaxSanity
                 });
             }).ToDictionary(x => x.Trigram, x => x.Item2);
 
@@ -218,10 +220,12 @@ namespace Unstable
             if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
             {
                 // Remove the object
+                _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
                 _leaderSanities[trigram].Image.gameObject.SetActive(false);
                 _leaderSanities.Remove(trigram);
                 return true;
             }
+            _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = _leaderSanities[trigram].Sanity.ToString();
             return false;
         }
 

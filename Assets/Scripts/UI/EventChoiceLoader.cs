@@ -137,6 +137,11 @@ namespace Unstable.UI
                         EventManager.DoAction(effect.MethodName, effect.Argument);
                     }
                 }
+
+                // Remove sanity
+                var cost = GameManager.CostToInt(_choiceData.Cost);
+                GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+
                 GameManager.Instance.EndEvent();
             }
         }
@@ -186,10 +191,6 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.RemoveCard(card);
                 UpdateRequirementDisplay();
-
-                // Remove sanity
-                var cost = GameManager.CostToInt(_choiceData.Cost);
-                GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
             }
         }
     }
