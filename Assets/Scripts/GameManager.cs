@@ -185,7 +185,7 @@ namespace Unstable
 
         public void RemoveRandomSanity(string exceptionTrigram, int cost)
         {
-            var trigrams = _leaders.Select(x => x.Trigram).ToList();
+            var trigrams = _leaderSanities.Select(x => x.Key).ToList();
             if (exceptionTrigram != null)
             {
                 trigrams.Remove(exceptionTrigram);
