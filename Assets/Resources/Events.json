@@ -1,11 +1,11 @@
 [
     {
         "name": "Psychosis",
-        "description": "A crew member lost his mind and is now attacking anyone on sight",
+        "description": "A crew member has lost his mind and he is now attacking anyone on sight.",
         "isCrisis": true,
         "choices": [
             {
-                "description": "He must have lost his faith in God",
+                "description": "He must have lost his faith in God.",
                 "targetTrigram": "FAI",
                 "cost": 2,
                 "requirements": {
@@ -13,7 +13,7 @@
                 }
             },
             {
-                "description": "We must prioritizing stopping him",
+                "description": "Stopping him is a priority!",
                 "targetTrigram": "DEF",
                 "cost": 2,
                 "requirements": {
@@ -21,7 +21,7 @@
                 }
             },
             {
-                "description": "Just let him be",
+                "description": "Just let him be.",
                 "targetTrigram": null,
                 "cost": 0,
                 "effects": [
@@ -35,11 +35,11 @@
     },
     {
         "name": "Influenza epidemic",
-        "description": "Medics report few case of influenza epidemic",
+        "description": "Medics report some case of influenza epidemic.",
         "isCrisis": true,
         "choices": [
             {
-                "description": "It must be a sign of God, infected must pray",
+                "description": "It must be a sign of God, infected must pray.",
                 "targetTrigram": "FAI",
                 "cost": 2,
                 "requirements": {
@@ -47,7 +47,7 @@
                 }
             },
             {
-                "description": "Everyone should be vaccinated",
+                "description": "Everyone should be vaccinated.",
                 "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
@@ -55,7 +55,7 @@
                 }
             },
             {
-                "description": "We should put infected in quarantine",
+                "description": "We should put infected in quarantine.",
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
@@ -63,19 +63,19 @@
                 }
             },
             {
-                "description": "We should wait",
+                "description": "We should wait.",
                 "targetTrigram": null,
                 "cost": 0
             }
         ]
     },
     {
-        "name": "The vigilanty",
-        "description": "Their is rumours about a guy doing justice on his own",
+        "name": "The vigilante",
+        "description": "Their is rumours about a guy doing justice on his own.",
         "isCrisis": true,
         "choices": [
             {
-                "description": "This kind of attitude must be nip in the bud",
+                "description": "This kind of attitude must be nipped in the bud.",
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
@@ -83,7 +83,7 @@
                 }
             },
             {
-                "description": "He is doing a great job, we should give him better gadgets",
+                "description": "He is doing a great job, we should give him better gadgets.",
                 "targetTrigram": "ENG",
                 "cost": 2,
                 "requirements": {
@@ -91,19 +91,19 @@
                 }
             },
             {
-                "description": "This is just rumours",
+                "description": "These are just rumours.",
                 "targetTrigram": null,
                 "cost": 0
             }
         ]
     },
     {
-        "name": "A new cult has appear",
-        "description": "More and more people are beliving in the the god of fire",
+        "name": "A new cult has appear.",
+        "description": "More and more people are beliving in the the god of fire.",
         "isCrisis": true,
         "choices": [
             {
-                "description": "This is insanity, we should stop them",
+                "description": "This is insanity, we should stop them.",
                 "targetTrigram": "FAI",
                 "cost": 5,
                 "requirements": {
@@ -111,7 +111,7 @@
                 }
             },
             {
-                "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
+                "description": "This god of fire is a real risk of security fault, lets erase them from our ship.",
                 "targetTrigram": "DEF",
                 "cost": 2,
                 "requirements": {
