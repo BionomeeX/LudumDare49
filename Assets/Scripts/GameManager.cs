@@ -197,16 +197,21 @@ namespace Unstable
 
             while (cost > 0)
             {
-                LowerSectorSanity(trigrams[Random.Range(0, trigrams.Count)], 1);
+                var index = Random.Range(0, trigrams.Count);
+                if (LowerSectorSanity(trigrams[index], 1))
+                {
+                    // Died
+                    trigrams.RemoveAt(index);
+                }
             }
         }
 
-        public void LowerSectorSanity(string trigram, int cost)
+        public bool LowerSectorSanity(string trigram, int cost)
         {
             if (_leaderSanities[trigram].Sanity <= 0)
             {
                 // Already dead...
-                return;
+                return true;
             }
 
             _leaderSanities[trigram].Sanity -= cost;
@@ -215,7 +220,9 @@ namespace Unstable
                 // Remove the object
                 _leaderSanities[trigram].Image.gameObject.SetActive(false);
                 _leaderSanities.Remove(trigram);
+                return true;
             }
+            return false;
         }
 
         public bool IsLeaderAlive(string trigram)
