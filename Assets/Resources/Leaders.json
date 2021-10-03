@@ -16,8 +16,8 @@
                 "We need to pay attention to each other more",
                 "We can still save the crew if we are careful",
                 "We already lost some crewmembers... You need to be more careful in your choices",
-                "Don't give up !",
-                "We must redouble our efforts "
+                "Don't give up!",
+                "We must redouble our efforts"
             ],
             "0": [
                 "No... It can't be...",
@@ -88,8 +88,8 @@
                 "...",
                 "Y-yes, we are handing the situation",
                 "The engineering department is handling the situation",
-                "Everything is doing well",
-                "Engineering department is fully operational"
+                "Everything is going well",
+                "Of, of course, the engineering department is operational"
             ],
             "0": [
                 "...",
@@ -97,7 +97,7 @@
                 "It...It was a mistake...",
                 "I... I shouln't have...",
                 "My bad...",
-                "Please accept my resignation"
+                "Accept my resignation"
             ]
         },
         "sentencesCrisis": {
@@ -105,8 +105,8 @@
                 "...",
                 "Don't worry about us",
                 "...It's okay, you can take care of the others departments",
-                "We are doing fine",
-                "Everything is doing well",
+                "We are doing fine on our own",
+                "Everything is going well",
                 "I don't think there is good or bad situation"
             ],
             "0": [
@@ -114,7 +114,7 @@
                 "We are doomed...",
                 "There is no escape...",
                 "It's over...",
-                "I made a mistake, I'm sorry"
+                "I made a mistake..."
             ]
         },
         "cards": {
@@ -151,7 +151,7 @@
                 "Everything in order",
                 "On the lookout",
                 "Ready to fire",
-                "ATTENTION !",
+                "ATTENTION!",
                 "My gun does not jam"
             ],
             "3": [
@@ -164,9 +164,9 @@
             "0": [
                 "This vessel is a mess, we need order!",
                 "You are the captain of this ship, impose yourself!",
-                "This attitude is innaceptable!",
+                "Your attitude is innaceptable!",
                 "Impose yourself, prove me that you are worthy of this ship!",
-                "Open your eyes, it's maybe the last time to impose yourself!"
+                "Open your eyes, it's maybe the last chance to impose yourself!"
             ]
         },
         "sentencesCrisis": {
@@ -176,10 +176,10 @@
                 "Ready to deploy",
                 "Our objectif is clear, we can do it",
                 "We will bring order back, give us this job",
-                "Ready to round up the usual suspect"
+                "Ready to round up the usual suspects"
             ],
             "4": [
-                "Most important thing is order, let us do that",
+                "The most important thing is order, let us do that",
                 "We can't let distruptions continue, security will handle this",
                 "No more stonewalling, send us",
                 "My mens are still waiting your order, sir",
@@ -227,7 +227,7 @@
             "7": [
                 "You are doing well",
                 "Continue to be faithful",
-                "Congratulation son, god will be proud",
+                "Congratulation son, God will be proud",
                 "I carry a lot of hope on you"
             ],
             "3": [
@@ -241,8 +241,7 @@
                 "It's not good, you must believe, it's the only escape",
                 "See the light of God, this is the only answer",
                 "My son, the path you are taking is wrong",
-                "God is still beliving in you, don't loose it",
-                "Heretic, at the stake !"
+                "You can't stop believe in God"
             ]
         },
         "sentencesCrisis": {
@@ -262,7 +261,7 @@
             ],
             "0": [
                 "No it's not good, you need to believe, let faith handle it!",
-                "You need to repent ! You need to confess your sins and start again to belive in us",
+                "You need to repent! You need to confess your sins and start again to belive in us",
                 "Heretic, repent your sin and choose me as the hand of god",
                 "God is talking threw me, only me is able to solve this",
                 "Your lack of faith in us is incomprehensible, only God can save us all"
@@ -353,13 +352,13 @@
             "3": [
                 "Don't forget that by keeping me alive, the whole ship survive",
                 "Don't deny us too many requests, it would be bad for all us me",
-                "I'm going to make you an offer you can't refuse : oxygen",
+                "I'm going to make you an offer you can't refuse: oxygen",
                 "When you speak of oxygen, it's like money, everybody is concerned, don't forget that"
             ],
             "0": [
                 "Do you really intend to kill us all?",
                 "We are nearly out of oxygen, what are you planning to do after that?",
-                "Are you insane ? You need oxygen to live, this mean you need me!",
+                "Are you insane? You need oxygen to live, this mean you need me!",
                 "There is nothing more important than oxygen, we are in space for god sake"
             ]
         },
@@ -374,8 +373,8 @@
             ],
             "4": [
                 "You're going in the wrong way, oxygen needs more fundings",
-                "Science first year : every humanbeing need oxygen to live",
-                "What didn't you understand in : If you don't choose me, we all gonna die ?",
+                "Science first year: every humanbeing need oxygen to live",
+                "What didn't you understand in: If you don't choose me, we all gonna die?",
                 "There is nothing more important than oxygen, we are in space for god sake",
                 "What we've got here is failure to communicate, you need me, you choose me."
             ],
@@ -383,8 +382,8 @@
                 "There is only one solution if you want to survive and you know it",
                 "Don't be a fool, you need to chose me if you want to live!",
                 "The oxygen problem is not the problem, the problem is your attitude about the problem",
-                "You can't handle the thruth : Oxygen is what you need",
-                "If you still not choosing me, we all going to die"
+                "You can't handle the truth: Oxygen is what you need",
+                "If you keep not choosing me, we all going to die"
             ]
         },
         "cards": {}
