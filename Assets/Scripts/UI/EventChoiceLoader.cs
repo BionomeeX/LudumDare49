@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,13 +10,13 @@ namespace Unstable.UI
     public class EventChoiceLoader : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         [SerializeField]
-        private Text _title, _description;
+        private TMP_Text _title, _description;
 
         [SerializeField]
         private GameObject _requirementPanel;
 
         [SerializeField]
-        private Text _requirementText;
+        private TMP_Text _requirementText;
 
         private Image _image;
         private Color _baseColor;

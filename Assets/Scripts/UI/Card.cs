@@ -1,13 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Unstable.UI
 {
     public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
-        private Text _title;
+        private TMP_Text _title;
 
         private Vector2 _target;
         private RectTransform _canvas;
