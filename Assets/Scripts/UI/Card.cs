@@ -43,12 +43,14 @@ namespace Unstable.UI
         public void OnPointerDown(PointerEventData data)
         {
             _isHold = true;
-            _offset = (Vector2)transform.localPosition - data.position;
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            _offset = (Vector2)transform.localPosition - localPosition;
         }
 
         public void OnDrag(PointerEventData data)
         {
-            transform.localPosition = data.position + _offset;
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            transform.localPosition = localPosition + _offset;
         }
 
         public void OnPointerEnter(PointerEventData pointerEventData)
