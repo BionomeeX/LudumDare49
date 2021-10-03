@@ -216,12 +216,11 @@ namespace Unstable
             cardIns.Init(card);
             _cards.Add(cardIns);
 
-            var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / 2f;
+            var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / 1.5f;
             var half = _cards.Count / 2f;
             for (int i = 0; i < _cards.Count; i++)
             {
-                Debug.Log(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / 2f));
-                _cards[i].SetTarget(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / 2f));
+                _cards[i].SetTarget(Vector3.right * (i - half) * cardSize + Vector3.right * (cardSize / 1.5f));
             }
         }
     }
