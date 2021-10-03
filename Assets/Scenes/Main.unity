@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fac8b0e1e7da8eabe9ac2050c0793b93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87848a9c8ab931c4996c38f45c97f82f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1512,19 +1512,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7198857091959323669, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -136
+      value: -168
       objectReference: {fileID: 0}
     - target: {fileID: 7198857091959323669, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -535
+      value: -537
       objectReference: {fileID: 0}
     - target: {fileID: 7198857091959323669, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7198857091959323669, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.5
+      value: -41.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
