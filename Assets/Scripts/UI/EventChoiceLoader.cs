@@ -45,16 +45,23 @@ namespace Unstable.UI
             _requirements = new();
             _effects = new();
 
-            if (choice.Requirements != null && choice.Requirements.Any())
+            if (GameManager.Instance.IsLeaderAlive(choice.TargetTrigram))
             {
-                _requirements = choice.Requirements.Select(r =>
+                if (choice.Requirements != null && choice.Requirements.Any())
                 {
-                    return (r.Key, GameManager.RequirementToInt(r.Value));
-                }).ToDictionary(x => x.Item1, x => x.Item2);
+                    _requirements = choice.Requirements.Select(r =>
+                    {
+                        return (r.Key, GameManager.RequirementToInt(r.Value));
+                    }).ToDictionary(x => x.Item1, x => x.Item2);
+                }
+                if (choice.Effects != null && choice.Effects.Any())
+                {
+                    _effects = _choiceData.Effects.Select(x => EventManager.ActionToString(x.MethodName, x.Argument)).ToList();
+                }
             }
-            if (choice.Effects != null && choice.Effects.Any())
+            else
             {
-                _effects = _choiceData.Effects.Select(x => EventManager.ActionToString(x.MethodName, x.Argument)).ToList();
+                _requirements.Add("ALIVE", -1);
             }
 
             UpdateRequirementDisplay();
@@ -68,20 +75,29 @@ namespace Unstable.UI
                 _baseColor = _image.color;
             }
 
-            if (_choiceData.Requirements != null && _requirements.Any())
+            if (_requirements.ContainsKey("ALIVE"))
             {
                 _requirementPanel.SetActive(true);
-                _requirementText.text = string.Join("\n", _requirements.Select(r =>
-                {
-                    return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
-                }));
+                _requirementText.text = "The corresponding leader is not alive";
                 _image.color = new Color(_baseColor.r - .2f, _baseColor.g - .2f, _baseColor.b - .2f);
             }
             else
             {
-                _requirementPanel.SetActive(false);
-                _requirementText.text = "";
-                _image.color = _baseColor;
+                if (_choiceData.Requirements != null && _requirements.Any())
+                {
+                    _requirementPanel.SetActive(true);
+                    _requirementText.text = string.Join("\n", _requirements.Select(r =>
+                    {
+                        return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
+                    }));
+                    _image.color = new Color(_baseColor.r - .2f, _baseColor.g - .2f, _baseColor.b - .2f);
+                }
+                else
+                {
+                    _requirementPanel.SetActive(false);
+                    _requirementText.text = "";
+                    _image.color = _baseColor;
+                }
             }
 
             if (_choiceData.Effects != null && _effects.Any())
@@ -129,6 +145,11 @@ namespace Unstable.UI
         {
             UI.Card card = eventData.pointerDrag.GetComponent<UI.Card>();
 
+            if (_requirements.ContainsKey("ALIVE")) // The leader is dead, card not available
+            {
+                return;
+            }
+
             if (_requirements.Any())
             {
                 bool _areRequirementsSatisfied = false;
@@ -167,6 +188,8 @@ namespace Unstable.UI
                 UpdateRequirementDisplay();
 
                 // Remove sanity
+                var cost = GameManager.CostToInt(_choiceData.Cost);
+                GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
             }
         }
     }
