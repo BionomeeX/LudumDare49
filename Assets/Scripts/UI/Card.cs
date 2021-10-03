@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Unstable.SO;
+using System.Collections.Generic;
 
 namespace Unstable.UI
 {
-    public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class Card : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler
     {
         [SerializeField]
         private TMP_Text _title, _description;
@@ -20,6 +21,9 @@ namespace Unstable.UI
         // Drag and drop
         private bool _isHold;
         private Vector2 _offset;
+
+        public Dictionary<string, int> Effects {get; private set;}
+
         private void Start()
         {
             _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
@@ -30,6 +34,8 @@ namespace Unstable.UI
             _title.text = card.Name;
             _description.text = card.Effects == null ? "" : string.Join("\n", card.Effects.Select(e => GameManager.Instance.GetEffect(e.Key) + ": " + e.Value));
             name = "Card " + card.Name;
+
+            Effects = card.Effects;
 
             _background.sprite = _faction.CardBackground;
         }
@@ -48,20 +54,23 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerDown(PointerEventData data)
-        {
+        public void OnBeginDrag(PointerEventData eventData){
             _isHold = true;
-            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             _offset = (Vector2)transform.localPosition - localPosition;
+            this.GetComponent<Image>().raycastTarget = false;
+            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
+                el.raycastTarget = false;
+            }
         }
 
-        public void OnDrag(PointerEventData data)
+        public void OnDrag(PointerEventData eventData)
         {
-            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             transform.localPosition = localPosition + _offset;
         }
 
-        public void OnPointerEnter(PointerEventData pointerEventData)
+        public void OnPointerEnter(PointerEventData eventData)
         {
             transform.SetAsLastSibling();
             if (!_isHold)
@@ -70,7 +79,7 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerExit(PointerEventData pointerEventData)
+        public void OnPointerExit(PointerEventData eventData)
         {
             foreach (var elem in transform.parent.GetComponentsInChildren<RectTransform>().OrderBy(x => x.transform.position.x))
             {
@@ -82,9 +91,13 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerUp(PointerEventData eventData)
-        {
+        public void OnEndDrag(PointerEventData eventData){
             _isHold = false;
+            this.GetComponent<Image>().raycastTarget = true;
+            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
+                el.raycastTarget = true;
+            }
         }
+
     }
 }

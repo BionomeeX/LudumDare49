@@ -1,6 +1,6 @@
 [
     {
-        "name": "Help me find an event name",
+        "name": "Psychosis",
         "description": "A crew member lost his mind and is now attacking anyone on sight",
         "isCrisis": true,
         "choices": [
@@ -27,7 +27,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "2"
+                        "argument": "ANY 2"
                     }
                 ]
             }
@@ -56,14 +56,16 @@
             },
             {
                 "description": "We should put infected in quarantine",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "PAC": 3
+                }
+            },
+            {
+                "description": "Just lets wait",
                 "targetTrigram": null,
-                "cost": 0,
-                "effects": [
-                    {
-                        "methodName": "REM",
-                        "argument": 2
-                    }
-                ]
+                "cost": 0
             }
         ]
     },
@@ -73,7 +75,7 @@
         "isCrisis": true,
         "choices": [
             {
-                "description": "He must be stop, he is stilling our jobs",
+                "description": "This kind of attitude must be nip in the bud",
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
@@ -96,31 +98,253 @@
         ]
     },
     {
-      "name": "Coffee machine - major blackout",
-      "description": "The situation is critical, coffee machine are down",
-      "isCrisis": true,
-      "choices": [
-        {
-            "description": "We must create a device to directly inject coffee in our blood",
-            "targetTrigram": "ENG",
-            "cost": 5,
-            "requirements": {
-                "AIS": 3
+        "name": "A new cult has appear",
+        "description": "More and more people are beliving in the the god of fire",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "This is insanity, we should stop them",
+                "targetTrigram": "FAI",
+                "cost": 5,
+                "requirements": {
+                    "CUL": 5
+                }
+            },
+            {
+                "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
+                "targetTrigram": "SEC",
+                "cost": 2,
+                "requirements": {
+                    "SPE": 3
+                }
+            },
+            {
+                "description": "As long as they do not represent a threat lets ignore them",
+                "targetTrigram": null,
+                "cost": 0
             }
-        },
-        {
-            "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
-            "targetTrigram": "Med",
-            "cost": 3,
-            "requirements": {
-                "PSY": 3
+        ]
+    },
+    {
+        "name": "Explosion attack",
+        "description": "Report say that terrorist have escape, few people are injured",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "This attack must be taken seriously, send us to stop them",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "PAC": 5
+                },
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "ANY 2"
+                    }
+                ]
+            },
+            {
+                "description": "We must take care of injured people first",
+                "targetTrigram": "MED",
+                "cost": 2,
+                "requirements": {
+                    "SUR": 3
+                }
+            },
+            {
+                "description": "As long as the ship is intact...",
+                "targetTrigram": null,
+                "cost": 0,
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "ANY 2"
+                    }
+                ]
             }
-        },
-        {
-            "description": "Whatever, tea machine are still up",
-            "targetTrigram": null,
-            "cost": 0
-        }
-      ]
-    }
+        ]
+    },
+    {
+        "name": "Food shortage",
+        "description": "Food is eaten faster than created",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Population is higher than production, let us equalize this",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "PAC": 5
+                },
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "ANY 3"
+                    }
+                ]
+            },
+            {
+                "description": "We should make human sacrifices for better harvest",
+                "targetTrigram": "FAI",
+                "cost": 2,
+                "requirements": {
+                    "INQ": 3
+                }
+            },
+            {
+                "description": "We could create a nutrition program to reduce food use",
+                "targetTrigram": "RAD",
+                "cost": 2,
+                "requirements": {
+                    "BIO": 3
+                }
+            },
+            {
+                "description": "Lets hope this will stabilize",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Food intoxication",
+        "description": "Contaminated food has been eaten and people are begining to be sick",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We must send us to investigate and eliminate the contamination origin",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SPY": 5
+                }
+            },
+            {
+                "description": "We should fix this contamination, and dump contaminated food",
+                "targetTrigram": "ENG",
+                "cost": 2,
+                "requirements": {
+                    "WAR": 3
+                }
+            },
+            {
+                "description": "We must create artificial stomach to avoid this problems",
+                "targetTrigram": "MED",
+                "cost": 2,
+                "requirements": {
+                    "TRA": 3
+                }
+            },
+            {
+                "description": "Lets dump contaminated food",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "RIOT",
+        "description": "A riot breaks out in cafeteria",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "You must send us",
+                "targetTrigram": "DEF",
+                "cost": 12,
+                "requirements": {
+                    "PAC": 10
+                }
+            },
+            {
+                "description": "They will calm down eventually",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Cult need money",
+        "description": "To prepare the next cult celebration, cult need money",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We don't need this money, god does",
+                "targetTrigram": "FAI",
+                "cost": 5,
+                "requirements": {
+                    "PRI": 3
+                }
+            },
+            {
+                "description": "Let us take care of this",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "POL": 3
+                }
+            },
+            {
+                "description": "We don't have money for this",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Cult celebration",
+        "description": "The cult celebration has just begin",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Join us and celebrate",
+                "targetTrigram": "FAI",
+                "cost": 5,
+                "requirements": {
+                    "CUL": 3
+                }
+            },
+            {
+                "description": "You need to send us to avoid riot",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "POL": 3
+                }
+            },
+            {
+                "description": "Let them celebrate",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Spaceship state report",
+        "description": "You are still waiting for the spaceship report",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Send us to investigate",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SPY": 3
+                }
+            },
+            {
+                "description": "Everything is alright",
+                "targetTrigram": "ENG",
+                "cost": 4,
+                "requirements": {
+                    "MEC": 3
+                }
+            },
+            {
+                "description": "Give them a delay",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
 ]
