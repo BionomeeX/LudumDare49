@@ -63,9 +63,12 @@ namespace Unstable.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            foreach (var effect in _choiceData.Effects)
+            if (_choiceData.Effects != null)
             {
-                EventManager.DoAction(effect.MethodName, effect.Argument);
+                foreach (var effect in _choiceData.Effects)
+                {
+                    EventManager.DoAction(effect.MethodName, effect.Argument);
+                }
             }
             GameManager.Instance.EndEvent();
         }

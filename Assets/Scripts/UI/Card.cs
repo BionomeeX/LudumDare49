@@ -2,6 +2,8 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Unstable.SO;
 
 namespace Unstable.UI
 {
@@ -9,6 +11,9 @@ namespace Unstable.UI
     {
         [SerializeField]
         private TMP_Text _title, _description;
+
+        [SerializeField]
+        private Image _background;
 
         private Vector2 _target;
         private RectTransform _canvas;
@@ -18,11 +23,13 @@ namespace Unstable.UI
             _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
         }
 
-        public void Init(Model.Card card)
+        public void Init(Model.Card card, FactionInfo _faction)
         {
             _title.text = card.Name;
             _description.text = card.Effects == null ? "" : string.Join("\n", card.Effects.Select(e => GameManager.Instance.GetEffect(e.Key) + ": " + e.Value));
             name = "Card " + card.Name;
+
+            _background.sprite = _faction.CardBackground;
         }
 
         public void SetTarget(Vector2 pos)

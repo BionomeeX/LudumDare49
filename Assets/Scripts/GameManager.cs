@@ -37,6 +37,11 @@ namespace Unstable
         [SerializeField]
         private Image _panelLights;
 
+        [SerializeField]
+        private FactionInfo[] _factions;
+        [SerializeField]
+        private FactionInfo _neutralFaction;
+
         /// <summary>
         /// Get a Leader object from its trigram
         /// </summary>
@@ -72,6 +77,12 @@ namespace Unstable
 
         public string GetEffect(string trigram)
             => _effects[trigram];
+
+        private FactionInfo GetFactionInfo(string trigram)
+        {
+            var faction = _factions.FirstOrDefault(x => x.Trigram == trigram);
+            return faction ?? _neutralFaction;
+        }
 
         private void Start()
         {
@@ -204,11 +215,11 @@ namespace Unstable
             return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
         }
 
-        public void AddCard(Model.Card card)
+        public void AddCard(Model.Card card, string leaderTrigram)
         {
             var cardGo = Instantiate(_cardPrefab, _hand);
             var cardIns = cardGo.GetComponent<UI.Card>();
-            cardIns.Init(card);
+            cardIns.Init(card, GetFactionInfo(leaderTrigram));
             _cards.Add(cardIns);
 
             var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / 2f;

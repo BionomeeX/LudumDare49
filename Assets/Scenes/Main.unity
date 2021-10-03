@@ -328,6 +328,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelLights: {fileID: 358226334}
+  _factions:
+  - {fileID: 11400000, guid: b612f7f86c6f4ce42a6e57334eb28860, type: 2}
+  - {fileID: 11400000, guid: 9da6ace73aca3514382131e3eb45e1e8, type: 2}
+  - {fileID: 11400000, guid: 6929673613fd1884bb258b2ad1120b10, type: 2}
+  - {fileID: 11400000, guid: b1072d19a06e3ee40945de7c28660a91, type: 2}
+  - {fileID: 11400000, guid: c50412d2dfe93c240b1a8888a5bfe8d2, type: 2}
+  _neutralFaction: {fileID: 11400000, guid: 6e0bf67702db82a4ca2867710502cfb1, type: 2}
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
   _eventLoader: {fileID: 1757280077}

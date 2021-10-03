@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 5680029404031287474}
   _description: {fileID: 5517030436900838311}
+  _background: {fileID: 8241845079539277632}
 --- !u!1 &8241845080183374223
 GameObject:
   m_ObjectHideFlags: 0
