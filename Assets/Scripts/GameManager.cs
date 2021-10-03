@@ -25,6 +25,12 @@ namespace Unstable
         /// List of all the events
         /// </summary>
         private List<Model.Event> _standardEvents, _crisisEvents;
+        /// <summary>
+        /// Effects
+        /// Key: Trigram
+        /// Value: Full name
+        /// </summary>
+        private Dictionary<string, string> _effects;
 
         /// <summary>
         /// Get a Leader object from its trigram
@@ -56,11 +62,15 @@ namespace Unstable
         [SerializeField]
         private EventLoader _eventLoader;
 
+        public string GetEffect(string trigram)
+            => _effects[trigram];
+
         private void Start()
         {
             // Load JSON objects
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
             var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
+            _effects = JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("Effects").text);
 
             // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");

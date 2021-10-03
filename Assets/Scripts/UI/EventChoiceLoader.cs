@@ -39,8 +39,7 @@ namespace Unstable.UI
                 _requirementPanel.SetActive(false);
                 _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
                 {
-                    var s = r.Key.Split(' ');
-                    return GameManager.Instance.GetCard(s[0], s[1]).Name + ": " + r.Value;
+                    return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
                 }));
             }
             else

@@ -1,28 +1,35 @@
 [
     {
-        "name": "Something bad happened",
-        "description": "Something bad happened in this sample event",
+        "name": "Help me find an event name",
+        "description": "A crew member lost his mind and is now attacking anyone on sight",
         "isCrisis": true,
         "choices": [
             {
-                "description": "Use medical department",
-                "targetTrigram": "MED",
+                "description": "He must have lost his faith in God",
+                "targetTrigram": "FAI",
                 "cost": 2,
-                "effects": [
-                    {
-                        "methodName": "",
-                        "arguments": ""
-                    }
-                ],
                 "requirements": {
-                    "MED_SUR": 5
+                    "REL": 10
                 }
             },
             {
-                "description": "Use engineering department",
+                "description": "We must prioritizing stopping him",
+                "targetTrigram": "MED",
+                "cost": 2,
+                "requirements": {
+                    "PAC": 10
+                }
+            },
+            {
+                "description": "Just let him be",
                 "targetTrigram": "ENG",
                 "cost": 3,
-                "effects": []
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": 2
+                    }
+                ]
             }
         ]
     }
