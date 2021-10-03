@@ -301,13 +301,18 @@
             "0": [
                 "The R&D deparment is progressing well",
                 "Everything is going well on our side",
-                "Houston we don't have a problem"
+                "Houston we don't have a problem",
+                "Our sector is going well",
+                "No problem to report"
             ]
         },
         "sentencesCrisis": {
             "0": [
                 "We are so close of ending our researchs, please fund us",
-                "We just need a bit more to solve everything!"
+                "We just need a bit more to solve everything!",
+                "You have the power to solve everything, please help us",
+                "Just few more and we'll be good",
+                "Keep working with us"
             ]
         },
         "cards": {
