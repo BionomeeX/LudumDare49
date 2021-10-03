@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Unstable.SO;
+using System.Collections.Generic;
 
 namespace Unstable.UI
 {
@@ -20,6 +21,9 @@ namespace Unstable.UI
         // Drag and drop
         private bool _isHold;
         private Vector2 _offset;
+
+        public Dictionary<string, int> Effects {get; private set;}
+
         private void Start()
         {
             _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
@@ -30,6 +34,8 @@ namespace Unstable.UI
             _title.text = card.Name;
             _description.text = card.Effects == null ? "" : string.Join("\n", card.Effects.Select(e => GameManager.Instance.GetEffect(e.Key) + ": " + e.Value));
             name = "Card " + card.Name;
+
+            Effects = card.Effects;
 
             _background.sprite = _faction.CardBackground;
         }
