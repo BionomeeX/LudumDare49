@@ -13,7 +13,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 6
+                        "REL": "MED"
                     },
                     "effects": [
                         {
@@ -27,7 +27,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 6
+                        "PAC": "MED"
                     }
                 },
                 {
@@ -53,7 +53,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 6
+                        "REL": "MED"
                     },
                     "effects": [
                         {
@@ -67,7 +67,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "MED": 6
+                        "MED": "MED"
                     }
                 },
                 {
@@ -75,7 +75,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 3
+                        "PAC": "LOW"
                     }
                 },
                 {
@@ -101,7 +101,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "SEC": 6
+                        "SEC": "MED"
                     }
                 },
                 {
@@ -109,7 +109,7 @@
                     "targetTrigram": "ENG",
                     "cost": "LOW",
                     "requirements": {
-                        "MAI": 3
+                        "MAI": "LOW"
                     },
                     "effects": [
                         {
@@ -145,8 +145,8 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 6,
-                        "SEC": 3
+                        "REL": "MED",
+                        "SEC": "LOW"
                     }
                 },
                 {
@@ -154,7 +154,7 @@
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
-                        "SEC": 6
+                        "SEC": "MED"
                     },
                     "effects": [
                         {
@@ -180,7 +180,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 6
+                        "PAC": "MED"
                     },
                     "effects": [
                         {
@@ -194,7 +194,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "SUR": 3
+                        "SUR": "LOW"
                     }
                 },
                 {
@@ -220,7 +220,7 @@
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
-                        "PAC": 6
+                        "PAC": "MED"
                     },
                     "effects": [
                         {
@@ -234,7 +234,7 @@
                     "targetTrigram": "FAI",
                     "cost": "MED",
                     "requirements": {
-                        "REL": 3
+                        "REL": "LOW"
                     },
                     "effects": [
                         {
@@ -248,7 +248,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "BIO": 6
+                        "BIO": "MED"
                     }
                 },
                 {
@@ -274,8 +274,8 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "ANA": 3,
-                        "SEC": 3
+                        "ANA": "LOW",
+                        "SEC": "LOW"
                     }
                 },
                 {
@@ -283,7 +283,7 @@
                     "targetTrigram": "ENG",
                     "cost": "MED",
                     "requirements": {
-                        "REP": 3
+                        "REP": "LOW"
                     }
                 },
                 {
@@ -291,7 +291,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "MED": 3
+                        "MED": "LOW"
                     }
                 },
                 {
@@ -311,8 +311,8 @@
                     "targetTrigram": "DEF",
                     "cost": "NONE",
                     "requirements": {
-                        "PAC": 9,
-                        "SEC": 9
+                        "PAC": "HIGH",
+                        "SEC": "HIGH"
                     }
                 },
                 {
@@ -338,7 +338,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 3
+                        "REL": "LOW"
                     }
                 },
                 {
@@ -346,7 +346,7 @@
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
-                        "SEC": 3
+                        "SEC": "LOW"
                     },
                     "effects": [
                         {
@@ -372,7 +372,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 3
+                        "REL": "LOW"
                     }
                 },
                 {
@@ -380,7 +380,7 @@
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
-                        "PAC": 3
+                        "PAC": "LOW"
                     },
                     "effects": [
                         {
@@ -406,8 +406,8 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "SEC": 3,
-                        "ANA": 3
+                        "SEC": "LOW",
+                        "ANA": "LOW"
                     }
                 },
                 {
@@ -415,7 +415,7 @@
                     "targetTrigram": "ENG",
                     "cost": "MED",
                     "requirements": {
-                        "MAI": 3
+                        "MAI": "LOW"
                     }
                 },
                 {
@@ -435,7 +435,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 9
+                        "PAC": "HIGH"
                     }
                 },
                 {
@@ -443,8 +443,8 @@
                     "targetTrigram": "ENG",
                     "cost": "MED",
                     "requirements": {
-                        "REP": 3,
-                        "ANA": 3
+                        "REP": "LOW",
+                        "ANA": "LOW"
                     }
                 },
                 {
@@ -470,7 +470,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 3
+                        "PAC": "LOW"
                     }
                 },
                 {
@@ -478,7 +478,7 @@
                     "targetTrigram": "ENG",
                     "cost": "LOW",
                     "requirements": {
-                        "MAI": 6
+                        "MAI": "MED"
                     }
                 },
                 {
@@ -498,7 +498,7 @@
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
-                        "SEC": 3
+                        "SEC": "LOW"
                     },
                     "effects": [
                         {
@@ -512,7 +512,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "MED": 3
+                        "MED": "LOW"
                     }
                 },
                 {
@@ -520,7 +520,7 @@
                     "targetTrigram": "FAI",
                     "cost": "MED",
                     "requirements": {
-                        "REL": 6
+                        "REL": "MED"
                     },
                     "effects": [
                         {
@@ -552,7 +552,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "SEC": 3
+                        "SEC": "LOW"
                     }
                 },
                 {
@@ -560,7 +560,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "ANY": 3
+                        "ANY": "LOW"
                     }
                 },
                 {
@@ -580,7 +580,7 @@
                     "targetTrigram": "OXY",
                     "cost": "LOW",
                     "requirements": {
-                        "ANY": 6
+                        "ANY": "MED"
                     }
                 },
                 {
@@ -588,7 +588,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 9
+                        "PAC": "HIGH"
                     }
                 },
                 {
@@ -608,7 +608,7 @@
                     "targetTrigram": "OXY",
                     "cost": "LOW",
                     "requirements": {
-                        "ANY": 6
+                        "ANY": "MED"
                     }
                 },
                 {
@@ -616,7 +616,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "ANA": 9
+                        "ANA": "HIGH"
                     }
                 },
                 {
@@ -642,7 +642,7 @@
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
-                        "PAC": 6
+                        "PAC": "MED"
                     }
                 },
                 {
@@ -650,7 +650,7 @@
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
-                        "PSY": 6
+                        "PSY": "MED"
                     }
                 },
                 {
@@ -658,7 +658,7 @@
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
-                        "REL": 6
+                        "REL": "MED"
                     }
                 },
                 {
