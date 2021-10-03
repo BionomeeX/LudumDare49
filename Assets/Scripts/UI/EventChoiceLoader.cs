@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,11 +24,7 @@ namespace Unstable.UI
 
         private EventChoice _choiceData;
 
-        private void Start()
-        {
-            _image = GetComponent<Image>();
-            _baseColor = _image.color;
-        }
+        private List<(string, int)> _requirements;
 
         public void Init(EventChoice choice)
         {
@@ -37,17 +34,39 @@ namespace Unstable.UI
             _description.text = choice.Description;
             _choiceData = choice;
 
+            _requirements = new();
+
             if (choice.Requirements != null && choice.Requirements.Any())
             {
-                _requirementPanel.SetActive(true);
-                _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
+                _requirements = choice.Requirements.Select(r =>
                 {
-                    return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
+                    return (GameManager.Instance.GetEffect(r.Key), r.Value);
+                }).ToList();
+            }
+            UpdateRequirementDisplay();
+        }
+
+        public void UpdateRequirementDisplay()
+        {
+            if (_image == null)
+            {
+                _image = GetComponent<Image>();
+                _baseColor = _image.color;
+            }
+
+            if (_requirements.Any())
+            {
+                _requirementPanel.SetActive(true);
+                _requirementText.text = string.Join("\n", _requirements.Select(r =>
+                {
+                    return r.Item1 + ": " + r.Item2;
                 }));
+                _image.color = new Color(_baseColor.r - .2f, _baseColor.g - .2f, _baseColor.b - .2f);
             }
             else
             {
                 _requirementPanel.SetActive(false);
+                _image.color = _baseColor;
             }
         }
 
@@ -58,19 +77,25 @@ namespace Unstable.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _image.color = _baseColor;
+            if (!_requirements.Any())
+            {
+                _image.color = _baseColor;
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (_choiceData.Effects != null)
+            if (!_requirements.Any())
             {
-                foreach (var effect in _choiceData.Effects)
+                if (_choiceData.Effects != null)
                 {
-                    EventManager.DoAction(effect.MethodName, effect.Argument);
+                    foreach (var effect in _choiceData.Effects)
+                    {
+                        EventManager.DoAction(effect.MethodName, effect.Argument);
+                    }
                 }
+                GameManager.Instance.EndEvent();
             }
-            GameManager.Instance.EndEvent();
         }
     }
 }
