@@ -22,15 +22,22 @@ namespace Unstable.UI
         private bool _isHold;
         private Vector2 _offset;
 
-        public Dictionary<string, int> Effects {get; private set;}
+        public Dictionary<string, int> Effects { get; private set; }
+
+        public static int RefId = 0;
+        public int Id { private set; get; }
 
         private void Start()
         {
             _canvas = (RectTransform)GetComponentInParent<Canvas>().transform;
         }
 
+        public string Trigram { private set; get; }
+
         public void Init(Model.Card card, FactionInfo _faction)
         {
+            Trigram = _faction.Trigram;
+
             _title.text = card.Name;
             _description.text = card.Effects == null ? "" : string.Join("\n", card.Effects.Select(e => GameManager.Instance.GetEffect(e.Key) + ": " + e.Value));
             name = "Card " + card.Name;
@@ -38,6 +45,8 @@ namespace Unstable.UI
             Effects = card.Effects;
 
             _background.sprite = _faction.CardBackground;
+
+            Id = RefId++;
         }
 
         public void SetTarget(Vector2 pos)
@@ -99,5 +108,38 @@ namespace Unstable.UI
             }
         }
 
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other is null)
+                return false;
+            if (other is Card c)
+            {
+                return c == this;
+            }
+            return false;
+        }
+
+        public static bool operator ==(UI.Card a, UI.Card b)
+        {
+            if (a is null)
+            {
+                if (b is null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return a.Id == b.Id;
+        }
+
+        public static bool operator !=(UI.Card a, UI.Card b)
+        {
+            return !(a.Id == b.Id);
+        }
     }
 }

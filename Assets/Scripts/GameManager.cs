@@ -225,13 +225,23 @@ namespace Unstable
             return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
         }
 
-        public void RemoveCard(int count)
+        public void RemoveCard(string trigram, int count)
         {
-            while (count > 0 && _cards.Count > 0)
+            var avCards = _cards.Where(c =>
             {
-                var index = Random.Range(0, _cards.Count);
-                Destroy(_cards[index].gameObject);
-                _cards.RemoveAt(index);
+                if (trigram == "ANY")
+                {
+                    return true;
+                }
+                return c.Trigram == trigram;
+            }).ToList();
+            while (count > 0 && avCards.Any())
+            {
+                var index = Random.Range(0, avCards.Count);
+
+                _cards.Remove(avCards[index]);
+                Destroy(avCards[index].gameObject);
+                avCards.RemoveAt(index);
                 count--;
             }
         }
