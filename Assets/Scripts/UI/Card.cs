@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -66,6 +67,10 @@ namespace Unstable.UI
 
         public void OnPointerExit(PointerEventData pointerEventData)
         {
+            foreach (var elem in transform.parent.GetComponentsInChildren<RectTransform>().OrderBy(x => x.transform.position.x))
+            {
+                elem.SetAsLastSibling();
+            }
             if (!_isHold)
             {
                 transform.localPosition = transform.localPosition - new Vector3(0.0f, 40.0f, 0.0f);
