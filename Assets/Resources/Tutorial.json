@@ -47,7 +47,7 @@
                 "targetTrigram": "DEF",
                 "cost": 2,
                 "requirements": {
-                    "POL": 3
+                    "SEC": 3
                 }
             },
             {
