@@ -51,6 +51,31 @@ namespace Unstable
 
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
+        public static int CostToInt(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "NONE" => 0,
+                "LOW" => 2,
+                "MED" => 4,
+                "HIGH" => 6,
+                "EX" => 8,
+                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+            };
+        }
+
+        public static int RequirementToInt(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "LOW" => 3,
+                "MED" => 6,
+                "HIGH" => 9,
+                "EX" => 12,
+                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+            };
+        }
+
         /// <summary>
         /// Get a Leader object from its trigram
         /// </summary>
@@ -97,19 +122,24 @@ namespace Unstable
         {
             // Load JSON objects
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
-            var events = JsonConvert.DeserializeObject<Model.Event[]>(Resources.Load<TextAsset>("Events").text);
+            var events = Resources.LoadAll<TextAsset>("Decks/");
+            List<Deck> decks = new();
+            foreach (var e in events)
+            {
+                decks.Add(JsonConvert.DeserializeObject<Deck>(e.text));
+            }
             _effects = JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("Effects").text);
             _tutorialEvents = JsonConvert.DeserializeObject<List<Model.Event>>(Resources.Load<TextAsset>("Tutorial").text);
 
             // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
-            Assert.IsNotNull(events, "Events info failed to load");
+            Assert.IsNotNull(decks, "Events info failed to load");
             Assert.IsTrue(_leaders.Count > 0, "No leader was found");
-            Assert.IsTrue(events.Length > 0, "No event was found");
+            Assert.IsTrue(decks.Count > 0, "No event was found");
 
             // Split events between the standards and crisis ones
-            _standardEvents = events.Where(x => !x.IsCrisis).ToList();
-            _crisisEvents = events.Where(x => x.IsCrisis).ToList();
+            _standardEvents = decks.SelectMany(x => x.Cards.Where(c => !c.IsCrisis)).ToList();
+            _crisisEvents = decks.SelectMany(x => x.Cards.Where(c => c.IsCrisis)).ToList();
 
             // Make sure things aren't active on game start
             _panelLights.gameObject.SetActive(false);
@@ -153,19 +183,44 @@ namespace Unstable
             Name = "Crew Member"
         };
 
+        public void RemoveRandomSanity(string exceptionTrigram, int cost)
+        {
+            var trigrams = _leaderSanities.Select(x => x.Key).ToList();
+            if (exceptionTrigram != null)
+            {
+                trigrams.Remove(exceptionTrigram);
+            }
+
+            while (cost > 0)
+            {
+                LowerSectorSanity(trigrams[Random.Range(0, trigrams.Count)], 1);
+            }
+        }
+
         public void LowerSectorSanity(string trigram, int cost)
         {
+            if (_leaderSanities[trigram].Sanity <= 0)
+            {
+                // Already dead...
+                return;
+            }
+
             _leaderSanities[trigram].Sanity -= cost;
             if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
             {
-                // Remove all events related to the trigram
-                _crisisEvents.RemoveAll(x => x.Choices.Any(x => x.TargetTrigram == trigram));
-                _standardEvents.RemoveAll(x => x.Choices.Any(x => x.TargetTrigram == trigram));
-
                 // Remove the object
                 _leaderSanities[trigram].Image.gameObject.SetActive(false);
                 _leaderSanities.Remove(trigram);
             }
+        }
+
+        public bool IsLeaderAlive(string trigram)
+        {
+            if (trigram == null)
+            {
+                return true;
+            }
+            return _leaderSanities.ContainsKey(trigram);
         }
 
         public Model.Event GetCurrentEvent()
@@ -245,7 +300,7 @@ namespace Unstable
             {
                 Description = $"Enroll {count} new {card.Item2.Name}.",
                 TargetTrigram = leader?.Trigram,
-                Cost = 0,
+                Cost = "NONE",
                 Requirements = new(),
                 Effects = new Function[]
                 {

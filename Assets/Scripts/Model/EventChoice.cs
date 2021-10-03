@@ -17,7 +17,7 @@ namespace Unstable.Model
         /// <summary>
         /// How many sanity point you loose if you don't take this choice
         /// </summary>
-        public int Cost { set; get; }
+        public string Cost { set; get; }
 
         /// <summary>
         /// What happens if this choice is selected
@@ -29,6 +29,6 @@ namespace Unstable.Model
         /// Key: ID of the card to use (DomainTrigram_CardTrigram)
         /// Value: Number of card required
         /// </summary>
-        public Dictionary<string, int> Requirements { set; get; }
+        public Dictionary<string, string> Requirements { set; get; }
     }
 }

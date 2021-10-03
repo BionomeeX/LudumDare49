@@ -8,16 +8,23 @@
             "7": [
                 "If we help each other, everything will be alright",
                 "We just need to pay attention to everyone for things to end well",
-                "As long as the crew is alright, we will solve this"
+                "As long as the crew is alright, we will solve this",
+                "If we can dream it, we can do it",
+                "All crew dream's can come true, if we have the courage to pursue them"
             ],
             "3": [
                 "We need to pay attention to each other more",
                 "We can still save the crew if we are careful",
-                "We already lost some crewmembers... You need to be more careful in your choices"
+                "We already lost some crewmembers... You need to be more careful in your choices",
+                "Don't give up !",
+                "We must redouble our efforts "
             ],
             "0": [
                 "No... It can't be...",
-                "There must be a way..."
+                "There must be a way...",
+                "There must be an issue...",
+                "Its...Its impossible...",
+                "What... Where have we..."
             ]
         },
         "sentencesEvent": {
@@ -27,15 +34,23 @@
         "sentencesCrisis": {
             "7": [
                 "The ship is still doing well, we can handle this for everyone' sake",
-                "We have no medical emergency right now, we can take care of this issue"
+                "We have no medical emergency right now, we can take care of this issue",
+                "We are ready to help those who need us",
+                "All our bed are available, we can handle this",
+                "My whole team is ready to help"
             ],
             "3": [
                 "We suffered some lose, we need to put more means in the medical sector",
-                "We can't do anything without the crew, please let us do this"
+                "We can't do anything without the crew, please let us do this",
+                "Our heads are almost under water, we must take this case",
+                "My team is under pressure, we must be supported",
+                "We need more support, more means must be assign to medical sector"
             ],
             "0": [
                 "We are suffering heavy losses, you need to invest in us!",
-                "We can't continue like that, stop ignoring the medical section!"
+                "We can't continue like that, stop ignoring the medical section!",
+                "Don't give up on us, you need us",
+                "My team will not be able to continue like that, you must support us"
             ]
         },
         "cards": {
@@ -72,21 +87,33 @@
             "4": [
                 "...",
                 "Y-yes, we are handing the situation",
-                "The engineering department is handling the situation"
+                "The engineering department is handling the situation",
+                "Everything is doing well",
+                "Engineering department is fully operational"
             ],
             "0": [
                 "...",
-                "I'm sorry..."
+                "I'm sorry...",
+                "It...It was a mistake...",
+                "I... I shouln't have...",
+                "My bad...",
+                "Please accept my resignation"
             ]
         },
         "sentencesCrisis": {
             "4": [
+                "...",
                 "Don't worry about us",
-                "...It's okay, you can take care of the others departments"
+                "...It's okay, you can take care of the others departments",
+                "We are doing fine",
+                "Everything is doing well"
             ],
             "0": [
                 "I was wrong, it's too late...",
-                "We are doomed..."
+                "We are doomed...",
+                "There is no escape...",
+                "It's over...",
+                "I made a mistake, I'm sorry"
             ]
         },
         "cards": {
@@ -121,29 +148,47 @@
         "sentencesConversation": {
             "7": [
                 "Everything in order",
-                "On the lookout"
+                "On the lookout",
+                "Ready to fire",
+                "ATTENTION !",
+                "My gun does not jam"
             ],
             "3": [
                 "People are acting on their own, it's not good",
-                "We need more discipline"
+                "We need more discipline",
+                "People must comply",
+                "We need to make them walk in step!",
+                "We need to make them obey!"
             ],
             "0": [
                 "This vessel is a mess, we need order!",
-                "You are the captain of this ship, impose yourself!"
+                "You are the captain of this ship, impose yourself!",
+                "This attitude is innaceptable!",
+                "Impose yourself, prove me that you are worthy of this ship!",
+                "Open your eyes, it's maybe the last time to impose yourself!"
             ]
         },
         "sentencesCrisis": {
             "7": [
                 "Security should handle this job",
-                "Sounds like a perfect job for us"
+                "Sounds like a perfect job for us",
+                "Ready to deploy",
+                "Our objectif is clear, we can do it",
+                "We will bring order back, give us this job"
             ],
             "4": [
                 "Most important thing is order, let us do that",
-                "We can't let distruptions continue, security will handle this"
+                "We can't let distruptions continue, security will handle this",
+                "No more stonewalling, send us",
+                "My mens are still waiting your order, sir",
+                "No more talk, let us handle this one"
             ],
             "0": [
                 "Security must handle this!",
-                "It's not a choice but a must, let us do it!"
+                "It's not a choice but a must, let us do it!",
+                "Don't you dare ignore us, we have to do it",
+                "Stop, we will not accept doublespeak, let us do it",
+                "We can't accept the be punted on this one, you need to let us handle it"
             ]
         },
         "cards": {
@@ -179,15 +224,22 @@
         "sentencesConversation": {
             "7": [
                 "You are doing well",
-                "Continue to be faithful"
+                "Continue to be faithful",
+                "Congratulation son, god will be proud",
+                "I carry a lot of hope on you"
             ],
             "3": [
                 "Don't loose your faith",
-                "By believing in God we will go forward"
+                "By believing in God we will go forward",
+                "Have faith in him like he have faith in you",
+                "God only impose on each man what he can wear",
+                "The world is blind, few are those who see"
             ],
             "0": [
                 "It's not good, you must believe, it's the only escape",
-                "See the light of God, this is the only answer"
+                "See the light of God, this is the only answer",
+                "My son, the path you are taking is wrong",
+                "God is still beliving in you, don't loose it"
             ]
         },
         "sentencesCrisis": {

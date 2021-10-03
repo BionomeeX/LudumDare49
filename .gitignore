@@ -68,3 +68,6 @@ Assets/TextMesh Pro*
 
 # Excel
 ~$*
+
+# Newtonsoft (dependency)
+Packages/Newtonsoft*

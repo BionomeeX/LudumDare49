@@ -7,9 +7,9 @@
             {
                 "description": "Verify the ship integrity",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": "NONE",
                 "requirements": {
-                    "ANY": 3
+                    "ANY": "LOW"
                 }
             }
         ]
@@ -22,9 +22,9 @@
             {
                 "description": "Restart the engine",
                 "targetTrigram": "ENG",
-                "cost": 0,
+                "cost": "NONE",
                 "requirements": {
-                    "REP": 3
+                    "REP": "LOW"
                 }
             }
         ]
@@ -37,23 +37,23 @@
             {
                 "description": "Faith is the answer",
                 "targetTrigram": "FAI",
-                "cost": 4,
+                "cost": "LOW",
                 "requirements": {
-                    "REL": 6
+                    "REL": "MED"
                 }
             },
             {
                 "description": "We need to enforce the rules",
                 "targetTrigram": "DEF",
-                "cost": 2,
+                "cost": 1,
                 "requirements": {
-                    "SEC": 3
+                    "SEC": "LOW"
                 }
             },
             {
                 "description": "Let them be",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": "MED",
                 "effects": [
                     {
                         "methodName": "REM",
