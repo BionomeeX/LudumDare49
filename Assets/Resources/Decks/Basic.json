@@ -7,7 +7,6 @@
             "name": "Psychosis",
             "description": "A crew member lost his mind and is now attacking anyone on sight",
             "isCrisis": true,
-            "deck": "basic",
             "choices": [
                 {
                     "description": "He must have lost his faith in God",
@@ -41,6 +40,127 @@
                             "argument": "ANY 2"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Influenza epidemic",
+            "description": "Medics report few case of influenza epidemic",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "It must be a sign of God, infected must pray",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 6
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 1"
+                        }
+                    ]
+                },
+                {
+                    "description": "Everyone should be vaccinated",
+                    "targetTrigram": "MED",
+                    "cost": 2,
+                    "requirements": {
+                        "MED": 6
+                    }
+                },
+                {
+                    "description": "We should put infected in quarantine",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "PAC": 3
+                    }
+                },
+                {
+                    "description": "We should wait",
+                    "targetTrigram": null,
+                    "cost": 4,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "The vigilanty",
+            "description": "Their is rumours about a guy doing justice on his own",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "This kind of attitude must be nip in the bud",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "SEC": 6
+                    }
+                },
+                {
+                    "description": "He is doing a great job, we should give him better gadgets",
+                    "targetTrigram": "ENG",
+                    "cost": 2,
+                    "requirements": {
+                        "MAI": 3
+                    },
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        },
+                        {
+                            "methodName": "ADD",
+                            "argument": "DEF 1"
+                        }
+                    ]
+                },
+                {
+                    "description": "This is just rumours",
+                    "targetTrigram": null,
+                    "cost": 4,
+                    "effects": [
+                        {
+                            "methodName": "REM",
+                            "argument": "ANY 2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "A new cult has appear",
+            "description": "More and more people are beliving in the the god of fire",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "This is insanity, we should stop them",
+                    "targetTrigram": "FAI",
+                    "cost": 2,
+                    "requirements": {
+                        "REL": 6,
+                        "SEC": 3
+                    }
+                },
+                {
+                    "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
+                    "targetTrigram": "DEF",
+                    "cost": 2,
+                    "requirements": {
+                        "SEC": 3
+                    }
+                },
+                {
+                    "description": "As long as they do not represent a threat lets ignore them",
+                    "targetTrigram": null,
+                    "cost": 6
                 }
             ]
         },

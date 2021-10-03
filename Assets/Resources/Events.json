@@ -1,62 +1,6 @@
 [
    
     {
-        "name": "The vigilanty",
-        "description": "Their is rumours about a guy doing justice on his own",
-        "isCrisis": true,
-        "choices": [
-            {
-                "description": "This kind of attitude must be nip in the bud",
-                "targetTrigram": "DEF",
-                "cost": 5,
-                "requirements": {
-                    "SEC": 5
-                }
-            },
-            {
-                "description": "He is doing a great job, we should give him better gadgets",
-                "targetTrigram": "ENG",
-                "cost": 2,
-                "requirements": {
-                    "MAI": 3
-                }
-            },
-            {
-                "description": "This is just rumours",
-                "targetTrigram": null,
-                "cost": 0
-            }
-        ]
-    },
-    {
-        "name": "A new cult has appear",
-        "description": "More and more people are beliving in the the god of fire",
-        "isCrisis": true,
-        "choices": [
-            {
-                "description": "This is insanity, we should stop them",
-                "targetTrigram": "FAI",
-                "cost": 5,
-                "requirements": {
-                    "REL": 5
-                }
-            },
-            {
-                "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
-                "targetTrigram": "DEF",
-                "cost": 2,
-                "requirements": {
-                    "SEC": 3
-                }
-            },
-            {
-                "description": "As long as they do not represent a threat lets ignore them",
-                "targetTrigram": null,
-                "cost": 0
-            }
-        ]
-    },
-    {
         "name": "Rebellion attack",
         "description": "Report say that rebbels have escape after an attack, few people are injured",
         "isCrisis": true,
