@@ -23,7 +23,10 @@ namespace Unstable
 
                 case "REM":
                     {
-                        GameManager.Instance.RemoveCard(int.Parse(argument));
+                        string[] s = argument.Split(' ');
+                        var trigram = s[0];
+                        var count = int.Parse(s[1]);
+                        GameManager.Instance.RemoveCard(trigram, count);
                     }
                     break;
 
