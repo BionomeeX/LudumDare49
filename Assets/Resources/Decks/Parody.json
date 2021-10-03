@@ -11,7 +11,7 @@
                 {
                     "description": "Send us after them, we need to put them in jail",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 5
                     }
@@ -19,7 +19,7 @@
                 {
                     "description": "We need to send an unit for psychological support",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PSY": 6
                     }
@@ -27,7 +27,7 @@
                 {
                     "description": "Leave them alone, they will maybe blame themself and give it back",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -39,7 +39,7 @@
                 {
                     "description": "We need to kill him before he kill us",
                     "targetTrigram": "DEF",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "PAC": 6
                     }
@@ -47,7 +47,7 @@
                 {
                     "description": "We need to find him and try to cure him",
                     "targetTrigram": "MED",
-                    "cost": 2,
+                    "cost": "LOW",
                     "requirements": {
                         "MED": 6
                     }
@@ -55,7 +55,7 @@
                 {
                     "description": "Maybe someone could take care of electricity",
                     "targetTrigram": null,
-                    "cost": 6
+                    "cost": "HIGH"
                 }
             ]
         },
@@ -67,7 +67,7 @@
               {
                   "description": "But what was the question, We should try investigate on this point",
                   "targetTrigram": "SCI",
-                  "cost": 2,
+                  "cost": "LOW",
                   "requirements": {
                       "AIS": 3
                   }
@@ -75,7 +75,7 @@
               {
                   "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
                   "targetTrigram": "MED",
-                  "cost": 3,
+                  "cost": "MED",
                   "requirements": {
                       "PSY": 3
                   }
@@ -83,7 +83,7 @@
               {
                   "description": "Whatever, tea machine are still up",
                   "targetTrigram": null,
-                  "cost": 6
+                  "cost": "HIGH"
               }
             ]
         }
