@@ -205,6 +205,7 @@ namespace Unstable
                     // Died
                     trigrams.RemoveAt(index);
                 }
+                --cost;
             }
         }
 
