@@ -5,6 +5,7 @@
     "cards": [
         {
             "name": "Psychosis",
+            "image": "alone",
             "description": "A crew member lost his mind and is now attacking anyone on sight",
             "isCrisis": true,
             "choices": [
@@ -45,6 +46,7 @@
         },
         {
             "name": "Influenza epidemic",
+            "image": "hospital",
             "description": "Medics report few case of influenza epidemic",
             "isCrisis": true,
             "choices": [
@@ -93,6 +95,7 @@
         },
         {
             "name": "The vigilanty",
+            "image": "heroes",
             "description": "Their is rumours about a guy doing justice on his own",
             "isCrisis": true,
             "choices": [
@@ -137,6 +140,7 @@
         },
         {
             "name": "A new cult has appear",
+            "image": "fire",
             "description": "More and more people are beliving in the the god of fire",
             "isCrisis": true,
             "choices": [
@@ -172,6 +176,7 @@
         },
         {
             "name": "Rebellion attack",
+            "image": "car",
             "description": "Report say that rebbels have escape after an attack, few people are injured",
             "isCrisis": true,
             "choices": [
@@ -212,6 +217,7 @@
         },
         {
             "name": "Food shortage",
+            "image": "food",
             "description": "Food is eaten faster than created",
             "isCrisis": true,
             "choices": [
@@ -266,6 +272,7 @@
         },
         {
             "name": "Food intoxication",
+            "image": "hospital",
             "description": "Contaminated food has been eaten and people are begining to be sick",
             "isCrisis": true,
             "choices": [
@@ -303,6 +310,7 @@
         },
         {
             "name": "RIOT",
+            "image": "riot",
             "description": "A riot breaks out in cafeteria",
             "isCrisis": true,
             "choices": [
@@ -330,6 +338,7 @@
         },
         {
             "name": "Cult need money",
+            "image": "religion",
             "description": "To prepare the next cult celebration, cult need money",
             "isCrisis": true,
             "choices": [
@@ -364,6 +373,7 @@
         },
         {
             "name": "Cult celebration",
+            "image": "fire",
             "description": "The cult celebration has just begun",
             "isCrisis": true,
             "choices": [
@@ -398,6 +408,7 @@
         },
         {
             "name": "Spaceship state report",
+            "image": "books",
             "description": "You are still waiting for the spaceship report",
             "isCrisis": true,
             "choices": [
@@ -427,6 +438,7 @@
         },
         {
             "name": "Android riot",
+            "image": "riot",
             "description": "Android has started to attack crew member, they think human is a flew that must be destroyed",
             "isCrisis": true,
             "choices": [
@@ -462,6 +474,7 @@
         },
         {
             "name": "Material crisis",
+            "image": "ressources",
             "description": "Androids need a lot of materials to be repaired, we are begining to be in lack of raw material",
             "isCrisis": true,
             "choices": [
@@ -490,6 +503,7 @@
         },
         {
             "name": "Unknown disease detected",
+            "image": "virus",
             "description": "Crew member are begining to complain about headache and yellow turning skin",
             "isCrisis": true,
             "choices": [
@@ -544,6 +558,7 @@
         },
         {
             "name": "Love triangle",
+            "image": "love",
             "description": "Two crew member have fight because they love the same person",
             "isCrisis": true,
             "choices": [
@@ -572,6 +587,7 @@
         },
         {
             "name": "Breach in the hull detected",
+            "image": "hull",
             "description": "An asteroid has damaged the hull we must fix this",
             "isCrisis": true,
             "choices": [
@@ -600,6 +616,7 @@
         },
         {
             "name": "Plants on fire",
+            "image": "smoke",
             "description": "A fire has been declared in oxygen production room",
             "isCrisis": true,
             "choices": [
@@ -634,6 +651,7 @@
         },
         {
             "name": "Mad men journey",
+            "image": "gun",
             "description": "A mad men is attacking random crewmate in inferior levels",
             "isCrisis": true,
             "choices": [
