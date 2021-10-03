@@ -156,7 +156,11 @@ namespace Unstable
             }).ToDictionary(x => x.Trigram, x => x.Item2);
 
             // Disable oxygen leader
-            LowerSectorSanity("OXY", int.MaxValue);
+            {
+                LowerSectorSanity("OXY", int.MaxValue);
+                _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
+                _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
+            }
         }
 
         private const float _lightOffset = .005f;
