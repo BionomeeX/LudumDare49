@@ -8,7 +8,7 @@ using Unstable.Model;
 
 namespace Unstable.UI
 {
-    public class EventChoiceLoader : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+    public class EventChoiceLoader : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDropHandler
     {
         [SerializeField]
         private TMP_Text _title, _description;
@@ -96,6 +96,10 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.EndEvent();
             }
+        }
+
+        public void OnDrop(PointerEventData eventData) {
+            Debug.Log("Dropped: " + eventData.pointerDrag);
         }
     }
 }

@@ -7,7 +7,7 @@ using Unstable.SO;
 
 namespace Unstable.UI
 {
-    public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class Card : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler
     {
         [SerializeField]
         private TMP_Text _title, _description;
@@ -48,20 +48,23 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerDown(PointerEventData data)
-        {
+        public void OnBeginDrag(PointerEventData eventData){
             _isHold = true;
-            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             _offset = (Vector2)transform.localPosition - localPosition;
+            this.GetComponent<Image>().raycastTarget = false;
+            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
+                el.raycastTarget = false;
+            }
         }
 
-        public void OnDrag(PointerEventData data)
+        public void OnDrag(PointerEventData eventData)
         {
-            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(data.position));
+            Vector2 localPosition = _canvas.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(eventData.position));
             transform.localPosition = localPosition + _offset;
         }
 
-        public void OnPointerEnter(PointerEventData pointerEventData)
+        public void OnPointerEnter(PointerEventData eventData)
         {
             transform.SetAsLastSibling();
             if (!_isHold)
@@ -70,7 +73,7 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerExit(PointerEventData pointerEventData)
+        public void OnPointerExit(PointerEventData eventData)
         {
             foreach (var elem in transform.parent.GetComponentsInChildren<RectTransform>().OrderBy(x => x.transform.position.x))
             {
@@ -82,9 +85,13 @@ namespace Unstable.UI
             }
         }
 
-        public void OnPointerUp(PointerEventData eventData)
-        {
+        public void OnEndDrag(PointerEventData eventData){
             _isHold = false;
+            this.GetComponent<Image>().raycastTarget = true;
+            foreach(var el in this.GetComponentsInChildren<TMP_Text>()){
+                el.raycastTarget = true;
+            }
         }
+
     }
 }
