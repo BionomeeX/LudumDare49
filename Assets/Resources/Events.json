@@ -374,5 +374,75 @@
                 "cost": 15
             }
         ]
+    },
+    {
+        "name": "Material crisis",
+        "description": "Androids need a lot of materials to be repaired, we are begining to be in lack of raw material",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We don't need android, let us recycle them",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "Don't worry we will get new materials",
+                "targetTrigram": "ENG",
+                "cost": 4,
+                "requirements": {
+                    "WAR": 5
+                }
+            },
+            {
+                "description": "This must be an error in the inventory, ignore this",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "Unknown disease detected",
+        "description": "Crew member are begining to complain about headache and yellow turning skin",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "This must be a new disease, we must hide this to population and kill them before contamination spread itself",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SPY": 5
+                }
+            },
+            {
+                "description": "We must analyse them and find a cure",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "SUR": 5
+                }
+            },
+            {
+                "description": "This is a message from God, we need to sacrifice two Policeman to be saved",
+                "targetTrigram": "FAI",
+                "cost": 4,
+                "requirements": {
+                    "INQ": 5
+                },
+                "effects": [
+                    {
+                        "methodName": "REM",
+                        "argument": "POL 2"
+                    }
+                ]
+            },
+            {
+                "description": "This is probably nothing, give them aspirin and wait",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
     }
 ]
