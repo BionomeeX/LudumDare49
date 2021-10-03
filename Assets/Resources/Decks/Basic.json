@@ -685,6 +685,66 @@
                     "cost": "HIGH"
                 }
             ]
+        },
+        {
+            "name": "Artificial organs",
+            "description": "We are close of making huge improvements in artificial organs",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We will invest in this",
+                    "targetTrigram": "SCI",
+                    "cost": "NONE",
+                    "requirements": {
+                        "BIO": "MED"
+                    }
+                },
+                {
+                    "description": "We don't have the time and resources",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "A way out",
+            "description": "By studying the stars we can get out of here, and we are already close to an answer",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We will invest in this",
+                    "targetTrigram": "SCI",
+                    "cost": "NONE",
+                    "requirements": {
+                        "PAC": "MED"
+                    }
+                },
+                {
+                    "description": "We don't have the time and resources",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "System automation",
+            "description": "We probably automate most of our systems",
+            "isCrisis": true,
+            "choices": [
+                {
+                    "description": "We will invest in this",
+                    "targetTrigram": "SCI",
+                    "cost": "NONE",
+                    "requirements": {
+                        "AIS": "MED"
+                    }
+                },
+                {
+                    "description": "We don't have the time and resources",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
         }
     ]
 }
