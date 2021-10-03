@@ -230,10 +230,15 @@ namespace Unstable
             while (count > 0 && _cards.Count > 0)
             {
                 var index = Random.Range(0, _cards.Count);
-                Destroy(_cards[index]);
+                Destroy(_cards[index].gameObject);
                 _cards.RemoveAt(index);
                 count--;
             }
+        }
+
+        public void RemoveCard(UI.Card card) {
+            Destroy(card.gameObject);
+            _cards.Remove(card);
         }
 
         public void AddCard(Model.Card card, string leaderTrigram)
