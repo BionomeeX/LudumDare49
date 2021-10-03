@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using Unstable.Leaders;
 using Unstable.Model;
 using Unstable.SO;
 using Unstable.UI;
@@ -44,6 +45,9 @@ namespace Unstable
 
         [SerializeField]
         private Button _nextDayButton;
+
+        [SerializeField]
+        private LeaderSpriteInfo[] _leadersImages;
 
         /// <summary>
         /// Get a Leader object from its trigram
