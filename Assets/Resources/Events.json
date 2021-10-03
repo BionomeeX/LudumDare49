@@ -14,7 +14,7 @@
             },
             {
                 "description": "We must prioritizing stopping him",
-                "targetTrigram": "MED",
+                "targetTrigram": "DEF",
                 "cost": 2,
                 "requirements": {
                     "PAC": 6
