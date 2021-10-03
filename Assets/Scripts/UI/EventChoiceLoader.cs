@@ -24,7 +24,7 @@ namespace Unstable.UI
 
         private EventChoice _choiceData;
 
-        private List<(string, int)> _requirements;
+        private Dictionary<string, int> _requirements;
 
         public void Init(EventChoice choice)
         {
@@ -41,7 +41,7 @@ namespace Unstable.UI
                 _requirements = choice.Requirements.Select(r =>
                 {
                     return (GameManager.Instance.GetEffect(r.Key), r.Value);
-                }).ToList();
+                }).ToDictionary(x => x.Item1, x => x.Item2);
             }
             UpdateRequirementDisplay();
         }
@@ -59,7 +59,7 @@ namespace Unstable.UI
                 _requirementPanel.SetActive(true);
                 _requirementText.text = string.Join("\n", _requirements.Select(r =>
                 {
-                    return r.Item1 + ": " + r.Item2;
+                    return r.Key + ": " + r.Value;
                 }));
                 _image.color = new Color(_baseColor.r - .2f, _baseColor.g - .2f, _baseColor.b - .2f);
             }
@@ -109,8 +109,43 @@ namespace Unstable.UI
             }
         }
 
-        public void OnDrop(PointerEventData eventData) {
-            Debug.Log("Dropped: " + eventData.pointerDrag);
+        public void OnDrop(PointerEventData eventData)
+        {
+            UI.Card card = eventData.pointerDrag.GetComponent<UI.Card>();
+
+            if (_requirements.Any())
+            {
+                if (card.Effects != null)
+                {
+                    // if _requirement find something => we remove from the req and destroy the card
+                    foreach (var effectValue in card.Effects)
+                    {
+                        if (_requirements.ContainsKey(effectValue.Key))
+                        {
+                            // remove effect to requirement
+                            _requirements[effectValue.Key] -= effectValue.Value;
+                            // remove card
+                            GameManager.Instance.RemoveCard(card);
+                            // if requirement <= 0, remove req
+                            if (_requirements[effectValue.Key] <= 0)
+                            {
+                                _requirements.Remove(effectValue.Key);
+                            }
+                            UpdateRequirementDisplay();
+                            return;
+                        }
+                    }
+                }
+                // here, we have req but no matching effect, we remove 1 at the first 1
+                string key = _requirements.First().Key;
+                _requirements[key] -= 1;
+                if (_requirements[key] <= 0)
+                {
+                    _requirements.Remove(key);
+                }
+                GameManager.Instance.RemoveCard(card);
+                UpdateRequirementDisplay();
+            }
         }
     }
 }
