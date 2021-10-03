@@ -163,6 +163,16 @@ namespace Unstable
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
             }
+
+            var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
+            _eventLoader.Images = images.Select(x =>
+            {
+                return new EventImage()
+                {
+                    Code = x.ToLowerInvariant(),
+                    Image = Resources.Load<Sprite>("Images/" + x.ToLowerInvariant())
+                };
+            }).ToArray();
         }
 
         private const float _lightOffset = .005f;

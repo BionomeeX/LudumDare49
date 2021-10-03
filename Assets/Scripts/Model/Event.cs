@@ -16,6 +16,8 @@
         /// </summary>
         public bool IsCrisis { set; get; }
 
+        public string Image { set; get; }
+
         /// <summary>
         /// All the choices of the event
         /// </summary>

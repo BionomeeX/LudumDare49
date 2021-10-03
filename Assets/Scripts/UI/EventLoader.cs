@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using System.Linq;
 
 namespace Unstable.UI
 {
@@ -33,8 +35,18 @@ namespace Unstable.UI
         [SerializeField]
         private List<GameObject> _choicePlaces;
 
+        [SerializeField]
+        private Image _imagePanel;
+
+        public EventImage[] Images { set; private get; }
+        [SerializeField]
+        private Sprite _defaultImage;
+
         public void Load(Model.Event e)
         {
+            var targetImage = Images.FirstOrDefault(x => x.Code == e.Image);
+            _imagePanel.sprite = targetImage?.Image ?? _defaultImage;
+
             _choicePrefabTransform ??= (RectTransform)_choicePrefab.transform;
 
             _eventPanel.gameObject.SetActive(true);
