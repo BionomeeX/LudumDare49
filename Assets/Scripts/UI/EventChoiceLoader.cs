@@ -131,6 +131,7 @@ namespace Unstable.UI
 
             if (_requirements.Any())
             {
+                bool _areRequirementsSatisfied = false;
                 if (card.Effects != null)
                 {
                     // if _requirement find something => we remove from the req and destroy the card
@@ -140,27 +141,32 @@ namespace Unstable.UI
                         {
                             // remove effect to requirement
                             _requirements[effectValue.Key] -= effectValue.Value;
-                            // remove card
-                            GameManager.Instance.RemoveCard(card);
                             // if requirement <= 0, remove req
                             if (_requirements[effectValue.Key] <= 0)
                             {
                                 _requirements.Remove(effectValue.Key);
                             }
                             UpdateRequirementDisplay();
-                            return;
+                            _areRequirementsSatisfied = true;
+                            break;
                         }
                     }
                 }
-                // here, we have req but no matching effect, we remove 1 at the first 1
-                string key = _requirements.First().Key;
-                _requirements[key] -= 1;
-                if (_requirements[key] <= 0)
+
+                if (!_areRequirementsSatisfied)
                 {
-                    _requirements.Remove(key);
+                    // here, we have req but no matching effect, we remove 1 at the first 1
+                    string key = _requirements.First().Key;
+                    _requirements[key] -= 1;
+                    if (_requirements[key] <= 0)
+                    {
+                        _requirements.Remove(key);
+                    }
                 }
                 GameManager.Instance.RemoveCard(card);
                 UpdateRequirementDisplay();
+
+                // Remove sanity
             }
         }
     }

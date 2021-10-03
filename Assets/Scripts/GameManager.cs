@@ -49,7 +49,7 @@ namespace Unstable
         [SerializeField]
         private LeaderSpriteInfo[] _leadersImages;
 
-        private LeaderSanity[] _leaderSanities;
+        private Dictionary<string, LeaderSanity> _leaderSanities;
 
         /// <summary>
         /// Get a Leader object from its trigram
@@ -118,12 +118,15 @@ namespace Unstable
 
             _leaderSanities = _leadersImages.Select(x =>
             {
-                return new LeaderSanity()
+                return (x.Trigram, new LeaderSanity()
                 {
                     Image = x.Sprite,
                     Sanity = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram).MaxSanity
-                };
-            }).ToArray();
+                });
+            }).ToDictionary(x => x.Trigram, x => x.Item2);
+
+            // Disable oxygen leader
+            LowerSectorSanity("OXY", int.MaxValue);
         }
 
         private const float _lightOffset = .005f;
@@ -149,6 +152,24 @@ namespace Unstable
         {
             Name = "Crew Member"
         };
+
+        public void LowerSectorSanity(string trigram, int cost)
+        {
+            _leaderSanities[trigram].Sanity -= cost;
+            if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
+            {
+                // Remove all events related to the trigram
+                _crisisEvents.RemoveAll(x => x.Choices.Any(x => x.TargetTrigram == trigram));
+                _standardEvents.RemoveAll(x => x.Choices.Any(x => x.TargetTrigram == trigram));
+
+                // Remove the object
+                _leaderSanities[trigram].Image.gameObject.SetActive(false);
+                _leaderSanities.Remove(trigram);
+            }
+        }
+
+        public Model.Event GetCurrentEvent()
+            => _eventLoader.CurrentEvent;
 
         public void NextEvent()
         {

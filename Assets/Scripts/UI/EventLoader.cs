@@ -27,6 +27,8 @@ namespace Unstable.UI
         [SerializeField]
         private int _interChoiceMargin;
 
+        public Model.Event CurrentEvent { private set; get; }
+
         public void Load(Model.Event e)
         {
             _choicePrefabTransform ??= (RectTransform)_choicePrefab.transform;
