@@ -593,4 +593,32 @@
             }
         ]
     },
+    {
+        "name": "He is among us",
+        "description": "A crewmate has been infected by unknown host, he already have hurt someone, electricity is out",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We need to kill him before he kill us",
+                "targetTrigram": "DEF",
+                "cost": 6,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "We need to find him and try to cure him",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "SUR": 5
+                }
+            },
+            {
+                "description": "Maybe someone could take care of electricity",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
 ]
