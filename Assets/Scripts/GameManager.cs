@@ -132,7 +132,7 @@ namespace Unstable
 
         private Model.Card _staffCard = new()
         {
-            Name = "Staff"
+            Name = "Crew Member"
         };
 
         public void NextEvent()
@@ -183,8 +183,8 @@ namespace Unstable
                 _eventLoader.Load(
                     new()
                     {
-                        Name = "New personal available",
-                        Description = "New personal is available, please choose what you want to focus on",
+                        Name = "New personnel available",
+                        Description = "New personnel is available, select which one you want to add to your team.",
                         IsCrisis = false,
                         Choices = new EventChoice[] { choice1, choice2 }
                     }
@@ -207,7 +207,7 @@ namespace Unstable
         {
             return new()
             {
-                Description = $"Earn {count} new {card.Item2.Name}",
+                Description = $"Enroll {count} new {card.Item2.Name}.",
                 TargetTrigram = leader?.Trigram,
                 Cost = 0,
                 Requirements = new(),
