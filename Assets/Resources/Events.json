@@ -87,7 +87,7 @@
                 "targetTrigram": "ENG",
                 "cost": 2,
                 "requirements": {
-                    "MAI": 3
+                    "LOG": 3
                 }
             },
             {
@@ -337,7 +337,7 @@
                 "targetTrigram": "ENG",
                 "cost": 4,
                 "requirements": {
-                    "MAI": 3
+                    "LOG": 3
                 }
             },
             {
@@ -393,7 +393,7 @@
                 "targetTrigram": "ENG",
                 "cost": 4,
                 "requirements": {
-                    "MAI": 5
+                    "LOG": 5
                 }
             },
             {
