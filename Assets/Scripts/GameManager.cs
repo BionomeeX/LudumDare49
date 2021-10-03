@@ -51,6 +51,30 @@ namespace Unstable
 
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
+        public static int CostToInt(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "LOW" => 2,
+                "MED" => 4,
+                "HIGH" => 6,
+                "EX" => 8,
+                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+            };
+        }
+
+        public static int RequirementToInt(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "LOW" => 3,
+                "MED" => 6,
+                "HIGH" => 9,
+                "EX" => 12,
+                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+            };
+        }
+
         /// <summary>
         /// Get a Leader object from its trigram
         /// </summary>
