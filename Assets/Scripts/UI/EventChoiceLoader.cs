@@ -31,14 +31,16 @@ namespace Unstable.UI
 
         public void Init(EventChoice choice)
         {
-            _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
+            if (choice.TargetTrigram != null)
+            {
+                _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
+            }
             _description.text = choice.Description;
             _choiceData = choice;
 
-            Debug.Log(choice.Requirements.Count);
-            if (choice.Requirements?.Any() ?? false)
+            if (choice.Requirements != null && choice.Requirements.Any())
             {
-                _requirementPanel.SetActive(false);
+                _requirementPanel.SetActive(true);
                 _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
                 {
                     return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
