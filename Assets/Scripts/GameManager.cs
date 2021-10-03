@@ -228,6 +228,7 @@ namespace Unstable
         public void AddCard(Model.Card card, string leaderTrigram)
         {
             var cardGo = Instantiate(_cardPrefab, _hand);
+            cardGo.transform.Translate(-Vector2.up * 10f);
             var cardIns = cardGo.GetComponent<UI.Card>();
             cardIns.Init(card, GetFactionInfo(leaderTrigram));
             _cards.Add(cardIns);
