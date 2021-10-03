@@ -55,6 +55,7 @@ namespace Unstable
         {
             return value.ToUpperInvariant() switch
             {
+                "NONE" => 0,
                 "LOW" => 2,
                 "MED" => 4,
                 "HIGH" => 6,
@@ -269,7 +270,7 @@ namespace Unstable
             {
                 Description = $"Enroll {count} new {card.Item2.Name}.",
                 TargetTrigram = leader?.Trigram,
-                Cost = 0,
+                Cost = "NONE",
                 Requirements = new(),
                 Effects = new Function[]
                 {

@@ -49,7 +49,7 @@ namespace Unstable.UI
             {
                 _requirements = choice.Requirements.Select(r =>
                 {
-                    return (r.Key, r.Value);
+                    return (r.Key, GameManager.RequirementToInt(r.Value));
                 }).ToDictionary(x => x.Item1, x => x.Item2);
             }
             if (choice.Effects != null && choice.Effects.Any())
