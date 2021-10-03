@@ -207,5 +207,116 @@
             }
         ]
     },
-
+    {
+        "name": "Food intoxication",
+        "description": "Contaminated food has been eaten and people are begining to be sick",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We must send us to investigate and eliminate the contamination origin",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SPY": 5
+                }
+            },
+            {
+                "description": "We should fix this contamination, and dump contaminated food",
+                "targetTrigram": "ENG",
+                "cost": 2,
+                "requirements": {
+                    "WAR": 3
+                }
+            },
+            {
+                "description": "We must create artificial stomach to avoid this problems",
+                "targetTrigram": "MED",
+                "cost": 2,
+                "requirements": {
+                    "TRA": 3
+                }
+            },
+            {
+                "description": "Lets dump contaminated food",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "RIOT",
+        "description": "A riot breaks out in cafeteria",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "You must send us",
+                "targetTrigram": "DEF",
+                "cost": 12,
+                "requirements": {
+                    "PAC": 10
+                }
+            },
+            {
+                "description": "They will calm down eventually",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Cult need money",
+        "description": "To prepare the next cult celebration, cult need money",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We don't need this money, god does",
+                "targetTrigram": "FAI",
+                "cost": 5,
+                "requirements": {
+                    "PRI": 3
+                }
+            },
+            {
+                "description": "Let us take care of this",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "POL": 3
+                }
+            },
+            {
+                "description": "We don't have money for this",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
+    {
+        "name": "Cult celebration",
+        "description": "The cult celebration has just begin",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Join us and celebrate",
+                "targetTrigram": "FAI",
+                "cost": 5,
+                "requirements": {
+                    "CUL": 3
+                }
+            },
+            {
+                "description": "You need to send us to avoid riot",
+                "targetTrigram": "DEF",
+                "cost": 4,
+                "requirements": {
+                    "POL": 3
+                }
+            },
+            {
+                "description": "Let them celebrate",
+                "targetTrigram": null,
+                "cost": 0,
+            }
+        ]
+    },
 ]
