@@ -40,7 +40,7 @@ namespace Unstable.UI
             {
                 _requirements = choice.Requirements.Select(r =>
                 {
-                    return (GameManager.Instance.GetEffect(r.Key), r.Value);
+                    return (r.Key, r.Value);
                 }).ToDictionary(x => x.Item1, x => x.Item2);
             }
             UpdateRequirementDisplay();
@@ -59,7 +59,7 @@ namespace Unstable.UI
                 _requirementPanel.SetActive(true);
                 _requirementText.text = string.Join("\n", _requirements.Select(r =>
                 {
-                    return r.Key + ": " + r.Value;
+                    return GameManager.Instance.GetEffect(r.Key) + ": " + r.Value;
                 }));
                 _image.color = new Color(_baseColor.r - .2f, _baseColor.g - .2f, _baseColor.b - .2f);
             }

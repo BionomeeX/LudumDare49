@@ -36,7 +36,7 @@
         "choices": [
             {
                 "description": "Faith is the answer",
-                "targetTrigram": "REP",
+                "targetTrigram": "FAI",
                 "cost": 4,
                 "requirements": {
                     "REL": 6

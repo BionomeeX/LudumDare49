@@ -137,7 +137,7 @@ namespace Unstable
 
         public void NextEvent()
         {
-            var isCrisis = _numberOfRoundsWithoutCrisis > _info.MinTurnBeforeCrisis;
+            var isCrisis = _numberOfRoundsWithoutCrisis >= _info.MinTurnBeforeCrisis;
 
             if (isCrisis)
             {
@@ -189,9 +189,9 @@ namespace Unstable
                         Choices = new EventChoice[] { choice1, choice2 }
                     }
                 );
+                _numberOfRoundsWithoutCrisis++;
             }
 
-            _numberOfRoundsWithoutCrisis++;
             _panelLights.gameObject.SetActive(true);
             _nextDayButton.gameObject.SetActive(false);
         }
