@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Unstable.Model;
+using Unstable.SO;
 using Unstable.UI;
 
 namespace Unstable
@@ -62,6 +63,9 @@ namespace Unstable
         [SerializeField]
         private EventLoader _eventLoader;
 
+        [SerializeField]
+        private GameInfo _info;
+
         public string GetEffect(string trigram)
             => _effects[trigram];
 
@@ -95,11 +99,12 @@ namespace Unstable
 
         public void NextEvent()
         {
-            var isCrisis = _numberOfRoundsWithoutCrisis > 5;
+            var isCrisis = _numberOfRoundsWithoutCrisis > _info.MinTurnBeforeCrisis;
 
             if (isCrisis)
             {
                 _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+                _numberOfRoundsWithoutCrisis = 0;
             }
             else
             {
@@ -115,9 +120,9 @@ namespace Unstable
                 tmp = allUnits[Random.Range(0, allUnits.Count)];
                 var choice2 = CreateEventChoice(tmp.leader, tmp.card, 1);
 
-                if (Random.value < .75f) // We get "normal" unit instead of specialized one
+                if (Random.value < _info.StaffMemberChance) // We get "normal" unit instead of specialized one
                 {
-                    var unit = CreateEventChoice(null, ("NEU", _staffCard), 2);
+                    var unit = CreateEventChoice(null, ("NEU", _staffCard), _info.StaffCount);
                     if (Random.value < .5f)
                     {
                         choice1 = unit;

@@ -34,7 +34,8 @@ namespace Unstable.UI
             _description.text = choice.Description;
             _choiceData = choice;
 
-            if (choice.Requirements.Any())
+            Debug.Log(choice.Requirements.Count);
+            if (choice.Requirements?.Any() ?? false)
             {
                 _requirementPanel.SetActive(false);
                 _requirementText.text = string.Join("\n", choice.Requirements.Select(r =>
