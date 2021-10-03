@@ -31,10 +31,9 @@ namespace Unstable.UI
 
         public void Init(EventChoice choice)
         {
-            if (choice.TargetTrigram != null)
-            {
-                _title.text = GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName;
-            }
+            _title.text = choice.TargetTrigram != null
+                ? GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName
+                : "";
             _description.text = choice.Description;
             _choiceData = choice;
 
