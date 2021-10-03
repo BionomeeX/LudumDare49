@@ -57,7 +57,7 @@
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "2"
+                        "argument": "ANY 2"
                     }
                 ]
             }
