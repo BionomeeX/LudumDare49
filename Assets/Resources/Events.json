@@ -87,7 +87,7 @@
                 "targetTrigram": "ENG",
                 "cost": 2,
                 "requirements": {
-                    "WAR": 3
+                    "MAI": 3
                 }
             },
             {
@@ -107,15 +107,15 @@
                 "targetTrigram": "FAI",
                 "cost": 5,
                 "requirements": {
-                    "CUL": 5
+                    "REL": 5
                 }
             },
             {
                 "description": "This god of fire is a real risk of security fault, lets erase them from our ship",
-                "targetTrigram": "SEC",
+                "targetTrigram": "DEF",
                 "cost": 2,
                 "requirements": {
-                    "SPE": 3
+                    "SEC": 3
                 }
             },
             {
@@ -189,7 +189,7 @@
                 "targetTrigram": "FAI",
                 "cost": 2,
                 "requirements": {
-                    "INQ": 3
+                    "REL": 3
                 }
             },
             {
@@ -217,7 +217,7 @@
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
-                    "SPY": 5
+                    "SEC": 5
                 }
             },
             {
@@ -225,7 +225,7 @@
                 "targetTrigram": "ENG",
                 "cost": 2,
                 "requirements": {
-                    "WAR": 3
+                    "REP": 3
                 }
             },
             {
@@ -233,7 +233,7 @@
                 "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
-                    "TRA": 3
+                    "AIS": 3
                 }
             },
             {
@@ -273,7 +273,7 @@
                 "targetTrigram": "FAI",
                 "cost": 5,
                 "requirements": {
-                    "PRI": 3
+                    "REL": 3
                 }
             },
             {
@@ -281,7 +281,7 @@
                 "targetTrigram": "DEF",
                 "cost": 4,
                 "requirements": {
-                    "POL": 3
+                    "SEC": 3
                 }
             },
             {
@@ -301,7 +301,7 @@
                 "targetTrigram": "FAI",
                 "cost": 5,
                 "requirements": {
-                    "CUL": 3
+                    "REL": 3
                 }
             },
             {
@@ -309,7 +309,7 @@
                 "targetTrigram": "DEF",
                 "cost": 4,
                 "requirements": {
-                    "POL": 3
+                    "PAC": 3
                 }
             },
             {
@@ -329,7 +329,7 @@
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
-                    "SPY": 3
+                    "SEC": 3
                 }
             },
             {
@@ -337,7 +337,7 @@
                 "targetTrigram": "ENG",
                 "cost": 4,
                 "requirements": {
-                    "MEC": 3
+                    "MAI": 3
                 }
             },
             {
@@ -365,7 +365,7 @@
                 "targetTrigram": "MED",
                 "cost": 4,
                 "requirements": {
-                    "TRA": 5
+                    "SUR": 5
                 }
             },
             {
@@ -393,7 +393,7 @@
                 "targetTrigram": "ENG",
                 "cost": 4,
                 "requirements": {
-                    "WAR": 5
+                    "MAI": 5
                 }
             },
             {
@@ -413,7 +413,7 @@
                 "targetTrigram": "DEF",
                 "cost": 5,
                 "requirements": {
-                    "SPY": 5
+                    "SEC": 5
                 }
             },
             {
@@ -421,7 +421,7 @@
                 "targetTrigram": "MED",
                 "cost": 4,
                 "requirements": {
-                    "SUR": 5
+                    "MED": 5
                 }
             },
             {
@@ -429,17 +429,45 @@
                 "targetTrigram": "FAI",
                 "cost": 4,
                 "requirements": {
-                    "INQ": 5
+                    "REL": 5
                 },
                 "effects": [
                     {
                         "methodName": "REM",
-                        "argument": "POL 2"
+                        "argument": "SEC 2"
                     }
                 ]
             },
             {
                 "description": "This is probably nothing, give them aspirin and wait",
+                "targetTrigram": null,
+                "cost": 15
+            }
+        ]
+    },
+    {
+        "name": "Love triangle",
+        "description": "Two crew member have fight because they love the same person",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "We should lock them both in jail",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "SEC": 5
+                }
+            },
+            {
+                "description": "This is insane, they must be converted to our god",
+                "targetTrigram": "FAI",
+                "cost": 4,
+                "requirements": {
+                    "ANY": 3
+                }
+            },
+            {
+                "description": "We should let them fix this on their own",
                 "targetTrigram": null,
                 "cost": 15
             }
