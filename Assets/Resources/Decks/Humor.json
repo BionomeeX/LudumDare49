@@ -13,7 +13,7 @@
                 "targetTrigram": "SCI",
                 "cost": "HIGH",
                 "requirements": {
-                    "AIS": 3
+                    "AIS": "LOW"
                 }
             },
             {
@@ -21,7 +21,7 @@
                 "targetTrigram": "MED",
                 "cost": "MED",
                 "requirements": {
-                    "PSY": 3
+                    "PSY": "LOW"
                 }
             },
             {
