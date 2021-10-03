@@ -1875,10 +1875,10 @@ MonoBehaviour:
   _BottomMargin: 0
   _interChoiceMargin: 0
   _choicePlaces:
-  - {fileID: 368349954}
-  - {fileID: 204504680}
   - {fileID: 44714035}
   - {fileID: 913686312}
+  - {fileID: 368349954}
+  - {fileID: 204504680}
 --- !u!1001 &1857154576
 PrefabInstance:
   m_ObjectHideFlags: 0
