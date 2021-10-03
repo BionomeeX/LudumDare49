@@ -223,7 +223,7 @@
     {
         "trigram": "RAD",
         "domainName": "R&D",
-        "maxSanity": 15,
+        "maxSanity": 10,
         "sentencesConversation": {
             "0": [
                 "The R&D deparment is progressing well",
@@ -257,5 +257,37 @@
                 }
             }
         }
+    },
+    {
+        "trigram": "OXY",
+        "domainName": "Oxygen",
+        "maxSanity": 15,
+        "sentencesConversation": {
+            "7": [
+                "Of course we are doing well, I'm here",
+                "Don't forget that I'm the only one you need to keep alive, without me, no oxygen"
+            ],
+            "3": [
+                "Don't forget that by keeping me alive, the whole ship survive",
+                "Don't deny us too many requests, it would be bad for all us me"
+            ],
+            "0": [
+                "Do you really intend to kill us all?",
+                "We are nearly out of oxygen, what are you planning to do after that?"
+            ]
+        },
+        "sentencesCrisis": {
+            "7": [
+                "Of course oxygen is the most important",
+                "My needs are the most important ones here"
+            ],
+            "4": [
+                "You're going in the wrong way, oxygen needs more fundings"
+            ],
+            "0": [
+                "There is only one solution if you want to survive and you know it"
+            ]
+        },
+        "cards": {}
     }
 ]

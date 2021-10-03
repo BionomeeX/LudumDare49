@@ -596,6 +596,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6929673613fd1884bb258b2ad1120b10, type: 2}
   - {fileID: 11400000, guid: b1072d19a06e3ee40945de7c28660a91, type: 2}
   - {fileID: 11400000, guid: c50412d2dfe93c240b1a8888a5bfe8d2, type: 2}
+  - {fileID: 11400000, guid: 4c6cc9b0a32c2be48b9f9173566cd06f, type: 2}
   _neutralFaction: {fileID: 11400000, guid: 6e0bf67702db82a4ca2867710502cfb1, type: 2}
   _nextDayButton: {fileID: 1650709612}
   _hand: {fileID: 1270274061}
