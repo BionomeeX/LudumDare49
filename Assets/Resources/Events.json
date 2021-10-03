@@ -203,7 +203,7 @@
             {
                 "description": "Lets hope this will stabilize",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
     },
@@ -239,7 +239,7 @@
             {
                 "description": "Lets dump contaminated food",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
     },
@@ -259,7 +259,7 @@
             {
                 "description": "They will calm down eventually",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
     },
@@ -287,7 +287,7 @@
             {
                 "description": "We don't have money for this",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
     },
@@ -315,7 +315,7 @@
             {
                 "description": "Let them celebrate",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
     },
@@ -343,8 +343,8 @@
             {
                 "description": "Give them a delay",
                 "targetTrigram": null,
-                "cost": 0,
+                "cost": 0
             }
         ]
-    },
+    }
 ]
