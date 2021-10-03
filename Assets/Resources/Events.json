@@ -194,7 +194,7 @@
             },
             {
                 "description": "We could create a nutrition program to reduce food use",
-                "targetTrigram": "RAD",
+                "targetTrigram": "MED",
                 "cost": 2,
                 "requirements": {
                     "BIO": 3
