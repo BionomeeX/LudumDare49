@@ -21,6 +21,35 @@ namespace Unstable
                     }
                     break;
 
+                case "REM":
+                    {
+                        GameManager.Instance.RemoveCard(int.Parse(argument));
+                    }
+                    break;
+
+                default:
+                    throw new NotImplementedException("Unknown command " + command);
+            }
+        }
+
+        public static string ActionToString(string command, string argument)
+        {
+            switch (command.ToUpperInvariant())
+            {
+                case "ADD":
+                    {
+                        string[] s = argument.Split(' ');
+                        var trigram = s[0];
+                        var cardTrigram = s[1];
+                        var card = GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram);
+                        return $"Earn {s[2]} {card.Name.ToLowerInvariant()}";
+                    }
+
+                case "REM":
+                    {
+                        return $"Loose {argument} random cards";
+                    }
+
                 default:
                     throw new NotImplementedException("Unknown command " + command);
             }

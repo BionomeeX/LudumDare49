@@ -225,6 +225,17 @@ namespace Unstable
             return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
         }
 
+        public void RemoveCard(int count)
+        {
+            while (count > 0 && _cards.Count > 0)
+            {
+                var index = Random.Range(0, _cards.Count);
+                Destroy(_cards[index]);
+                _cards.RemoveAt(index);
+                count--;
+            }
+        }
+
         public void AddCard(Model.Card card, string leaderTrigram)
         {
             var cardGo = Instantiate(_cardPrefab, _hand);

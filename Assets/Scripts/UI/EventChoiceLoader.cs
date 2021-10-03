@@ -66,7 +66,18 @@ namespace Unstable.UI
             else
             {
                 _requirementPanel.SetActive(false);
+                _requirementText.text = "";
                 _image.color = _baseColor;
+            }
+
+            if (_choiceData.Effects != null && _choiceData.Effects.Any())
+            {
+                if (!string.IsNullOrWhiteSpace(_requirementText.text))
+                {
+                    _requirementText.text += "\n\n";
+                }
+
+                _requirementText.text += string.Join("\n", _choiceData.Effects.Select(x => EventManager.ActionToString(x.MethodName, x.Argument)));
             }
         }
 
