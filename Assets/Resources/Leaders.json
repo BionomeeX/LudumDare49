@@ -3,10 +3,21 @@
         "trigram": "MED",
         "domainName": "Medical",
         "leaderName": "",
-        "maxSanity": 6,
+        "maxSanity": 10,
         "sentencesConversation": {
+            "7": [
+                "If we help each other, everything will be alright",
+                "We just need to pay attention to everyone for things to end well",
+                "As long as the crew is alright, we will solve this"
+            ],
+            "3": [
+                "We need to pay attention to each other more",
+                "We can still save the crew if we are careful",
+                "We already lost some crewmembers... You need to be more careful in your choices"
+            ],
             "0": [
-                "Sample conversation"
+                "No... It can't be...",
+                "There must be a way..."
             ]
         },
         "sentencesEvent": {
@@ -14,8 +25,17 @@
             ]
         },
         "sentencesCrisis": {
+            "7": [
+                "The ship is still doing well, we can handle this for everyone' sake",
+                "We have no medical emergency right now, we can take care of this issue"
+            ],
+            "3": [
+                "We suffered some lose, we need to put more means in the medical sector",
+                "We can't do anything without the crew, please let us do this"
+            ],
             "0": [
-
+                "We are suffering heavy losses, you need to invest in us!",
+                "We can't continue like that, stop ignoring the medical section!"
             ]
         },
         "cards": {
@@ -45,6 +65,28 @@
     {
         "trigram": "ENG",
         "domainName": "Engineering",
+        "maxSanity": 20,
+        "sentencesConversation": {
+            "4": [
+                "...",
+                "Y-yes, we are handing the situation",
+                "The engineering department is handling the situation"
+            ],
+            "0": [
+                "...",
+                "I'm sorry..."
+            ]
+        },
+        "sentencesCrisis": {
+            "4": [
+                "Don't worry about us",
+                "...It's okay, you can take care of the others departments"
+            ],
+            "0": [
+                "I was wrong, it's too late...",
+                "We are doomed..."
+            ]
+        },
         "cards": {
             "MEC": {
                 "name": "Mechanician",
@@ -72,6 +114,35 @@
     {
         "trigram": "DEF",
         "domainName": "Defense",
+        "maxSanity": 10,
+        "sentencesConversation": {
+            "7": [
+                "Everything in order",
+                "On the lookout"
+            ],
+            "3": [
+                "People are acting on their own, it's not good",
+                "We need more discipline"
+            ],
+            "0": [
+                "This vessel is a mess, we need order!",
+                "You are the captain of this ship, impose yourself!"
+            ]
+        },
+        "sentencesCrisis": {
+            "7": [
+                "Security should handle this job",
+                "Sounds like a perfect job for us"
+            ],
+            "4": [
+                "Most important thing is order, let us do that",
+                "We can't let distruptions continue, security will handle this"
+            ],
+            "0": [
+                "Security must handle this!",
+                "It's not a choice but a must, let us do it!"
+            ]
+        },
         "cards": {
             "SPY": {
                 "name": "Spy",
@@ -98,6 +169,33 @@
     {
         "trigram": "FAI",
         "domainName": "Faith",
+        "maxSanity": 10,
+        "sentencesConversation": {
+            "7": [
+                "You are doing well",
+                "Continue to be faithful"
+            ],
+            "3": [
+                "Don't loose your faith",
+                "By believing in God we will go forward"
+            ],
+            "0": [
+                "It's not good, you must believe, it's the only escape",
+                "See the light of God, this is the only answer"
+            ]
+        },
+        "sentencesCrisis": {
+            "7": [
+                "The faith is staying strong, you can rely on us",
+                "You are doing a great job, let us help you with this crisis"
+            ],
+            "4": [
+                "Believe in God more, let us do this"
+            ],
+            "0": [
+                "No it's not good, you need to believe, let faith handle it!"
+            ]
+        },
         "cards": {
             "PRI": {
                 "name": "Priest",
@@ -125,6 +223,19 @@
     {
         "trigram": "RAD",
         "domainName": "R&D",
+        "maxSanity": 15,
+        "sentencesConversation": {
+            "0": [
+                "The R&D deparment is progressing well",
+                "Everything is going well on our side"
+            ]
+        },
+        "sentencesCrisis": {
+            "0": [
+                "We are so close of ending our researchs, please fund us",
+                "We just need a bit more to solve everything!"
+            ]
+        },
         "cards": {
             "EXP": {
                 "name": "Explorator",
