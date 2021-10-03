@@ -63,7 +63,7 @@
                 }
             },
             {
-                "description": "Just lets wait",
+                "description": "We should wait",
                 "targetTrigram": null,
                 "cost": 0
             }
@@ -126,8 +126,8 @@
         ]
     },
     {
-        "name": "Explosion attack",
-        "description": "Report say that terrorist have escape, few people are injured",
+        "name": "Rebellion attack",
+        "description": "Report say that rebbels have escape after an attack, few people are injured",
         "isCrisis": true,
         "choices": [
             {
@@ -277,7 +277,7 @@
                 }
             },
             {
-                "description": "Let us take care of this",
+                "description": "You should send us to avoid this celebration",
                 "targetTrigram": "DEF",
                 "cost": 4,
                 "requirements": {
@@ -297,7 +297,7 @@
         "isCrisis": true,
         "choices": [
             {
-                "description": "Join us and celebrate",
+                "description": "Let us use common room for our celebration",
                 "targetTrigram": "FAI",
                 "cost": 5,
                 "requirements": {
@@ -313,7 +313,7 @@
                 }
             },
             {
-                "description": "Let them celebrate",
+                "description": "Ignore them",
                 "targetTrigram": null,
                 "cost": 0
             }
@@ -344,6 +344,34 @@
                 "description": "Give them a delay",
                 "targetTrigram": null,
                 "cost": 0
+            }
+        ]
+    },
+    {
+        "name": "Android riot",
+        "description": "Android has started to attack crew member, they think human is a flew that must be destroyed",
+        "isCrisis": true,
+        "choices": [
+            {
+                "description": "Send us to destroy these toaster",
+                "targetTrigram": "DEF",
+                "cost": 5,
+                "requirements": {
+                    "PAC": 5
+                }
+            },
+            {
+                "description": "We could transform ourself in cyborg to get peace",
+                "targetTrigram": "MED",
+                "cost": 4,
+                "requirements": {
+                    "TRA": 5
+                }
+            },
+            {
+                "description": "Wait until they are unloaded",
+                "targetTrigram": null,
+                "cost": 15
             }
         ]
     }

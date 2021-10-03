@@ -42,6 +42,9 @@ namespace Unstable
         [SerializeField]
         private FactionInfo _neutralFaction;
 
+        [SerializeField]
+        private Button _nextDayButton;
+
         /// <summary>
         /// Get a Leader object from its trigram
         /// </summary>
@@ -105,6 +108,7 @@ namespace Unstable
             // Make sure things aren't active on game start
             _panelLights.gameObject.SetActive(false);
             _eventLoader.UnLoad();
+            _nextDayButton.gameObject.SetActive(true);
         }
 
         private const float _lightOffset = .005f;
@@ -146,8 +150,8 @@ namespace Unstable
                 else
                 {
                     _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
-                    _numberOfRoundsWithoutCrisis = 0;
                 }
+                _numberOfRoundsWithoutCrisis = 0;
             }
             else
             {
@@ -189,11 +193,13 @@ namespace Unstable
 
             _numberOfRoundsWithoutCrisis++;
             _panelLights.gameObject.SetActive(true);
+            _nextDayButton.gameObject.SetActive(false);
         }
 
         public void EndEvent()
         {
             _panelLights.gameObject.SetActive(false);
+            _nextDayButton.gameObject.SetActive(true);
             _eventLoader.UnLoad();
         }
 

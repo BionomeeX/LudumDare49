@@ -596,6 +596,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1072d19a06e3ee40945de7c28660a91, type: 2}
   - {fileID: 11400000, guid: c50412d2dfe93c240b1a8888a5bfe8d2, type: 2}
   _neutralFaction: {fileID: 11400000, guid: 6e0bf67702db82a4ca2867710502cfb1, type: 2}
+  _nextDayButton: {fileID: 1650709612}
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
   _eventLoader: {fileID: 1757280077}
