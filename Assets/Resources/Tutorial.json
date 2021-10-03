@@ -45,7 +45,7 @@
             {
                 "description": "We need to enforce the rules",
                 "targetTrigram": "DEF",
-                "cost": 1,
+                "cost": "LOW",
                 "requirements": {
                     "SEC": "LOW"
                 }
