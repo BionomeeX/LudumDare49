@@ -29,6 +29,17 @@ namespace Unstable
             }
         }
 
+        public bool ToggleDeck(string name)
+        {
+            if (DecksAllowed.Contains(name))
+            {
+                DecksAllowed.Remove(name);
+                return false;
+            }
+            DecksAllowed.Add(name);
+            return true;
+        }
+
         private List<string> DecksAllowed = new()
         {
             "Basic"
@@ -37,6 +48,9 @@ namespace Unstable
 
         public List<Deck> GetAllowedDecks()
             => _decks.Where(x => DecksAllowed.Any(d => d.ToUpperInvariant() == x.Name.ToUpperInvariant())).ToList();
+
+        public int GetCardsCount(string deck)
+            => _decks.FirstOrDefault(x => x.Name.ToUpperInvariant() == deck.ToUpperInvariant()).Cards.Length;
 
         public string GetCardsCount()
             => $"Cards enabled: {GetAllowedDecks().Select(x => x.Cards.Length).Sum()} / {_decks.Select(x => x.Cards.Length).Sum()}";
