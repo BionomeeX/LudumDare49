@@ -54,5 +54,7 @@ namespace Unstable
 
         public string GetCardsCount()
             => $"Cards enabled: {GetAllowedDecks().Select(x => x.Cards.Length).Sum()} / {_decks.Select(x => x.Cards.Length).Sum()}";
+
+        public bool DisplaySanity { set; get; }
     }
 }

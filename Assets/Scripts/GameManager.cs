@@ -182,6 +182,11 @@ namespace Unstable
                     Image = Resources.Load<Sprite>("Images/" + x.ToLowerInvariant())
                 };
             }).ToArray();
+
+            foreach (var i in _leadersImages)
+            {
+                i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
+            }
         }
 
         public int ReduceCostBy = 0;
