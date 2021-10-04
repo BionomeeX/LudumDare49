@@ -74,3 +74,6 @@ Packages/Newtonsoft*
 
 # Save file
 data.bin
+
+# Emacs
+*~
