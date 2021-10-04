@@ -16,6 +16,7 @@ namespace Unstable
 
                         for (int i = 0; i < int.Parse(s[2]); i++)
                         {
+                            // TODO: On ADD ANY ANY, card is grey
                             GameManager.Instance.AddCard(GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram), trigram);
                         }
                     }
