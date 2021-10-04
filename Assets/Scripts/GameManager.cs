@@ -567,7 +567,12 @@ namespace Unstable
                 var rand = cards[Random.Range(0, cards.Length)];
                 return (rand.Value, leader.Trigram);
             }
-            return (_leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()], leaderTrigram);
+            var l = _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).FirstOrDefault()?.Cards[cardTrigram.ToUpperInvariant()];
+            if (l == null)
+            {
+                return (_staffCard, null);
+            }
+            return (l, leaderTrigram);
         }
 
         public void RemoveCard(string trigram, int count)

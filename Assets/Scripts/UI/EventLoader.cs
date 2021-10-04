@@ -44,6 +44,7 @@ namespace Unstable.UI
 
         public void Load(Model.Event e)
         {
+            Debug.Log("Current event: " + e.Name);
             CurrentEvent = e;
             var targetImage = Images.FirstOrDefault(x => x.Code == e.Image);
             _imagePanel.sprite = targetImage?.Image ?? _defaultImage;
