@@ -449,13 +449,15 @@ namespace Unstable
                             Name = "New personnel available",
                             Description = "New personnel is available, select which one you want to add to your team.",
                             IsCrisis = false,
-                            Choices = new EventChoice[] { choice1, choice2,
-                                new EventChoice()
-                                {
-                                    Cost = "NONE",
-                                    Description = "We don't need anyone else for now"
+                            Choices = _tutorialEvents.Count > 0
+                                ? new EventChoice[] { choice1, choice2 }
+                                : new EventChoice[] { choice1, choice2,
+                                    new EventChoice()
+                                    {
+                                        Cost = "NONE",
+                                        Description = "We don't need anyone else for now"
+                                    }
                                 }
-                            }
                         }
                     );
                 }
