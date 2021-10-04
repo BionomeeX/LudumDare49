@@ -44,6 +44,10 @@ namespace Unstable
         {
             "Basic"
         };
+        private List<string> EndingsData = new()
+        {
+            "Basic"
+        };
         private List<Deck> _decks = new();
 
         public List<Deck> GetAllowedDecks()
@@ -54,5 +58,15 @@ namespace Unstable
 
         public string GetCardsCount()
             => $"Cards enabled: {GetAllowedDecks().Select(x => x.Cards.Length).Sum()} / {_decks.Select(x => x.Cards.Length).Sum()}";
+
+        public void AddEndingData(string trigram)
+        {
+            if (!EndingsData.Contains(trigram))
+            {
+                EndingsData.Add(trigram);
+            }
+        }
+
+        public bool DisplaySanity { set; get; }
     }
 }

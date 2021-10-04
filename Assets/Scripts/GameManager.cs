@@ -50,6 +50,9 @@ namespace Unstable
         [SerializeField]
         private LeaderSpriteInfo[] _leadersImages;
 
+        [SerializeField]
+        private Ending _ending;
+
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
         public int Score = 0;
@@ -60,9 +63,9 @@ namespace Unstable
             {
                 "NONE" => 0,
                 "LOW" => 2,
-                "MED" => 4,
-                "HIGH" => 6,
-                "EX" => 8,
+                "MED" => 6,
+                "HIGH" => 8,
+                "EX" => 10,
                 _ => throw new System.ArgumentException("Invalid value " + value, nameof(value))
             };
         }
@@ -182,6 +185,11 @@ namespace Unstable
                     Image = Resources.Load<Sprite>("Images/" + x.ToLowerInvariant())
                 };
             }).ToArray();
+
+            foreach (var i in _leadersImages)
+            {
+                i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
+            }
         }
 
         public int ReduceCostBy = 0;
@@ -249,10 +257,14 @@ namespace Unstable
             if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
             {
                 // Remove the object
-                // _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
-                // _leaderSanities[trigram].Image.gameObject.SetActive(false);
-                // _leaderSanities.Remove(trigram);
                 RemoveLeader(trigram);
+                if (_leaderSanities.Count == 1)
+                {
+                    var remain = _leaderSanities.First();
+                    _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
+                         _leadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
+                }
+
                 return true;
             }
             _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = _leaderSanities[trigram].Sanity.ToString();
@@ -425,7 +437,13 @@ namespace Unstable
                             Name = "New personnel available",
                             Description = "New personnel is available, select which one you want to add to your team.",
                             IsCrisis = false,
-                            Choices = new EventChoice[] { choice1, choice2 }
+                            Choices = new EventChoice[] { choice1, choice2,
+                                new EventChoice()
+                                {
+                                    Cost = "NONE",
+                                    Description = "We don't need anyone else for now"
+                                }
+                            }
                         }
                     );
                 }
@@ -470,9 +488,10 @@ namespace Unstable
             }
             if (leaderTrigram == "ANY")
             {
-                var cards = _leaders[Random.Range(0, _leaders.Count)].Cards.ToArray();
+                var leader = _leaders[Random.Range(0, _leaders.Count)];
+                var cards = leader.Cards.ToArray();
                 var rand = cards[Random.Range(0, cards.Length)];
-                return (rand.Value, rand.Key);
+                return (rand.Value, leader.Trigram);
             }
             return (_leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()], leaderTrigram);
         }

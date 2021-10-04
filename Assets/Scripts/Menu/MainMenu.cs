@@ -40,5 +40,10 @@ namespace Unstable.Menu
             var c = _checkboxs.FirstOrDefault(x => x.Name.ToUpperInvariant() == deck.ToUpperInvariant());
             c.Checkbox.sprite = GlobalData.Instance.ToggleDeck(c.Name) ? _checked : _notChecked;
         }
+
+        public void DisplaySanity()
+        {
+            GlobalData.Instance.DisplaySanity = !GlobalData.Instance.DisplaySanity;
+        }
     }
 }

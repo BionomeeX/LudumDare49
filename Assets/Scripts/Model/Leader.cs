@@ -22,6 +22,8 @@ namespace Unstable.Model
         /// </summary>
         public int MaxSanity { set; get; }
 
+        public string[] Endings { set; get; }
+
         /// <summary>
         /// Sentences used for basic conversations
         /// Key: Sanity floor
