@@ -320,8 +320,7 @@ namespace Unstable
 
                 if (_leaderSanities.Count == 1)
                 {
-                    _nextDayButton.gameObject.SetActive(true);
-                    _eventLoader.UnLoad();
+                    _gameOverButton.gameObject.SetActive(true);
                 }
 
                 return true;
@@ -370,6 +369,11 @@ namespace Unstable
 
         public void NextEvent()
         {
+            if (_leaderSanities.Count == 1) // Game Over
+            {
+                _eventLoader.UnLoad();
+                return;
+            }
             try
             {
                 NextEventInternal();
