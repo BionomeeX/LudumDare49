@@ -47,7 +47,7 @@ namespace Unstable
         private FactionInfo _neutralFaction;
 
         [SerializeField]
-        private Button _nextDayButton;
+        private Button _nextDayButton, _gameOverButton;
 
         [SerializeField]
         private MeetingRoom _mr;
@@ -320,20 +320,7 @@ namespace Unstable
 
                 if (_leaderSanities.Count == 1)
                 {
-                    // remove all cards in hand
-                    while (_cards.Count > 0)
-                    {
-                        RemoveCard(_cards[0]);
-                    }
-                    if (Score > GlobalData.Instance.BestScore)
-                    {
-                        GlobalData.Instance.BestScore = Score;
-                    }
-                    var remain = _leaderSanities.First();
-                    GlobalData.Instance.AddEndingData(remain.Key);
-                    GlobalData.Instance.Save();
-                    _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
-                         _mr.LeadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
+                    _nextDayButton.gameObject.SetActive(true);
                 }
 
                 return true;
@@ -348,6 +335,24 @@ namespace Unstable
             _leaderSanities[trigram].Image.gameObject.SetActive(false);
             _leaderSanities.Remove(trigram);
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).Face.gameObject.SetActive(false);
+        }
+
+        public void GameOver()
+        {
+            // remove all cards in hand
+            while (_cards.Count > 0)
+            {
+                RemoveCard(_cards[0]);
+            }
+            if (Score > GlobalData.Instance.BestScore)
+            {
+                GlobalData.Instance.BestScore = Score;
+            }
+            var remain = _leaderSanities.First();
+            GlobalData.Instance.AddEndingData(remain.Key);
+            GlobalData.Instance.Save();
+            _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
+                 _mr.LeadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
         }
 
         public bool IsLeaderAlive(string trigram)
