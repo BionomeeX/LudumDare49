@@ -23,12 +23,16 @@ namespace Unstable.Menu
 
         private void Start()
         {
-            _deckData.text = GlobalData.Instance.GetCardsCount();
-
+            UpdateCardsCount();
             foreach (var c in _checkboxs)
             {
                 c.CountInfo.text = "Cards count: " + GlobalData.Instance.GetCardsCount(c.Name);
             }
+        }
+
+        public void UpdateCardsCount()
+        {
+            _deckData.text = GlobalData.Instance.GetCardsCount();
         }
 
         public void ToggleDeck(string deck)
