@@ -321,6 +321,7 @@ namespace Unstable
                 if (_leaderSanities.Count == 1)
                 {
                     _nextDayButton.gameObject.SetActive(true);
+                    _eventLoader.UnLoad();
                 }
 
                 return true;
