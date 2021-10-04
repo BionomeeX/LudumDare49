@@ -257,10 +257,7 @@ namespace Unstable
             if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
             {
                 // Remove the object
-                _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
-                _leaderSanities[trigram].Image.gameObject.SetActive(false);
-                _leaderSanities.Remove(trigram);
-
+                RemoveLeader(trigram);
                 if (_leaderSanities.Count == 1)
                 {
                     var remain = _leaderSanities.First();
@@ -272,6 +269,13 @@ namespace Unstable
             }
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = _leaderSanities[trigram].Sanity.ToString();
             return false;
+        }
+
+        public void RemoveLeader(string trigram) {
+            _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
+            _leaderSanities[trigram].Image.gameObject.SetActive(false);
+            _leaderSanities.Remove(trigram);
+            _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).Face.gameObject.SetActive(false);
         }
 
         public bool IsLeaderAlive(string trigram)
