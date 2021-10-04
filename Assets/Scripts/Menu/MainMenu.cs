@@ -27,6 +27,12 @@ namespace Unstable.Menu
         [SerializeField]
         private TMP_Text _bestScore;
 
+        [SerializeField]
+        private Button _galleryButton;
+
+        [SerializeField]
+        private Showcase _showcase;
+
         public void Play()
         {
             SceneManager.LoadScene("Main");
@@ -60,6 +66,11 @@ namespace Unstable.Menu
                 _checkboxAudio.sprite = _checked;
             }
 
+            if (GlobalData.Instance.EndingsData.Count >= 5) // All endings unlocked
+            {
+                _galleryButton.interactable = true;
+            }
+
             _bestScore.text = "Best Score: " + GlobalData.Instance.BestScore.ToString();
             UpdateCardsCount();
         }
@@ -88,6 +99,18 @@ namespace Unstable.Menu
             GlobalData.Instance.SkipTutorial = !GlobalData.Instance.SkipTutorial;
             _checkboxTutorial.sprite = GlobalData.Instance.SkipTutorial ? _checked : _notChecked;
             GlobalData.Instance.Save();
+        }
+
+        public void ShowcaseEndings()
+        {
+            _showcase.gameObject.SetActive(true);
+            _showcase.Show(0);
+        }
+
+        public void ShowcaseConceptArts()
+        {
+            _showcase.gameObject.SetActive(true);
+            _showcase.Show(1);
         }
     }
 }

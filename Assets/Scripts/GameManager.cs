@@ -239,8 +239,6 @@ namespace Unstable
         private float _lightObjective = 0.5f;
         private void FixedUpdate()
         {
-            Score += 100;
-
             var panel = _panelLightsEvent.gameObject.activeInHierarchy ? _panelLightsEvent : _panelLightsCrisis;
 
             var oldVal = panel.color.a;
@@ -387,6 +385,7 @@ namespace Unstable
             try
             {
                 NextEventInternal();
+                Score += 100;
             }
             catch (System.Exception e)
             {
