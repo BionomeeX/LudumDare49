@@ -905,7 +905,11 @@ PrefabInstance:
     - target: {fileID: 2488439569754797508, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 205c9b37cfa26be4297ba90ce6dd6da3, type: 3}
+      objectReference: {fileID: 21300000, guid: 83a3609b675d5054193fe039fb19e8b2, type: 3}
+    - target: {fileID: 2588447993647446825, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3104798506828417486, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
       propertyPath: m_Name
       value: LeaderFaceRAD
@@ -2276,6 +2280,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5ce4db398daa9084588585741f85115a, type: 3}
+    - target: {fileID: 2588447993647446825, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3104798506828417486, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
       propertyPath: m_Name
       value: LeaderFaceDEF
