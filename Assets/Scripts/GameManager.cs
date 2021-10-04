@@ -275,7 +275,7 @@ namespace Unstable
                 _eventLoader.Load(new()
                 {
                     Name = "Invalid report",
-                    Description = "Looks like the day report wasn't filled properly today",
+                    Description = "Looks like the daily report wasn't filled properly",
                     Choices = new[]
                     {
                             new Model.EventChoice()
