@@ -170,6 +170,7 @@ namespace Unstable
                 LowerSectorSanity("OXY", int.MaxValue);
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
+                _leadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
             }
 
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
@@ -501,14 +502,14 @@ namespace Unstable
         {
             // if <= 6 cards => classic setting
             float step;
-            if (_cards.Count <= 6)
+            if (_cards.Count <= 4)
             {
                 step = 1.5f;
             }
             else
             {
-                // if 7 cards or more ??
-                step = (_cards.Count - 1f) / 3f;
+                // if 5 cards or more ??
+                step = (_cards.Count - 1f) / 2f;
             }
 
             var cardSize = ((RectTransform)_cardPrefab.transform).sizeDelta.x / step;
@@ -538,24 +539,15 @@ namespace Unstable
             // get the event
             var curentEvent = _eventLoader.CurrentEvent;
 
-            if(curentEvent != null) {
-                bool eventIsCrisis = _eventLoader.CurrentEvent.IsCrisis;
-                // TODO: is the leader concerned by the event ?
+            Dictionary<int, string[]> sentenceDict = leader.SentencesConversation;
 
-                Dictionary<int, string[]> sentenceDict;
-                // if crisis
-                if (eventIsCrisis)
-                {
-                    sentenceDict = leader.SentencesCrisis;
-
-                } else {
-                    sentenceDict = leader.SentencesConversation;
-                }
-                var possibleTexts = sentenceDict[sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => v < leader.MaxSanity).Max()];
-
-                _leaderText.GetComponentInChildren<TMP_Text>().text = possibleTexts[Random.Range(0, possibleTexts.Length)];
-
+            if (curentEvent != null && curentEvent.IsCrisis)
+            {
+                sentenceDict = leader.SentencesCrisis;
             }
+
+            var possibleTexts = sentenceDict[sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => v < leader.MaxSanity).Max()];
+            _leaderText.GetComponentInChildren<TMP_Text>().text = possibleTexts[Random.Range(0, possibleTexts.Length)];
         }
 
         public void LeaderStopSpeaking()

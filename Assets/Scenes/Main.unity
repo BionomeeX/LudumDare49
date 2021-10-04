@@ -1609,6 +1609,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757280076}
     m_Modifications:
+    - target: {fileID: 44714035, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_Name
+      value: place1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44714036, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 44714036, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 204504680, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_Name
+      value: place4
+      objectReference: {fileID: 0}
+    - target: {fileID: 368349954, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_Name
+      value: place3
+      objectReference: {fileID: 0}
+    - target: {fileID: 368349955, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 913686312, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_Name
+      value: place2
+      objectReference: {fileID: 0}
+    - target: {fileID: 913686313, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 2867034621632296758, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_Name
       value: EventPanel
