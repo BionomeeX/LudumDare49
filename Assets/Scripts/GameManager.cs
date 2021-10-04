@@ -48,7 +48,7 @@ namespace Unstable
         private Button _nextDayButton;
 
         [SerializeField]
-        private LeaderSpriteInfo[] _leadersImages;
+        private MeetingRoom _mr;
 
         [SerializeField]
         private Ending _ending;
@@ -154,7 +154,7 @@ namespace Unstable
             _eventLoader.UnLoad();
             _nextDayButton.gameObject.SetActive(true);
 
-            _leaderSanities = _leadersImages.Select(x =>
+            _leaderSanities = _mr.LeadersImages.Select(x =>
             {
                 var leader = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram);
                 x.DebugSanity.text = leader.MaxSanity.ToString();
@@ -173,7 +173,7 @@ namespace Unstable
                 LowerSectorSanity("OXY", int.MaxValue);
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
-                _leadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
+                _mr.LeadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
             }
 
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
@@ -186,7 +186,7 @@ namespace Unstable
                 };
             }).ToArray();
 
-            foreach (var i in _leadersImages)
+            foreach (var i in _mr.LeadersImages)
             {
                 i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
             }
@@ -257,7 +257,7 @@ namespace Unstable
             if (_leaderSanities[trigram].Sanity <= 0) // Out of sanity...
             {
                 // Remove the object
-                _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
+                _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
                 _leaderSanities[trigram].Image.gameObject.SetActive(false);
                 _leaderSanities.Remove(trigram);
 
@@ -265,12 +265,12 @@ namespace Unstable
                 {
                     var remain = _leaderSanities.First();
                     _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
-                         _leadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
+                         _mr.LeadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
                 }
 
                 return true;
             }
-            _leadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = _leaderSanities[trigram].Sanity.ToString();
+            _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = _leaderSanities[trigram].Sanity.ToString();
             return false;
         }
 
