@@ -11,7 +11,7 @@
             {
                 "description": "We must create a device to directly inject coffee in our blood",
                 "targetTrigram": "RAD",
-                "cost": "HIGH",
+                "cost": "LOW",
                 "requirements": {
                     "AIS": "LOW"
                 }
@@ -19,7 +19,7 @@
             {
                 "description": "Nevermind, coffee is bad for people health, I will create an anti-addiction program",
                 "targetTrigram": "MED",
-                "cost": "MED",
+                "cost": "LOW",
                 "requirements": {
                     "PSY": "LOW"
                 }
@@ -27,9 +27,91 @@
             {
                 "description": "Whatever, tea machine are still up",
                 "targetTrigram": null,
-                "cost": "NONE"
+                "cost": "MED"
             }
           ]
+        },
+        {
+            "name": "Conflict on food naming",
+            "description": "One of our cook produced some kind of dessert made from chocolate with some kind of dough around it, but they can't decide how to name it",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "Pain au chocolat",
+                  "targetTrigram": "DEF",
+                  "cost": "LOW",
+                  "requirements": {
+                      "PAC": "MED"
+                  }
+              },
+              {
+                  "description": "Chocolatine",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "PAC": "MED"
+                  }
+              },
+              {
+                  "description": "Can't we just mix the ideas and call it \"Pain au chocolatine\"?",
+                  "targetTrigram": null,
+                  "cost": "HIGH"
+              }
+            ]
+        },
+        {
+            "name": "My honnest opinion",
+            "description": "Honnestly, I think you are not that good at this game",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "I want another narrator",
+                  "targetTrigram": "DEF",
+                  "cost": "LOW",
+                  "requirements": {
+                      "PAC": "HIGH"
+                  }
+              },
+              {
+                  "description": "It's okay, it'll work on the long term",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "PSY": "MED"
+                  }
+              },
+              {
+                  "description": "...What?",
+                  "targetTrigram": null,
+                  "cost": "MED"
+              }
+            ]
+        },
+        {
+            "name": "I have only one card remaining in my hand",
+            "description": "But it looks like it's your turn to play",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "But you didn't say UNO",
+                  "targetTrigram": "MED",
+                  "cost": "MED",
+                  "requirements": {
+                      "PSY": "HIGH"
+                  },
+                  "effects": [
+                      {
+                          "methodName": "ADD",
+                          "argument": "ANY ANY 1"
+                      }
+                  ]
+              },
+              {
+                  "description": "Do we do the rule where we can +2 on top of each others?",
+                  "targetTrigram": null,
+                  "cost": "MED"
+              }
+            ]
         }
     ]
 }

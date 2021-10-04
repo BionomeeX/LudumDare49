@@ -233,7 +233,7 @@ namespace Unstable
 
         public bool LowerSectorSanity(string trigram, int cost)
         {
-            if (_leaderSanities[trigram].Sanity <= 0)
+            if (!_leaderSanities.ContainsKey(trigram) || _leaderSanities[trigram].Sanity <= 0)
             {
                 // Already dead...
                 return true;

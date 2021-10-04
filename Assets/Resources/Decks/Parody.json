@@ -86,6 +86,92 @@
                   "cost": "HIGH"
               }
             ]
+        },
+        {
+            "name": "New transportation method",
+            "description": "The crew members got the idea of reusing the armory weapons to move faster, they call that \"rocket jumping\"",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "Oh god, better prepare the medical team",
+                  "targetTrigram": "DEF",
+                  "cost": "LOW",
+                  "requirements": {
+                      "MED": "LOW",
+                      "SUR": "LOW"
+                  }
+              },
+              {
+                  "description": "We can't have people playing with weapons",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "SEC": "LOW",
+                      "PAC": "LOW"
+                  }
+              },
+              {
+                  "description": "Yeah I was watching them from the security camera, looks pretty fun",
+                  "targetTrigram": null,
+                  "cost": "HIGH"
+              }
+            ]
+        },
+        {
+            "name": "Idol group",
+            "description": "Some of our crew member made an entertainment group, they are streaming on the intranet of the ship",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "We need to improve the ship infrastructure so they can continue their activities peko",
+                  "targetTrigram": "ENG",
+                  "cost": "LOW",
+                  "requirements": {
+                      "MAI": "MED"
+                  }
+              },
+              {
+                  "description": "We should stop this before it goes too far peko",
+                  "targetTrigram": "DEF",
+                  "cost": "LOW",
+                  "requirements": {
+                      "PAC": "MED"
+                  }
+              },
+              {
+                  "description": "Naaaa",
+                  "targetTrigram": null,
+                  "cost": "HIGH"
+              }
+            ]
+        },
+        {
+            "name": "Oripathy",
+            "description": "Some crew member are growing some kind of black cristal on their body",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "Eliminate all the infected",
+                  "targetTrigram": "DEF",
+                  "cost": "MED",
+                  "requirements": {
+                      "PAC": "MED"
+                  }
+              },
+              {
+                  "description": "We need to find a way to cure them",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "MED": "MED"
+                  }
+              },
+              {
+                  "description": "Hopefully nothing bad will happen next",
+                  "targetTrigram": null,
+                  "cost": "HIGH"
+              }
+            ]
         }
     ]
 }
