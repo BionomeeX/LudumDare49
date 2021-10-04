@@ -75,9 +75,7 @@ namespace Unstable.Data
             "Basic"
         };
         public List<string> EndingsData { private set; get; } = new()
-        {
-            "Basic"
-        };
+        { };
         private List<Deck> _decks = new();
 
         public int BestScore = 0;
