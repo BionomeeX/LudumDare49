@@ -162,7 +162,6 @@ namespace Unstable
                 x.DebugSanity.text = leader.MaxSanity.ToString();
 
                 x.Face.GetComponent<LeaderText>().Trigram = x.Trigram;
-
                 return (x.Trigram, new LeaderSanity()
                 {
                     Image = x.Sprite,

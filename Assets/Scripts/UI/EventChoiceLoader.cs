@@ -196,6 +196,8 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.RemoveCard(card);
                 UpdateRequirementDisplay();
+
+                OnPointerDown(eventData);
             }
         }
     }
