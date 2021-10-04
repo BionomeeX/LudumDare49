@@ -94,7 +94,7 @@
             "choices": [
               {
                   "description": "Oh god, better prepare the medical team",
-                  "targetTrigram": "DEF",
+                  "targetTrigram": "MED",
                   "cost": "LOW",
                   "requirements": {
                       "MED": "LOW",
@@ -103,7 +103,7 @@
               },
               {
                   "description": "We can't have people playing with weapons",
-                  "targetTrigram": "MED",
+                  "targetTrigram": "DEF",
                   "cost": "LOW",
                   "requirements": {
                       "SEC": "LOW",
