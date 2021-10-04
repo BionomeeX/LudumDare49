@@ -82,6 +82,8 @@ namespace Unstable.Data
 
         public int BestScore = 0;
 
+        public bool SkipTutorial { set; get; }
+
         public List<Deck> GetAllowedDecks()
             => _decks.Where(x => DecksAllowed.Any(d => d.ToUpperInvariant() == x.Name.ToUpperInvariant())).ToList();
 

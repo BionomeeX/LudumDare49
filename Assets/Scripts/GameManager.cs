@@ -193,6 +193,11 @@ namespace Unstable
             {
                 i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
             }
+
+            if (GlobalData.Instance.SkipTutorial)
+            {
+                _tutorialEvents.Clear();
+            }
         }
 
         public int ReduceCostBy = 0;
