@@ -24,6 +24,9 @@ namespace Unstable.Menu
         [SerializeField]
         private Image _checkboxSanity, _checkboxTutorial;
 
+        [SerializeField]
+        private TMP_Text _bestScore;
+
         public void Play()
         {
             SceneManager.LoadScene("Main");
@@ -41,6 +44,8 @@ namespace Unstable.Menu
             {
                 l.Sprite.gameObject.SetActive(GlobalData.Instance.EndingsData.Contains(l.Trigram));
             }
+
+            _bestScore.text = GlobalData.Instance.BestScore.ToString();
         }
 
         public void UpdateCardsCount()
