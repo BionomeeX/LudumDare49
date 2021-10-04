@@ -40,6 +40,8 @@ namespace Unstable.Data
             data.Append(string.Join(",", DecksAllowed));
             data.Append(";");
             data.Append(BestScore);
+            data.Append(";");
+            data.Append(string.Join(",", EndingsData));
 
             File.WriteAllText("data.bin", Convert.ToBase64String(Encoding.ASCII.GetBytes(data.ToString())));
         }
@@ -53,6 +55,7 @@ namespace Unstable.Data
                 var s = data.Split(';');
                 DecksAllowed = s[0].Split(',').ToList();
                 BestScore = int.Parse(s[1]);
+                EndingsData = s[2].Split(',').ToList();
             }
         }
 
