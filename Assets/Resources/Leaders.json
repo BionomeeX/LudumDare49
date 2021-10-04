@@ -5,17 +5,17 @@
         "leaderName": "",
         "maxSanity": 10,
         "endings": [
-            "I thought we could do it if we stayed strong and believed and each other but I was wrong",
+            "I thought we could do it if we stayed strong and believed in each other, but I was wrong",
             "Everyone is dying around me, suffering but the captain doesn't seems to care",
-            "So I need to be the one to end this"
+            "So I need to be the one to end all this"
         ],
         "sentencesConversation": {
             "7": [
                 "If we help each other, everything will be alright",
-                "We just need to pay attention to everyone for things to end well",
+                "We just need to pay attention to everyone for things to ends well",
                 "As long as the crew is alright, we will solve this",
                 "If we can dream it, we can do it",
-                "All crew dream's can come true, if we have the courage to pursue them"
+                "All crew's dreams can come true, if we have the courage to pursue them"
             ],
             "3": [
                 "We need to pay attention to each other more",
@@ -54,7 +54,7 @@
             "0": [
                 "We are suffering heavy losses, you need to invest in us!",
                 "We can't continue like that, stop ignoring the medical section!",
-                "Don't give up on us, you need us",
+                "Don't give up on us, we need you",
                 "My team will not be able to continue like that, you must support us"
             ]
         },
@@ -91,7 +91,7 @@
         "endings": [
             "We thought we had the hand on this but we were wrong, the damages were more important than expected",
             "So I have been working in restoring the emergency pods",
-            "...But only one remains, looks like not everyone will be able to escape"
+            "...But only one remains, looks like only one person will be able to escape"
         ],
         "sentencesConversation": {
             "3": [
@@ -105,7 +105,7 @@
                 "...",
                 "I'm sorry...",
                 "It...It was a mistake...",
-                "I... I shouln't have...",
+                "I... I shouldn't have...",
                 "My bad...",
                 "Accept my resignation"
             ]
@@ -158,7 +158,7 @@
         "maxSanity": 10,
         "endings": [
             "This ship is a mess, everyone is doing what they want and the captain doesn't seems to care",
-            "This place need someone strong willed, someone who have a sence of priorities...",
+            "This place need a strong willed leader, someone who have a sense of priorities...",
             "Someone like... Me!"
         ],
         "sentencesConversation": {
@@ -179,9 +179,9 @@
             "0": [
                 "This vessel is a mess, we need order!",
                 "You are the captain of this ship, impose yourself!",
-                "Your attitude is innaceptable!",
+                "Your attitude is unacceptable!",
                 "Impose yourself, prove me that you are worthy of this ship!",
-                "Open your eyes, it's maybe the last chance to impose yourself!"
+                "Open your eyes, it may be the last chance to impose yourself!"
             ]
         },
         "sentencesCrisis": {
@@ -190,22 +190,22 @@
                 "Sounds like a perfect job for us",
                 "Ready to deploy",
                 "Our objectif is clear, we can do it",
-                "We will bring order back, give us this job",
+                "We will bring order back, give the troops this job",
                 "Ready to round up the usual suspects"
             ],
             "4": [
-                "The most important thing is order, let us do that",
+                "The most important thing is order, let the troops do that",
                 "We can't let distruptions continue, security will handle this",
-                "No more stonewalling, send us",
-                "My mens are still waiting your order, sir",
-                "No more talk, let us handle this one"
+                "No more waver, send the troops",
+                "My troops are still waiting your order, sir",
+                "No more talk, let my troops handle this one"
             ],
             "0": [
                 "Security must handle this!",
-                "It's not a choice but a must, let us do it!",
+                "It's not a choice but a must, let the troops do it!",
                 "Don't you dare ignore us, we have to do it",
-                "Stop, we will not accept doublespeak, let us do it",
-                "We can't accept the be punted on this one, you need to let us handle it"
+                "Stop, we will not accept doublespeak, let the troops do it",
+                "We can't accept the be punted on this one, you need to let the troops handle it"
             ]
         },
         "cards": {
@@ -254,7 +254,7 @@
             "3": [
                 "Don't loose your faith",
                 "By believing in God we will go forward",
-                "Have faith in him like he have faith in you",
+                "Have faith in Him like he have faith in you",
                 "God only impose on each man what he can wear",
                 "The world is blind, few are those who see"
             ],
