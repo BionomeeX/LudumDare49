@@ -266,6 +266,31 @@ namespace Unstable
 
         public void NextEvent()
         {
+            try
+            {
+                NextEventInternal();
+            }
+            catch (System.Exception e)
+            {
+                _eventLoader.Load(new()
+                {
+                    Name = "Invalid report",
+                    Description = "Looks like the day report wasn't filled properly today",
+                    Choices = new[]
+                    {
+                            new Model.EventChoice()
+                            {
+                                Description = "Hopefully we didn't miss anything important"
+                            }
+                        }
+                });
+                Debug.LogError(e);
+                NextEvent();
+            }
+        }
+
+        private void NextEventInternal()
+        {
             var isCrisis = _numberOfRoundsWithoutCrisis >= _info.MinTurnBeforeCrisis;
 
             if (isCrisis)
@@ -284,9 +309,62 @@ namespace Unstable
             }
             else
             {
-                if (_tutorialEvents.Count == 0 && Random.value < .5f) // Random events are only for when we are done with the tutorial
+                if (_tutorialEvents.Count == 0 && Random.value < .25f)
+                {
+                    _eventLoader.Load(new()
+                    {
+                        Name = "Normal day",
+                        Description = "Today was uneventful",
+                        Choices = new[]
+                        {
+                            new Model.EventChoice()
+                            {
+                                Description = "We should use this time wisely"
+                            }
+                        }
+                    });
+                }
+                else if (_tutorialEvents.Count == 0 && Random.value < .25f) // Random events are only for when we are done with the tutorial
                 {
                     _eventLoader.Load(_standardEvents[Random.Range(0, _standardEvents.Count)]);
+                }
+                else if (_tutorialEvents.Count == 0 && Random.value < .25f && _cards.Count > 0)
+                {
+                    _eventLoader.Load(new()
+                    {
+                        Name = "Accident",
+                        Description = "One of your crew mate got hurt during work, he need to rest for a bit",
+                        Choices = new[]
+                        {
+                            new Model.EventChoice()
+                            {
+                                Description = "A regretable incident",
+                                Requirements = new()
+                                {
+                                    { "REM", "ANY ANY 1" }
+                                }
+                            }
+                        }
+                    });
+                }
+                else if (_tutorialEvents.Count == 0 && Random.value < .33f && _cards.Count > 10)
+                {
+                    _eventLoader.Load(new()
+                    {
+                        Name = "Back to work",
+                        Description = "Your team is starting to be quite big and the others sections are understaffed",
+                        Choices = new[]
+                        {
+                            new Model.EventChoice()
+                            {
+                                Description = "We can still call them later when we will need them",
+                                Requirements = new()
+                                {
+                                    { "REM", "ANY ANY 3" }
+                                }
+                            }
+                        }
+                    });
                 }
                 else
                 {
