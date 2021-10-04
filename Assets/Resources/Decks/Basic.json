@@ -688,6 +688,7 @@
         },
         {
             "name": "Artificial organs",
+            "image": "hospital",
             "description": "We are close of making huge improvements in artificial organs",
             "isCrisis": true,
             "choices": [
@@ -709,6 +710,7 @@
         },
         {
             "name": "A way out",
+            "image": "hull",
             "description": "By studying the stars we can get out of here, and we are already close to an answer",
             "isCrisis": true,
             "choices": [
@@ -730,6 +732,7 @@
         },
         {
             "name": "System automation",
+            "image": "food",
             "description": "We can probably automate most of our systems with just a bit more effort",
             "isCrisis": true,
             "choices": [
@@ -751,6 +754,7 @@
         },
         {
             "name": "Formation",
+            "image": "fist",
             "description": "We can train an unit into a new specialization",
             "isCrisis": false,
             "choices": [
@@ -777,6 +781,7 @@
         },
         {
             "name": "Rubber duck",
+            "image": "exchange",
             "description": "R&D deparment need an external point of view on a research",
             "isCrisis": false,
             "choices": [
@@ -803,6 +808,7 @@
         },
         {
             "name": "Preventive medecine",
+            "image": "virus",
             "description": "By paying close attention to the crew we should be able to reduce the impact of the next crisis",
             "isCrisis": false,
             "choices": [
@@ -859,6 +865,7 @@
         },
         {
             "name": "Ready for anything",
+            "image": "council",
             "description": "If we were to join all our forces, we should be able to counter everything",
             "isCrisis": false,
             "choices": [
@@ -922,6 +929,7 @@
         },
         {
             "name": "Pressure",
+            "image": "take",
             "description": "We can pressure our teams a bit to produce more result. Of course, this will lower our team morals",
             "isCrisis": false,
             "choices": [
@@ -967,6 +975,7 @@
         },
         {
             "name": "Shaddy deal",
+            "image": "shadybar",
             "description": "A crew member know a way to increase our efficiancy, but it would ruin our reputation",
             "isCrisis": false,
             "choices": [
@@ -994,6 +1003,7 @@
         },
         {
             "name": "Show the example",
+            "image": "council",
             "description": "We could restore the order by taking a drastic action",
             "isCrisis": false,
             "choices": [
