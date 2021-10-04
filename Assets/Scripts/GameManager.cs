@@ -55,6 +55,9 @@ namespace Unstable
         [SerializeField]
         private Ending _ending;
 
+        [SerializeField]
+        private Image _eventPanelBackground;
+
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
         public int Score = 0;
@@ -229,8 +232,26 @@ namespace Unstable
 
         private const float _lightOffset = .005f;
         private float _lightObjective = 0.5f;
+
+        private int _eventPanelRotation = 0;
+        private int _eventPanelRotationRate = 1;
+        private bool _eventPanelRotate = false;
+
         private void FixedUpdate()
         {
+            if(_eventPanelRotate) {
+                int trueRotation = _eventPanelRotationRate;
+                _eventPanelRotation += _eventPanelRotationRate;
+                if(_eventPanelRotation >= 360){
+                    trueRotation = _eventPanelRotationRate + 360 - _eventPanelRotation;
+                    _eventPanelRotate = false;
+                    _eventPanelRotation = 0;
+                }
+                _eventPanelBackground.transform.Rotate(0, trueRotation, 0);
+                NextEvent();
+                return;
+            }
+
             Score += 100;
 
             var oldVal = _panelLights.color.a;
@@ -364,6 +385,7 @@ namespace Unstable
 
         public void NextEvent()
         {
+            // _eventPanelRotate = true;
             try
             {
                 NextEventInternal();
@@ -532,7 +554,8 @@ namespace Unstable
             //_panelLights.gameObject.SetActive(false);
             //_nextDayButton.gameObject.SetActive(true);
             _eventLoader.UnLoad();
-            NextEvent();
+            _eventPanelRotate = true;
+            //NextEvent();
         }
 
         private EventChoice CreateEventChoice(Leader leader, (string, Model.Card) card, int count)
