@@ -267,7 +267,7 @@ namespace Unstable
                     _darkRoom.color.r,
                     _darkRoom.color.g,
                     _darkRoom.color.b,
-                    _darkRoom.color.a - .1f
+                    _darkRoom.color.a + .1f
                 );
 
                 if (_leaderSanities.Count == 1)
