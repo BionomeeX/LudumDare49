@@ -39,7 +39,7 @@ namespace Unstable
 
         /// MOOD RELATED ELEMENTS
         [SerializeField]
-        private Image _panelLights, _darkRoom;
+        private Image _panelLightsEvent, _panelLightsCrisis , _darkRoom;
 
         [SerializeField]
         private FactionInfo[] _factions;
@@ -175,7 +175,8 @@ namespace Unstable
             _crisisEvents = decks.SelectMany(x => x.Cards.Where(c => c.IsCrisis)).ToList();
 
             // Make sure things aren't active on game start
-            _panelLights.gameObject.SetActive(false);
+            _panelLightsEvent.gameObject.SetActive(false);
+            _panelLightsCrisis.gameObject.SetActive(false);
             _eventLoader.UnLoad();
             _nextDayButton.gameObject.SetActive(true);
 
@@ -240,16 +241,18 @@ namespace Unstable
         {
             Score += 100;
 
-            var oldVal = _panelLights.color.a;
-            _panelLights.color = new Color(
-                _panelLights.color.r,
-                _panelLights.color.g,
-                _panelLights.color.b,
-                _panelLights.color.a + (_panelLights.color.a > _lightObjective ? -_lightOffset : _lightOffset)
+            var panel = _panelLightsEvent.gameObject.activeInHierarchy ? _panelLightsEvent : _panelLightsCrisis;
+
+            var oldVal = panel.color.a;
+            panel.color = new Color(
+                panel.color.r,
+                panel.color.g,
+                panel.color.b,
+                panel.color.a + (panel.color.a > _lightObjective ? -_lightOffset : _lightOffset)
             );
 
-            if ((oldVal < _lightObjective && _lightObjective < _panelLights.color.a) ||
-                (oldVal > _lightObjective && _lightObjective > _panelLights.color.a))
+            if ((oldVal < _lightObjective && _lightObjective < panel.color.a) ||
+                (oldVal > _lightObjective && _lightObjective > panel.color.a))
             {
                 var modificator = (5 - _leaderSanities.Count) / 5f;
                 _lightObjective = Random.Range(.5f, 1f - (modificator < 0f ? 0f : modificator));
@@ -411,6 +414,9 @@ namespace Unstable
             _eventBackgroundCrisis.rectTransform.gameObject.SetActive(false);
             _eventBackgroundEvent.rectTransform.gameObject.SetActive(true);
 
+            _panelLightsEvent.gameObject.SetActive(true);
+            _panelLightsCrisis.gameObject.SetActive(false);
+
             if (isCrisis)
             {
                 if (_tutorialEvents.Count > 0)
@@ -424,6 +430,8 @@ namespace Unstable
                     _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
                     _eventBackgroundCrisis.rectTransform.gameObject.SetActive(true);
                     _eventBackgroundEvent.rectTransform.gameObject.SetActive(false);
+                    _panelLightsEvent.gameObject.SetActive(false);
+                    _panelLightsCrisis.gameObject.SetActive(true);
                 }
                 _numberOfRoundsWithoutCrisis = 0;
             }
@@ -545,7 +553,6 @@ namespace Unstable
                 _numberOfRoundsWithoutCrisis++;
             }
 
-            _panelLights.gameObject.SetActive(true);
             _nextDayButton.gameObject.SetActive(false);
         }
         public void EndEvent()
