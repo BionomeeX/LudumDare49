@@ -87,14 +87,14 @@
     {
         "trigram": "ENG",
         "domainName": "Engineering",
-        "maxSanity": 20,
+        "maxSanity": 10,
         "endings": [
             "We thought we had the hand on this but we were wrong, the damages were more important than expected",
             "So I have been working in restoring the emergency pods",
             "...But only one remains, looks like not everyone will be able to escape"
         ],
         "sentencesConversation": {
-            "4": [
+            "3": [
                 "...",
                 "Y-yes, we are handing the situation",
                 "The engineering department is handling the situation",
