@@ -57,6 +57,13 @@ namespace Unstable
 
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
+        [SerializeField]
+        private Image _eventBackgroundEvent;
+
+        [SerializeField]
+        private Image _eventBackgroundCrisis;
+
+
         public int Score = 0;
 
         public static int CostToInt(string value)
@@ -401,6 +408,8 @@ namespace Unstable
         private void NextEventInternal()
         {
             var isCrisis = _numberOfRoundsWithoutCrisis >= _info.MinTurnBeforeCrisis;
+            _eventBackgroundCrisis.rectTransform.gameObject.SetActive(false);
+            _eventBackgroundEvent.rectTransform.gameObject.SetActive(true);
 
             if (isCrisis)
             {
@@ -413,6 +422,8 @@ namespace Unstable
                 else
                 {
                     _eventLoader.Load(_crisisEvents[Random.Range(0, _crisisEvents.Count)]);
+                    _eventBackgroundCrisis.rectTransform.gameObject.SetActive(true);
+                    _eventBackgroundEvent.rectTransform.gameObject.SetActive(false);
                 }
                 _numberOfRoundsWithoutCrisis = 0;
             }
