@@ -280,7 +280,8 @@ namespace Unstable
                     {
                             new Model.EventChoice()
                             {
-                                Description = "Hopefully we didn't miss anything important"
+                                Description = "Hopefully we didn't miss anything important",
+                                Cost = "NONE"
                             }
                         }
                 });
@@ -319,7 +320,8 @@ namespace Unstable
                         {
                             new Model.EventChoice()
                             {
-                                Description = "We should use this time wisely"
+                                Description = "We should use this time wisely",
+                                Cost = "NONE"
                             }
                         }
                     });
@@ -339,6 +341,7 @@ namespace Unstable
                             new Model.EventChoice()
                             {
                                 Description = "A regretable incident",
+                                Cost = "NONE",
                                 Requirements = new()
                                 {
                                     { "REM", "ANY ANY 1" }
@@ -358,6 +361,7 @@ namespace Unstable
                             new Model.EventChoice()
                             {
                                 Description = "We can still call them later when we will need them",
+                                Cost = "NONE",
                                 Requirements = new()
                                 {
                                     { "REM", "ANY ANY 3" }
