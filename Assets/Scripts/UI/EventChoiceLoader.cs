@@ -34,8 +34,12 @@ namespace Unstable.UI
         private Dictionary<string, int> _requirements;
         private List<string> _effects;
 
-        public void Init(EventChoice choice)
+        private bool _isLast;
+
+        public void Init(EventChoice choice, bool isLast)
         {
+            _isLast = isLast;
+
             _title.text = choice.TargetTrigram != null
                 ? GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName
                 : "";
@@ -110,6 +114,16 @@ namespace Unstable.UI
                 _effectPanel.SetActive(false);
                 _effectText.text = "";
             }
+
+            if (_choiceData.Cost != "NONE")
+            {
+                _effectPanel.SetActive(true);
+                if (!string.IsNullOrWhiteSpace(_effectText.text))
+                {
+                    _effectText.text += "\n";
+                }
+                _effectText.text += "Sanity penalty: " + GameManager.CostToString(_choiceData.Cost);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -146,7 +160,21 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.ReduceCostBy = 0;
 
-                GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+                if (_isLast)
+                {
+                    GameManager.Instance.RemoveRandomSanity(null, cost);
+                }
+                else
+                {
+                    var trigrams = GameManager.Instance.GetCurrentEvent().Choices.Select(x => x.TargetTrigram).Where(x => x != null).Distinct().ToList();
+                    if (_choiceData.TargetTrigram != null)
+                    {
+                        trigrams.Remove(_choiceData.TargetTrigram);
+                    }
+                    GameManager.Instance.RemoveSanity(_choiceData.TargetTrigram, trigrams.ToArray(), cost);
+                    // GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+                }
+
 
                 GameManager.Instance.EndEvent();
             }
@@ -196,6 +224,8 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.RemoveCard(card);
                 UpdateRequirementDisplay();
+
+                OnPointerDown(eventData);
             }
         }
     }

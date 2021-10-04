@@ -42,6 +42,10 @@ namespace Unstable.Data
             data.Append(BestScore);
             data.Append(";");
             data.Append(string.Join(",", EndingsData));
+            data.Append(";");
+            data.Append(MuteAudio ? 1 : 0);
+            data.Append(";");
+            data.Append(SkipTutorial ? 1 : 0);
 
             File.WriteAllText("data.bin", Convert.ToBase64String(Encoding.ASCII.GetBytes(data.ToString())));
         }
@@ -56,6 +60,8 @@ namespace Unstable.Data
                 DecksAllowed = s[0].Split(',').ToList();
                 BestScore = int.Parse(s[1]);
                 EndingsData = s[2].Split(',').ToList();
+                MuteAudio = s[3] == "1";
+                SkipTutorial = s[4] == "1";
             }
         }
 
@@ -70,19 +76,18 @@ namespace Unstable.Data
             return true;
         }
 
-        private List<string> DecksAllowed = new()
+        public List<string> DecksAllowed { private set; get; } = new()
         {
             "Basic"
         };
         public List<string> EndingsData { private set; get; } = new()
-        {
-            "Basic"
-        };
+        { };
         private List<Deck> _decks = new();
 
         public int BestScore = 0;
 
         public bool SkipTutorial { set; get; }
+        public bool MuteAudio { set; get; }
 
         public List<Deck> GetAllowedDecks()
             => _decks.Where(x => DecksAllowed.Any(d => d.ToUpperInvariant() == x.Name.ToUpperInvariant())).ToList();

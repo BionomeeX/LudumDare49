@@ -121,7 +121,7 @@
                         },
                         {
                             "methodName": "ADD",
-                            "argument": "DEF 1"
+                            "argument": "DEF PAC 1"
                         }
                     ]
                 },
@@ -790,7 +790,7 @@
                     "effects": [
                         {
                             "methodName": "ADD",
-                            "argument": "RAD ANA 2"
+                            "argument": "RAD RES 2"
                         }
                     ]
                 },

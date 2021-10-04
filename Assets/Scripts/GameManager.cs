@@ -72,6 +72,19 @@ namespace Unstable
             };
         }
 
+        public static string CostToString(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "NONE" => "None",
+                "LOW" => "Low",
+                "MED" => "Medium",
+                "HIGH" => "High",
+                "EX" => "Extreme",
+                _ => throw new System.ArgumentException("Invalid value " + value, nameof(value))
+            };
+        }
+
         public static int RequirementToInt(string value)
         {
             return value.ToUpperInvariant() switch
@@ -121,6 +134,9 @@ namespace Unstable
         [SerializeField]
         private Image _leaderText;
 
+        [SerializeField]
+        private AudioSource _bgm;
+
         public string GetEffect(string trigram)
             => _effects[trigram];
 
@@ -162,7 +178,6 @@ namespace Unstable
                 x.DebugSanity.text = leader.MaxSanity.ToString();
 
                 x.Face.GetComponent<LeaderText>().Trigram = x.Trigram;
-
                 return (x.Trigram, new LeaderSanity()
                 {
                     Image = x.Sprite,
@@ -176,6 +191,7 @@ namespace Unstable
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _mr.LeadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
+                _leaders.RemoveAll(x => x.DomainName == "OXY");
             }
 
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
@@ -190,12 +206,17 @@ namespace Unstable
 
             foreach (var i in _mr.LeadersImages)
             {
-                i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
+                i.DebugSanity.gameObject.SetActive(/* GlobalData.Instance.DisplaySanity */true);
             }
 
             if (GlobalData.Instance.SkipTutorial)
             {
                 _tutorialEvents.Clear();
+            }
+
+            if (GlobalData.Instance.MuteAudio)
+            {
+                _bgm.Stop();
             }
         }
 
@@ -253,6 +274,29 @@ namespace Unstable
             }
         }
 
+        public void RemoveSanity(string current, string[] targets, int cost)
+        {
+            var trigrams = targets.Where(x => _leaderSanities.ContainsKey(x)).ToList();
+
+            if (trigrams.Count == 0)
+            {
+                RemoveRandomSanity(current, cost);
+            }
+            else
+            {
+                while (cost > 0)
+                {
+                    var index = Random.Range(0, trigrams.Count);
+                    if (LowerSectorSanity(trigrams[index], 1))
+                    {
+                        // Died
+                        trigrams.RemoveAt(index);
+                    }
+                    --cost;
+                }
+            }
+        }
+
         public bool LowerSectorSanity(string trigram, int cost)
         {
             if (!_leaderSanities.ContainsKey(trigram) || _leaderSanities[trigram].Sanity <= 0)
@@ -304,7 +348,6 @@ namespace Unstable
             _leaderSanities[trigram].Image.gameObject.SetActive(false);
             _leaderSanities.Remove(trigram);
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).Face.gameObject.SetActive(false);
-            _leaders = _leaders.Except(_leaders.FindAll(l => l.Trigram == trigram)).ToList();
         }
 
         public bool IsLeaderAlive(string trigram)
@@ -486,9 +529,10 @@ namespace Unstable
         }
         public void EndEvent()
         {
-            _panelLights.gameObject.SetActive(false);
-            _nextDayButton.gameObject.SetActive(true);
+            //_panelLights.gameObject.SetActive(false);
+            //_nextDayButton.gameObject.SetActive(true);
             _eventLoader.UnLoad();
+            NextEvent();
         }
 
         private EventChoice CreateEventChoice(Leader leader, (string, Model.Card) card, int count)
@@ -523,7 +567,12 @@ namespace Unstable
                 var rand = cards[Random.Range(0, cards.Length)];
                 return (rand.Value, leader.Trigram);
             }
-            return (_leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()], leaderTrigram);
+            var l = _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).FirstOrDefault()?.Cards[cardTrigram.ToUpperInvariant()];
+            if (l == null)
+            {
+                return (_staffCard, null);
+            }
+            return (l, leaderTrigram);
         }
 
         public void RemoveCard(string trigram, int count)

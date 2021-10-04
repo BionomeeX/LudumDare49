@@ -31,7 +31,7 @@
     },
     {
         "name": "Tutorial 3 - Trouble",
-        "description": "Everyone is still a bit confused by what is happening, we need a way to rally everyone\n(Try to meet the requirements of a choice if you can)",
+        "description": "Everyone is still a bit confused by what is happening, we need a way to rally everyone\n(No need to fulfill all requirement, doing a choice will make you loose sanity in the opposing faction, the default one will make you loose sanity randomly)",
         "isCrisis": true,
         "choices": [
             {

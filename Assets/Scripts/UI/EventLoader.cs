@@ -44,6 +44,7 @@ namespace Unstable.UI
 
         public void Load(Model.Event e)
         {
+            Debug.Log("Current event: " + e.Name);
             CurrentEvent = e;
             var targetImage = Images.FirstOrDefault(x => x.Code == e.Image);
             _imagePanel.sprite = targetImage?.Image ?? _defaultImage;
@@ -64,7 +65,7 @@ namespace Unstable.UI
             for(int i = 0; i < e.Choices.Length; ++i) {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
                 ((RectTransform)choiceObject.transform).position = _choicePlaces[i].GetComponent<RectTransform>().position;
-                choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
+                choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i], i == e.Choices.Length - 1);
             }
         }
 
