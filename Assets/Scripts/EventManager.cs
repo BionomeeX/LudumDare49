@@ -99,7 +99,7 @@ namespace Unstable
 
                 case "KIL":
                     {
-                        return $"Kill the {GameManager.Instance.GetLeaderFromTrigram(argument)} faction leader";
+                        return $"Kill the {GameManager.Instance.GetLeaderFromTrigram(argument).DomainName} faction leader";
                     }
 
                 default:
