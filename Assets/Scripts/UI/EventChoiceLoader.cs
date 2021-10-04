@@ -109,7 +109,6 @@ namespace Unstable.UI
             {
                 _effectPanel.SetActive(false);
                 _effectText.text = "";
-                _image.color = _baseColor;
             }
         }
 
