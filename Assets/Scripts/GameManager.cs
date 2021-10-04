@@ -121,6 +121,9 @@ namespace Unstable
         [SerializeField]
         private Image _leaderText;
 
+        [SerializeField]
+        private AudioSource _bgm;
+
         public string GetEffect(string trigram)
             => _effects[trigram];
 
@@ -189,12 +192,17 @@ namespace Unstable
 
             foreach (var i in _mr.LeadersImages)
             {
-                i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
+                i.DebugSanity.gameObject.SetActive(/* GlobalData.Instance.DisplaySanity */true);
             }
 
             if (GlobalData.Instance.SkipTutorial)
             {
                 _tutorialEvents.Clear();
+            }
+
+            if (GlobalData.Instance.MuteAudio)
+            {
+                _bgm.Stop();
             }
         }
 

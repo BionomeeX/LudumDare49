@@ -776,6 +776,7 @@ MonoBehaviour:
   _eventLoader: {fileID: 1757280077}
   _info: {fileID: 11400000, guid: d08b1b772002cac438aff63f0e0d713a, type: 2}
   _leaderText: {fileID: 2064421975}
+  _bgm: {fileID: 1589206722}
   ReduceCostBy: 0
 --- !u!114 &532742703
 MonoBehaviour:

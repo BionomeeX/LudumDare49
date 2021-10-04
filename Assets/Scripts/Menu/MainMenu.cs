@@ -22,7 +22,7 @@ namespace Unstable.Menu
         private MeetingRoom _meetingRoom;
 
         [SerializeField]
-        private Image _checkboxSanity, _checkboxTutorial;
+        private Image _checkboxAudio, _checkboxTutorial;
 
         [SerializeField]
         private TMP_Text _bestScore;
@@ -45,7 +45,7 @@ namespace Unstable.Menu
                 l.Sprite.gameObject.SetActive(GlobalData.Instance.EndingsData.Contains(l.Trigram));
             }
 
-            _bestScore.text = GlobalData.Instance.BestScore.ToString();
+            _bestScore.text = "Best Score: " + GlobalData.Instance.BestScore.ToString();
         }
 
         public void UpdateCardsCount()
@@ -60,10 +60,10 @@ namespace Unstable.Menu
             GlobalData.Instance.Save();
         }
 
-        public void DisplaySanity()
+        public void MuteAudio()
         {
-            GlobalData.Instance.DisplaySanity = !GlobalData.Instance.DisplaySanity;
-            _checkboxSanity.sprite = GlobalData.Instance.DisplaySanity  ? _checked : _notChecked;
+            GlobalData.Instance.MuteAudio = !GlobalData.Instance.MuteAudio;
+            _checkboxAudio.sprite = GlobalData.Instance.MuteAudio ? _checked : _notChecked;
         }
 
         public void SkipTutorial()
