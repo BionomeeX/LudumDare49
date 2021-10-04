@@ -733,6 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532742701}
   - component: {fileID: 532742702}
+  - component: {fileID: 532742703}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -780,28 +781,35 @@ MonoBehaviour:
   _leadersImages:
   - Trigram: DEF
     Sprite: {fileID: 1989090510}
+    Ending: {fileID: 21300000, guid: 984ff802b38c4559baa85121f88255f5, type: 3}
     DebugSanity: {fileID: 245697011}
     Face: {fileID: 6324271560976196027}
   - Trigram: RAD
     Sprite: {fileID: 795136504}
+    Ending: {fileID: 21300000, guid: 3ed6519f5fef99a7ca6f7783b45f7a27, type: 3}
     DebugSanity: {fileID: 1351942836}
     Face: {fileID: 911052918}
   - Trigram: ENG
     Sprite: {fileID: 1434406144}
+    Ending: {fileID: 0}
     DebugSanity: {fileID: 1406064679}
     Face: {fileID: 246012078}
   - Trigram: FAI
     Sprite: {fileID: 1077487685}
+    Ending: {fileID: 21300000, guid: ba56f761fcd4e387c806c9e1c6c27b57, type: 3}
     DebugSanity: {fileID: 1234587089}
     Face: {fileID: 1763717109}
   - Trigram: MED
     Sprite: {fileID: 2034499619}
+    Ending: {fileID: 21300000, guid: c4d480897bb32d211a3a5bfe7f62da32, type: 3}
     DebugSanity: {fileID: 923075650}
     Face: {fileID: 140854572}
   - Trigram: OXY
     Sprite: {fileID: 1921698460}
+    Ending: {fileID: 0}
     DebugSanity: {fileID: 1804031308}
     Face: {fileID: 1055966603}
+  _ending: {fileID: 532742703}
   Score: 0
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
@@ -809,6 +817,21 @@ MonoBehaviour:
   _info: {fileID: 11400000, guid: d08b1b772002cac438aff63f0e0d713a, type: 2}
   _leaderText: {fileID: 2064421975}
   ReduceCostBy: 0
+--- !u!114 &532742703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532742700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab3fc2a1e66aef43b8e961a2ac365fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panel: {fileID: 1085871805}
+  _image: {fileID: 479507110}
+  _text: {fileID: 1521042591}
 --- !u!1 &703665548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1085871806
 RectTransform:
   m_ObjectHideFlags: 0
