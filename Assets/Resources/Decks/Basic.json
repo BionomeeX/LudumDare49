@@ -1009,7 +1009,7 @@
             "choices": [
                 {
                     "description": "We could do without the medical faction",
-                    "targetTrigram": null,
+                    "targetTrigram": "MED",
                     "cost": "MED",
                     "effects": [
                         {
@@ -1024,7 +1024,7 @@
                 },
                 {
                     "description": "We could do without the engineering faction",
-                    "targetTrigram": null,
+                    "targetTrigram": "ENG",
                     "cost": "MED",
                     "effects": [
                         {
@@ -1039,7 +1039,7 @@
                 },
                 {
                     "description": "We could do without the religious faction",
-                    "targetTrigram": null,
+                    "targetTrigram": "FAI",
                     "cost": "MED",
                     "effects": [
                         {

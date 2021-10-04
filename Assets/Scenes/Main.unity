@@ -552,6 +552,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 368349954, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
   m_PrefabInstance: {fileID: 1740172655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &377865173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 192224433704891023, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+  m_PrefabInstance: {fileID: 1740172655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &479507108
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1567cdc8730bae4498ab833631afeeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelLights: {fileID: 358226334}
+  _panelLightsEvent: {fileID: 358226334}
+  _panelLightsCrisis: {fileID: 1451012840}
   _darkRoom: {fileID: 2131924577}
   _factions:
   - {fileID: 11400000, guid: b612f7f86c6f4ce42a6e57334eb28860, type: 2}
@@ -771,6 +783,8 @@ MonoBehaviour:
   _gameOverButton: {fileID: 541326108}
   _mr: {fileID: 6851989566464123260}
   _ending: {fileID: 532742703}
+  _eventBackgroundEvent: {fileID: 377865173}
+  _eventBackgroundCrisis: {fileID: 1388386400}
   Score: 0
   _hand: {fileID: 1270274061}
   _cardPrefab: {fileID: 8241845079539277662, guid: 1ec6f5fb26a010546af2920d1dc7cca6, type: 3}
@@ -1400,6 +1414,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270274060}
   m_CullTransparentMesh: 1
+--- !u!114 &1388386400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7737804358420477318, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+  m_PrefabInstance: {fileID: 1740172655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1451012840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3885407078866087124, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
+  m_PrefabInstance: {fileID: 6851989566464123258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476614407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3104798506828417486, guid: 1ccf397c066405f40a6e200b72482ff4, type: 3}
@@ -2387,7 +2423,7 @@ MonoBehaviour:
   _eventPanel: {fileID: 1740172656}
   _title: {fileID: 1740172658}
   _description: {fileID: 1740172657}
-  _choicePrefab: {fileID: 1096706484946995655, guid: c8895607c6108b84985ea9841427ad0a, type: 3}
+  _choicePrefab: {fileID: 1096706484946995655, guid: 4e8c24b6dad2ff069b3b967a48d852b7, type: 3}
   _leftRightMargin: 0
   _BottomMargin: 0
   _interChoiceMargin: 0
@@ -3038,6 +3074,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757280076}
     m_Modifications:
+    - target: {fileID: 3885407078866087124, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2d1aeb13e4d0a247b467d1abc1f6c99, type: 3}
     - target: {fileID: 6851989566464123260, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
       propertyPath: LeadersImages.Array.data[0].Face
       value: 
