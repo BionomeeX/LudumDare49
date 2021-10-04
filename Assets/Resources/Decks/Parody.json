@@ -209,7 +209,7 @@
               {
                   "description": "We should send a whole team to kill the kidnapper",
                   "targetTrigram": "DEF",
-                  "cost": "MED",
+                  "cost": "LOW",
                   "requirements": {
                       "PAC": "HIGH"
                   }
@@ -226,7 +226,7 @@
               {
                   "description": "This is not the first time, maybe the princess is gone by choice",
                   "targetTrigram": null,
-                  "cost": "LOW"
+                  "cost": "MED"
               }
             ]
         },
@@ -238,7 +238,7 @@
               {
                   "description": "Send an whole security team to defeat it",
                   "targetTrigram": "DEF",
-                  "cost": "MED",
+                  "cost": "LOW",
                   "requirements": {
                       "PAC": "HIGH"
                   }
@@ -255,7 +255,7 @@
               {
                   "description": "*Whistle* Toss a coin to your witcher...",
                   "targetTrigram": null,
-                  "cost": "LOW"
+                  "cost": "MED"
               }
             ]
         }
