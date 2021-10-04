@@ -161,7 +161,7 @@ namespace Unstable.UI
                 {
                     trigrams.Remove(_choiceData.TargetTrigram);
                 }
-                GameManager.Instance.RemoveSanity(trigrams.ToArray(), cost);
+                GameManager.Instance.RemoveSanity(_choiceData.TargetTrigram, trigrams.ToArray(), cost);
                 // GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
 
                 GameManager.Instance.EndEvent();

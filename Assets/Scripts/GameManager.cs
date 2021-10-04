@@ -273,20 +273,26 @@ namespace Unstable
             }
         }
 
-        public void RemoveSanity(string[] targets, int cost)
+        public void RemoveSanity(string current, string[] targets, int cost)
         {
             var trigrams = targets.Where(x => _leaderSanities.ContainsKey(x)).ToList();
 
-
-            while (cost > 0)
+            if (trigrams.Count == 0)
             {
-                var index = Random.Range(0, trigrams.Count);
-                if (LowerSectorSanity(trigrams[index], 1))
+                RemoveRandomSanity(current, cost);
+            }
+            else
+            {
+                while (cost > 0)
                 {
-                    // Died
-                    trigrams.RemoveAt(index);
+                    var index = Random.Range(0, trigrams.Count);
+                    if (LowerSectorSanity(trigrams[index], 1))
+                    {
+                        // Died
+                        trigrams.RemoveAt(index);
+                    }
+                    --cost;
                 }
-                --cost;
             }
         }
 
