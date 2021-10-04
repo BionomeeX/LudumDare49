@@ -191,7 +191,7 @@ namespace Unstable
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _mr.LeadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
-                _leaders.RemoveAll(x => x.DomainName == "OXY");
+                _leaders.RemoveAll(x => x.Trigram == "OXY");
             }
 
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
@@ -262,7 +262,7 @@ namespace Unstable
                 trigrams.Remove(exceptionTrigram);
             }
 
-            while (cost > 0)
+            while (cost > 0 && _leaderSanities.Count > 1)
             {
                 var index = Random.Range(0, trigrams.Count);
                 if (LowerSectorSanity(trigrams[index], 1))
@@ -284,7 +284,7 @@ namespace Unstable
             }
             else
             {
-                while (cost > 0)
+                while (cost > 0 && _leaderSanities.Count > 1)
                 {
                     var index = Random.Range(0, trigrams.Count);
                     if (LowerSectorSanity(trigrams[index], 1))
