@@ -467,9 +467,10 @@ namespace Unstable
             }
             if (leaderTrigram == "ANY")
             {
-                var cards = _leaders[Random.Range(0, _leaders.Count)].Cards.ToArray();
+                var leader = _leaders[Random.Range(0, _leaders.Count)];
+                var cards = leader.Cards.ToArray();
                 var rand = cards[Random.Range(0, cards.Length)];
-                return (rand.Value, rand.Key);
+                return (rand.Value, leader.Trigram);
             }
             return (_leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()], leaderTrigram);
         }
