@@ -347,7 +347,6 @@ namespace Unstable
             _leaderSanities[trigram].Image.gameObject.SetActive(false);
             _leaderSanities.Remove(trigram);
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).Face.gameObject.SetActive(false);
-            _leaders = _leaders.Except(_leaders.FindAll(l => l.Trigram == trigram)).ToList();
         }
 
         public bool IsLeaderAlive(string trigram)
