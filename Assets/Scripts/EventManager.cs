@@ -71,10 +71,10 @@ namespace Unstable
                         var cardTrigram = s[1];
                         if (trigram == "ANY")
                         {
-                            return $"Earn {s[2]} card";
+                            return $"Gain {s[2]} card";
                         }
                         var card = GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram);
-                        return $"Earn {s[2]} {card.Item1.Name.ToLowerInvariant()}";
+                        return $"Gain {s[2]} {card.Item1.Name.ToLowerInvariant()}";
                     }
 
                 case "REM":
