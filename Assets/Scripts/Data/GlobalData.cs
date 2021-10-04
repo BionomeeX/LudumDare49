@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Unstable.Model;
 
-namespace Unstable
+namespace Unstable.Data
 {
     public class GlobalData : MonoBehaviour
     {
