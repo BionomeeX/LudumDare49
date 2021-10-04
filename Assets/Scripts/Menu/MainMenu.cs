@@ -36,7 +36,7 @@ namespace Unstable.Menu
         {
             foreach (var c in _checkboxs)
             {
-                c.CountInfo.text = "Cards count: " + GlobalData.Instance.GetCardsCount(c.Name);
+                c.CountInfo.text = "Event count: " + GlobalData.Instance.GetCardsCount(c.Name);
             }
 
             foreach (var l in _meetingRoom.LeadersImages)
