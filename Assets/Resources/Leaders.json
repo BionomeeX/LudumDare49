@@ -4,6 +4,11 @@
         "domainName": "Medical",
         "leaderName": "",
         "maxSanity": 10,
+        "endings": [
+            "I thought we could do it if we stayed strong and believed and each other but I was wrong",
+            "Everyone is dying around me, suffering but the captain doesn't seems to care",
+            "So I need to be the one to end this"
+        ],
         "sentencesConversation": {
             "7": [
                 "If we help each other, everything will be alright",
@@ -83,6 +88,11 @@
         "trigram": "ENG",
         "domainName": "Engineering",
         "maxSanity": 20,
+        "endings": [
+            "We thought we had the hand on this but we were wrong, the damages were more important than expected",
+            "So I have been working in restoring the emergency pods",
+            "...But only one remains, looks like not everyone will be able to escape"
+        ],
         "sentencesConversation": {
             "4": [
                 "...",
@@ -146,6 +156,11 @@
         "trigram": "DEF",
         "domainName": "Defense",
         "maxSanity": 10,
+        "endings": [
+            "This ship is a mess, everyone is doing what they want and the captain doesn't seems to care",
+            "This place need someone strong willed, someone who have a sence of priorities...",
+            "Someone like... Me!"
+        ],
         "sentencesConversation": {
             "7": [
                 "Everything in order",
@@ -223,6 +238,11 @@
         "trigram": "FAI",
         "domainName": "Faith",
         "maxSanity": 10,
+        "endings": [
+            "It's not good, we can't continue...",
+            "The light inside me, it's fading...",
+            "There is no more hope..."
+        ],
         "sentencesConversation": {
             "7": [
                 "You are doing well",
@@ -297,6 +317,11 @@
         "trigram": "RAD",
         "domainName": "R&D",
         "maxSanity": 10,
+        "endings": [
+            "This is it, we are close to the answer",
+            "The hyperdrive! With this we would be out of here in less than one month",
+            "I just need to ask the captain for a bit more funds, 200 or 300 mens should be enough"
+        ],
         "sentencesConversation": {
             "0": [
                 "The R&D deparment is progressing well",
@@ -342,6 +367,9 @@
         "trigram": "OXY",
         "domainName": "Oxygen",
         "maxSanity": 15,
+        "endings": [
+            "You were warned, you didn't listen"
+        ],
         "sentencesConversation": {
             "7": [
                 "Of course we're doing well, I'm here",
