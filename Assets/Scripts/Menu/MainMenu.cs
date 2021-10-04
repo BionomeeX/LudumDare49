@@ -46,7 +46,7 @@ namespace Unstable.Menu
 
             foreach (var l in GlobalData.Instance.DecksAllowed)
             {
-                var c = _checkboxs.FirstOrDefault(x => x.Name.ToUpperInvariant() == l.ToUpperInvariant())
+                var c = _checkboxs.FirstOrDefault(x => x.Name.ToUpperInvariant() == l.ToUpperInvariant());
                 c.Checkbox.sprite = _checked;
             }
 
