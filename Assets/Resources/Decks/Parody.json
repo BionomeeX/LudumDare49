@@ -232,7 +232,7 @@
         },
         {
             "name": "The last wish",
-            "description": "A beast has appear in the kitchen, we need to send someone",
+            "description": "A beast has appeared in the kitchen, we need to send someone",
             "isCrisis": true,
             "choices": [
               {
