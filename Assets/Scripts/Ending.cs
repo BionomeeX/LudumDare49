@@ -27,7 +27,7 @@ namespace Unstable
 
         public void LoadMainMenu()
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
