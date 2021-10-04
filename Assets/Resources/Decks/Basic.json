@@ -508,7 +508,7 @@
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "This must be a new disease, we must hide this to population and kill them before contamination spread itself",
+                    "description": "We must hide this to population and kill them before contamination spread itself",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
