@@ -1119,6 +1119,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757280076}
     m_Modifications:
+    - target: {fileID: 2292016513068595003, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851989566243272934, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6851989568155727332, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
       propertyPath: m_Name
       value: Meeting Room
