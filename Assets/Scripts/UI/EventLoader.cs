@@ -64,7 +64,7 @@ namespace Unstable.UI
             for(int i = 0; i < e.Choices.Length; ++i) {
                 var choiceObject = Instantiate(_choicePrefab, _choicesTransform);
                 ((RectTransform)choiceObject.transform).position = _choicePlaces[i].GetComponent<RectTransform>().position;
-                choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i]);
+                choiceObject.GetComponent<EventChoiceLoader>().Init(e.Choices[i], i == e.Choices.Length - 1);
             }
         }
 

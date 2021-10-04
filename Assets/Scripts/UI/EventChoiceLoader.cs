@@ -34,8 +34,12 @@ namespace Unstable.UI
         private Dictionary<string, int> _requirements;
         private List<string> _effects;
 
-        public void Init(EventChoice choice)
+        private bool _isLast;
+
+        public void Init(EventChoice choice, bool isLast)
         {
+            _isLast = isLast;
+
             _title.text = choice.TargetTrigram != null
                 ? GameManager.Instance.GetLeaderFromTrigram(choice.TargetTrigram).DomainName
                 : "";
@@ -156,13 +160,21 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.ReduceCostBy = 0;
 
-                var trigrams = GameManager.Instance.GetCurrentEvent().Choices.Select(x => x.TargetTrigram).Where(x => x != null).Distinct().ToList();
-                if (_choiceData.TargetTrigram != null)
+                if (_isLast)
                 {
-                    trigrams.Remove(_choiceData.TargetTrigram);
+                    GameManager.Instance.RemoveRandomSanity(null, cost);
                 }
-                GameManager.Instance.RemoveSanity(_choiceData.TargetTrigram, trigrams.ToArray(), cost);
-                // GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+                else
+                {
+                    var trigrams = GameManager.Instance.GetCurrentEvent().Choices.Select(x => x.TargetTrigram).Where(x => x != null).Distinct().ToList();
+                    if (_choiceData.TargetTrigram != null)
+                    {
+                        trigrams.Remove(_choiceData.TargetTrigram);
+                    }
+                    GameManager.Instance.RemoveSanity(_choiceData.TargetTrigram, trigrams.ToArray(), cost);
+                    // GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+                }
+
 
                 GameManager.Instance.EndEvent();
             }
