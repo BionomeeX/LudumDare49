@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Unstable.Menu
 {
@@ -18,6 +19,9 @@ namespace Unstable.Menu
 
         [SerializeField]
         private MeetingRoom _meetingRoom;
+
+        [SerializeField]
+        private Image _checkboxSanity;
 
         public void Play()
         {
@@ -52,6 +56,7 @@ namespace Unstable.Menu
         public void DisplaySanity()
         {
             GlobalData.Instance.DisplaySanity = !GlobalData.Instance.DisplaySanity;
+            _checkboxSanity.sprite = GlobalData.Instance.DisplaySanity  ? _checked : _notChecked;
         }
     }
 }
