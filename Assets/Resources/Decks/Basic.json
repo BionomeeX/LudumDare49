@@ -704,7 +704,7 @@
                 {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "NONE"
+                    "cost": "LOW"
                 }
             ]
         },
@@ -726,7 +726,7 @@
                 {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "NONE"
+                    "cost": "LOW"
                 }
             ]
         },
@@ -748,7 +748,7 @@
                 {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "NONE"
+                    "cost": "LOW"
                 }
             ]
         },
