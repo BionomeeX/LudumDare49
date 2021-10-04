@@ -36,8 +36,9 @@ namespace Unstable
         /// </summary>
         private Dictionary<string, string> _effects;
 
+        /// MOOD RELATED ELEMENTS
         [SerializeField]
-        private Image _panelLights;
+        private Image _panelLights, _darkRoom;
 
         [SerializeField]
         private FactionInfo[] _factions;
@@ -217,7 +218,8 @@ namespace Unstable
             if ((oldVal < _lightObjective && _lightObjective < _panelLights.color.a) ||
                 (oldVal > _lightObjective && _lightObjective > _panelLights.color.a))
             {
-                _lightObjective = Random.Range(.5f, 1f);
+                var modificator = (5 - _leaderSanities.Count) / 5f;
+                _lightObjective = Random.Range(.5f, 1f - (modificator < 0f ? 0f : modificator));
             }
         }
 
@@ -259,6 +261,14 @@ namespace Unstable
             {
                 // Remove the object
                 RemoveLeader(trigram);
+
+                _darkRoom.color = new Color(
+                    _darkRoom.color.r,
+                    _darkRoom.color.g,
+                    _darkRoom.color.b,
+                    _darkRoom.color.a - .1f
+                );
+
                 if (_leaderSanities.Count == 1)
                 {
                     var remain = _leaderSanities.First();
