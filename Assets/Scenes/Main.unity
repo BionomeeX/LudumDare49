@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelLights: {fileID: 358226334}
+  _darkRoom: {fileID: 2131924577}
   _factions:
   - {fileID: 11400000, guid: b612f7f86c6f4ce42a6e57334eb28860, type: 2}
   - {fileID: 11400000, guid: 9da6ace73aca3514382131e3eb45e1e8, type: 2}
@@ -2610,6 +2611,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084524820}
   m_CullTransparentMesh: 1
+--- !u!114 &2131924577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2292016513068595003, guid: 21b404fdd0a24a6489c29fef17a690a5, type: 3}
+  m_PrefabInstance: {fileID: 6851989566464123258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6324271560976196025
 PrefabInstance:
   m_ObjectHideFlags: 0
