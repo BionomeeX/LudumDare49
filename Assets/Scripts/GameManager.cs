@@ -238,8 +238,6 @@ namespace Unstable
         private float _lightObjective = 0.5f;
         private void FixedUpdate()
         {
-            Score += 100;
-
             var oldVal = _panelLights.color.a;
             _panelLights.color = new Color(
                 _panelLights.color.r,
@@ -384,6 +382,7 @@ namespace Unstable
             try
             {
                 NextEventInternal();
+                Score += 100;
             }
             catch (System.Exception e)
             {
