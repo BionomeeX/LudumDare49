@@ -16,8 +16,8 @@ namespace Unstable
 
                         for (int i = 0; i < int.Parse(s[2]); i++)
                         {
-                            // TODO: On ADD ANY ANY, card is grey
-                            GameManager.Instance.AddCard(GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram), trigram);
+                            var res = GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram);
+                            GameManager.Instance.AddCard(res.Item1, res.Item2);
                         }
                     }
                     break;
@@ -74,7 +74,7 @@ namespace Unstable
                             return $"Earn {s[2]} card";
                         }
                         var card = GameManager.Instance.GetCard(trigram == "null" ? null : trigram, cardTrigram);
-                        return $"Earn {s[2]} {card.Name.ToLowerInvariant()}";
+                        return $"Earn {s[2]} {card.Item1.Name.ToLowerInvariant()}";
                     }
 
                 case "REM":

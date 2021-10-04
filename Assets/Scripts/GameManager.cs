@@ -448,18 +448,19 @@ namespace Unstable
             };
         }
 
-        public Model.Card GetCard(string leaderTrigram, string cardTrigram)
+        public (Model.Card, string) GetCard(string leaderTrigram, string cardTrigram)
         {
             if (leaderTrigram == null)
             {
-                return _staffCard;
+                return (_staffCard, null);
             }
             if (leaderTrigram == "ANY")
             {
                 var cards = _leaders[Random.Range(0, _leaders.Count)].Cards.ToArray();
-                return cards[Random.Range(0, cards.Length)].Value;
+                var rand = cards[Random.Range(0, cards.Length)];
+                return (rand.Value, rand.Key);
             }
-            return _leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()];
+            return (_leaders.Where(x => x.Trigram == leaderTrigram.ToUpperInvariant()).ElementAt(0).Cards[cardTrigram.ToUpperInvariant()], leaderTrigram);
         }
 
         public void RemoveCard(string trigram, int count)
