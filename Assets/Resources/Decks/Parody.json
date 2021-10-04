@@ -5,11 +5,11 @@
     "cards": [
         {
             "name": "Payday",
-            "description": "A group of overarmed masked crewmate has attack second floor and steal their precious good",
+            "description": "A group of overarmed masked crewmates are attacking second floor and stealing our precious goods",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "Send us after them, we need to put them in jail",
+                    "description": "Send the troops after them, we need to put them in jail",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -25,7 +25,7 @@
                     }
                 },
                 {
-                    "description": "Leave them alone, they will maybe blame themself and give it back",
+                    "description": "Leave them alone, they will maybe blame themselves and give it back",
                     "targetTrigram": null,
                     "cost": "HIGH"
                 }
@@ -33,7 +33,7 @@
         },
         {
             "name": "He is among us",
-            "description": "A crewmate has been infected by unknown host, he already have hurt someone, electricity is out",
+            "description": "A crewmate has been infected by an unknown host, he already have hurt someone, electricity is out",
             "isCrisis": true,
             "choices": [
                 {
@@ -65,7 +65,7 @@
             "isCrisis": true,
             "choices": [
               {
-                  "description": "But what was the question, We should try investigate on this point",
+                  "description": "But what was the question? We should try investigate on this point",
                   "targetTrigram": "RAD",
                   "cost": "LOW",
                   "requirements": {
@@ -93,7 +93,7 @@
             "isCrisis": true,
             "choices": [
               {
-                  "description": "Oh god, better prepare the medical team",
+                  "description": "Oh God! better prepare the medical team",
                   "targetTrigram": "MED",
                   "cost": "LOW",
                   "requirements": {
@@ -175,7 +175,7 @@
         },
         {
             "name": "Kira",
-            "description": "Something strange is happening, crewmates are dying from an unknown disease causing heartattack",
+            "description": "Something strange is happening, crewmates are dying from an unknown disease causing heart attack",
             "isCrisis": true,
             "choices": [
               {
@@ -195,7 +195,7 @@
                   }
               },
               {
-                  "description": "Is this a flying apple ?",
+                  "description": "Is this a flying apple?",
                   "targetTrigram": null,
                   "cost": "HIGH"
               }
@@ -236,7 +236,7 @@
             "isCrisis": true,
             "choices": [
               {
-                  "description": "Send an whole security team to defeat it",
+                  "description": "Send the whole security team to take care of it",
                   "targetTrigram": "DEF",
                   "cost": "LOW",
                   "requirements": {
@@ -244,7 +244,7 @@
                   }
               },
               {
-                  "description": "It is acting like that because It is hurt, we need to help it",
+                  "description": "It is acting like that because it is hurt, we need to help it",
                   "targetTrigram": "MED",
                   "cost": "LOW",
                   "requirements": {

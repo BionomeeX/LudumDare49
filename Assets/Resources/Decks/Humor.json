@@ -5,7 +5,7 @@
     "cards": [
         {
           "name": "Coffee machine - major blackout",
-          "description": "The situation is critical, coffee machine are down",
+          "description": "The situation is critical, coffee machines are down",
           "isCrisis": true,
           "choices": [
             {
@@ -107,7 +107,7 @@
                   ]
               },
               {
-                  "description": "Do we do the rule where we can +2 on top of each others?",
+                  "description": "Do we do the rules where we can play +2 cards on top of each others?",
                   "targetTrigram": null,
                   "cost": "MED"
               }
