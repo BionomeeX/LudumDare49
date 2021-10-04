@@ -125,15 +125,11 @@ namespace Unstable
         {
             // Load JSON objects
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
-            var events = Resources.LoadAll<TextAsset>("Decks/");
-            List<Deck> decks = new();
-            foreach (var e in events)
-            {
-                decks.Add(JsonConvert.DeserializeObject<Deck>(e.text));
-            }
+
             _effects = JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("Effects").text);
             _tutorialEvents = JsonConvert.DeserializeObject<List<Model.Event>>(Resources.Load<TextAsset>("Tutorial").text);
 
+            var decks = GlobalData.Instance.GetAllowedDecks();
             // Make sure everything is init
             Assert.IsNotNull(_leaders, "Leaders info failed to load");
             Assert.IsNotNull(decks, "Events info failed to load");
