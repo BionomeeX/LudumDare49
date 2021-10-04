@@ -1,7 +1,7 @@
 [
     {
         "name": "Tutorial 1 - Inventory",
-        "description": "Everyone just woke up... We need to be sure everything is still in order",
+        "description": "Everyone just woke up... We need to be sure everything is still in order\n(Move cards in the choice to fulfill the requirement)",
         "isCrisis": true,
         "choices": [
             {
@@ -16,7 +16,7 @@
     },
     {
         "name": "Tutorial 2 - Main engine",
-        "description": "We are currently running on the auxilliary engine, we need to restart the main one",
+        "description": "We are currently running on the auxilliary engine, we need to restart the main one\n(You can either use a card having repair skill, or 3 others cards)",
         "isCrisis": true,
         "choices": [
             {
@@ -31,7 +31,7 @@
     },
     {
         "name": "Tutorial 3 - Trouble",
-        "description": "Everyone is still a bit confused by what is happening, we need a way to rally everyone",
+        "description": "Everyone is still a bit confused by what is happening, we need a way to rally everyone\n(Try to meet the requirements of a choice if you can)",
         "isCrisis": true,
         "choices": [
             {
