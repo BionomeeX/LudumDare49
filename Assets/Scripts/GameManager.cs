@@ -347,7 +347,7 @@ namespace Unstable
                                     new Function()
                                     {
                                         MethodName = "REM",
-                                        Argument = "ANY ANY 1"
+                                        Argument = "ANY 1"
                                     }
                                 }
                             }
@@ -371,7 +371,7 @@ namespace Unstable
                                     new Function()
                                     {
                                         MethodName = "REM",
-                                        Argument = "ANY ANY 3"
+                                        Argument = "ANY 3"
                                     }
                                 }
                             }
