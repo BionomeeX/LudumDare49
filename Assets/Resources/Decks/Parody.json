@@ -78,7 +78,7 @@
                   "cost": "MED",
                   "requirements": {
                       "REL": "LOW",
-                      "SEC"; "LOW"
+                      "SEC": "LOW"
                   }
               },
               {
