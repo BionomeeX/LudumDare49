@@ -2649,11 +2649,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deckData: {fileID: 1219933656}
-  _notChecked: {fileID: 21300000, guid: a39dedace9197f14bbb11bb806f9f947, type: 3}
-  _checked: {fileID: 21300000, guid: 2f21b4d6e8962ac4d9d9fb96edb0fef3, type: 3}
+  _notChecked: {fileID: 21300000, guid: dcd0f9f27e770fe45955e62092543819, type: 3}
+  _checked: {fileID: 21300000, guid: 814144365d0c35b4aa35b0e7308833a8, type: 3}
   _checkboxs:
   - Checkbox: {fileID: 2041926337}
-    Name: Basics
+    Name: Basic
     CountInfo: {fileID: 1344507350}
   - Checkbox: {fileID: 1442670071}
     Name: Humor
@@ -2741,7 +2741,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1442670071}
   m_OnClick:
     m_PersistentCalls:
@@ -2778,7 +2778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a39dedace9197f14bbb11bb806f9f947, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcd0f9f27e770fe45955e62092543819, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2960,7 +2960,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1572157683}
   m_OnClick:
     m_PersistentCalls:
@@ -2997,7 +2997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a39dedace9197f14bbb11bb806f9f947, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcd0f9f27e770fe45955e62092543819, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3528,10 +3528,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1371209220}
-        m_TargetAssemblyTypeName: Unstable.Menu.MainMenu, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 906967535}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 937413907}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3672,7 +3684,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Basics
+          m_StringArgument: Basic
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2041926337
@@ -3695,7 +3707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f21b4d6e8962ac4d9d9fb96edb0fef3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 814144365d0c35b4aa35b0e7308833a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
