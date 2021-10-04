@@ -181,7 +181,6 @@ namespace Unstable
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
             _eventLoader.Images = images.Select(x =>
             {
-                Debug.Log(x.ToLowerInvariant());
                 return new EventImage()
                 {
                     Code = x.ToLowerInvariant(),
@@ -272,6 +271,11 @@ namespace Unstable
 
                 if (_leaderSanities.Count == 1)
                 {
+                    // remove all cards in hand
+                    while (_cards.Count > 0)
+                    {
+                        RemoveCard(_cards[0]);
+                    }
                     var remain = _leaderSanities.First();
                     _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
                          _mr.LeadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
@@ -283,11 +287,13 @@ namespace Unstable
             return false;
         }
 
-        public void RemoveLeader(string trigram) {
+        public void RemoveLeader(string trigram)
+        {
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).DebugSanity.text = "0";
             _leaderSanities[trigram].Image.gameObject.SetActive(false);
             _leaderSanities.Remove(trigram);
             _mr.LeadersImages.FirstOrDefault(x => x.Trigram == trigram).Face.gameObject.SetActive(false);
+            _leaders = _leaders.Except(_leaders.FindAll(l => l.Trigram == trigram)).ToList();
         }
 
         public bool IsLeaderAlive(string trigram)
@@ -583,15 +589,16 @@ namespace Unstable
 
             if (curentEvent != null)
             {
-                if(curentEvent.IsCrisis) {
+                if (curentEvent.IsCrisis)
+                {
                     sentenceDict = leader.SentencesCrisis;
                 }
             }
 
-            int idx = sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => {
+            int idx = sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v =>
+            {
                 return v <= _leaderSanities[trigram].Sanity;
             }).Max();
-            Debug.Log(idx);
             var possibleTexts = sentenceDict[idx];
             _leaderText.GetComponentInChildren<TMP_Text>().text = possibleTexts[Random.Range(0, possibleTexts.Length)];
         }
