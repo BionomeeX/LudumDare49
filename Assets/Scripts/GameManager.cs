@@ -486,9 +486,10 @@ namespace Unstable
         }
         public void EndEvent()
         {
-            _panelLights.gameObject.SetActive(false);
-            _nextDayButton.gameObject.SetActive(true);
+            //_panelLights.gameObject.SetActive(false);
+            //_nextDayButton.gameObject.SetActive(true);
             _eventLoader.UnLoad();
+            NextEvent();
         }
 
         private EventChoice CreateEventChoice(Leader leader, (string, Model.Card) card, int count)
