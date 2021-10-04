@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using Unstable.Model;
 
@@ -24,8 +27,35 @@ namespace Unstable.Data
                     {
                         _instance._decks.Add(JsonConvert.DeserializeObject<Deck>(e.text));
                     }
+
+                    _instance.Load();
                 }
                 return _instance;
+            }
+        }
+
+        public void Save()
+        {
+            StringBuilder data = new();
+            data.Append(string.Join(",", DecksAllowed));
+            data.Append(";");
+            data.Append(BestScore);
+            data.Append(";");
+            data.Append(string.Join(",", EndingsData));
+
+            File.WriteAllText("data.bin", Convert.ToBase64String(Encoding.ASCII.GetBytes(data.ToString())));
+        }
+
+        public void Load()
+        {
+            if (File.Exists("data.bin"))
+            {
+
+                var data = Encoding.ASCII.GetString(Convert.FromBase64String(File.ReadAllText("data.bin")));
+                var s = data.Split(';');
+                DecksAllowed = s[0].Split(',').ToList();
+                BestScore = int.Parse(s[1]);
+                EndingsData = s[2].Split(',').ToList();
             }
         }
 
@@ -49,6 +79,10 @@ namespace Unstable.Data
             "Basic"
         };
         private List<Deck> _decks = new();
+
+        public int BestScore = 0;
+
+        public bool SkipTutorial { set; get; }
 
         public List<Deck> GetAllowedDecks()
             => _decks.Where(x => DecksAllowed.Any(d => d.ToUpperInvariant() == x.Name.ToUpperInvariant())).ToList();

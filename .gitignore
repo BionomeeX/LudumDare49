@@ -71,3 +71,6 @@ Assets/TextMesh Pro*
 
 # Newtonsoft (dependency)
 Packages/Newtonsoft*
+
+# Save file
+data.bin

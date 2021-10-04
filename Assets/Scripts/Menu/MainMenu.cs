@@ -22,7 +22,7 @@ namespace Unstable.Menu
         private MeetingRoom _meetingRoom;
 
         [SerializeField]
-        private Image _checkboxSanity;
+        private Image _checkboxSanity, _checkboxTutorial;
 
         public void Play()
         {
@@ -52,12 +52,19 @@ namespace Unstable.Menu
         {
             var c = _checkboxs.FirstOrDefault(x => x.Name.ToUpperInvariant() == deck.ToUpperInvariant());
             c.Checkbox.sprite = GlobalData.Instance.ToggleDeck(c.Name) ? _checked : _notChecked;
+            GlobalData.Instance.Save();
         }
 
         public void DisplaySanity()
         {
             GlobalData.Instance.DisplaySanity = !GlobalData.Instance.DisplaySanity;
             _checkboxSanity.sprite = GlobalData.Instance.DisplaySanity  ? _checked : _notChecked;
+        }
+
+        public void SkipTutorial()
+        {
+            GlobalData.Instance.SkipTutorial = !GlobalData.Instance.SkipTutorial;
+            _checkboxTutorial.sprite = GlobalData.Instance.SkipTutorial ? _checked : _notChecked;
         }
     }
 }

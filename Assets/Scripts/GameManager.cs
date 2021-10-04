@@ -192,6 +192,11 @@ namespace Unstable
             {
                 i.DebugSanity.gameObject.SetActive(GlobalData.Instance.DisplaySanity);
             }
+
+            if (GlobalData.Instance.SkipTutorial)
+            {
+                _tutorialEvents.Clear();
+            }
         }
 
         public int ReduceCostBy = 0;
@@ -275,6 +280,11 @@ namespace Unstable
                     while (_cards.Count > 0)
                     {
                         RemoveCard(_cards[0]);
+                    }
+                    if (Score > GlobalData.Instance.BestScore)
+                    {
+                        GlobalData.Instance.BestScore = Score;
+                        GlobalData.Instance.Save();
                     }
                     var remain = _leaderSanities.First();
                     _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),

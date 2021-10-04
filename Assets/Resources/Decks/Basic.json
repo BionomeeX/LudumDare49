@@ -1034,7 +1034,7 @@
                     "effects": [
                         {
                             "methodName": "KIL",
-                            "argument": "REL"
+                            "argument": "FAI"
                         },
                         {
                             "methodName": "ADD",
