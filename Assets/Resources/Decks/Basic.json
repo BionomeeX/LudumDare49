@@ -790,7 +790,7 @@
                     "effects": [
                         {
                             "methodName": "ADD",
-                            "argument": "RAD ANA 2"
+                            "argument": "RAD RES 2"
                         }
                     ]
                 },
