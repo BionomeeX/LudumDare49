@@ -172,6 +172,92 @@
                   "cost": "HIGH"
               }
             ]
+        },
+        {
+            "name": "Kira",
+            "description": "Something strange is happening, crewmates are dying from an unknown disease causing heartattack",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "We should find what is causing this",
+                  "targetTrigram": "DEF",
+                  "cost": "MED",
+                  "requirements": {
+                      "SEC": "MED"
+                  }
+              },
+              {
+                  "description": "We need to find a way to prevent this",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "MED": "MED"
+                  }
+              },
+              {
+                  "description": "Is this a flying apple ?",
+                  "targetTrigram": null,
+                  "cost": "HIGH"
+              }
+            ]
+        },
+        {
+            "name": "We need to save the princess",
+            "description": "The princess has been taken, we need to save her!",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "We should send a whole team to kill the kidnapper",
+                  "targetTrigram": "DEF",
+                  "cost": "MED",
+                  "requirements": {
+                      "PAC": "HIGH"
+                  }
+              },
+              {
+                  "description": "We need to create a device to locate the princess",
+                  "targetTrigram": "ENG",
+                  "cost": "LOW",
+                  "requirements": {
+                      "ANA": "LOW",
+                      "AIS": "MED"
+                  }
+              },
+              {
+                  "description": "This is not the first time, maybe the princess is gone by choice",
+                  "targetTrigram": null,
+                  "cost": "LOW"
+              }
+            ]
+        },
+        {
+            "name": "The last wish",
+            "description": "A beast has appear in the kitchen, we need to send someone",
+            "isCrisis": true,
+            "choices": [
+              {
+                  "description": "Send an whole security team to defeat it",
+                  "targetTrigram": "DEF",
+                  "cost": "MED",
+                  "requirements": {
+                      "PAC": "HIGH"
+                  }
+              },
+              {
+                  "description": "It is acting like that because It is hurt, we need to help it",
+                  "targetTrigram": "MED",
+                  "cost": "LOW",
+                  "requirements": {
+                      "MED": "LOW",
+                      "PSY": "LOW"
+                  }
+              },
+              {
+                  "description": "*Whistle* Toss a coin to your witcher...",
+                  "targetTrigram": null,
+                  "cost": "LOW"
+              }
+            ]
         }
     ]
 }
