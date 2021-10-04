@@ -16,6 +16,9 @@ namespace Unstable.Menu
         [SerializeField]
         private DeckCheckbox[] _checkboxs;
 
+        [SerializeField]
+        private MeetingRoom _meetingRoom;
+
         public void Play()
         {
             SceneManager.LoadScene("Main");
@@ -27,6 +30,11 @@ namespace Unstable.Menu
             foreach (var c in _checkboxs)
             {
                 c.CountInfo.text = "Cards count: " + GlobalData.Instance.GetCardsCount(c.Name);
+            }
+
+            foreach (var l in _meetingRoom.LeadersImages)
+            {
+                l.Sprite.gameObject.SetActive(GlobalData.Instance.EndingsData.Contains(l.Trigram));
             }
         }
 

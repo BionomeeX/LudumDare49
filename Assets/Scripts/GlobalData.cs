@@ -44,7 +44,7 @@ namespace Unstable
         {
             "Basic"
         };
-        private List<string> EndingsData = new()
+        public List<string> EndingsData { private set; get; } = new()
         {
             "Basic"
         };
