@@ -504,7 +504,7 @@ MonoBehaviour:
     Face: {fileID: 0}
   - Trigram: ENG
     Sprite: {fileID: 2728303580077508833}
-    Ending: {fileID: 0}
+    Ending: {fileID: 21300000, guid: 8f671a6268e87744189346050e02c7a2, type: 3}
     DebugSanity: {fileID: 482541402733444104}
     Face: {fileID: 0}
   - Trigram: FAI
