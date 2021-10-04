@@ -10,7 +10,7 @@
           "choices": [
             {
                 "description": "We must create a device to directly inject coffee in our blood",
-                "targetTrigram": "SCI",
+                "targetTrigram": "RAD",
                 "cost": "HIGH",
                 "requirements": {
                     "AIS": "LOW"

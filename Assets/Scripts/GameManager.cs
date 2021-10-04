@@ -51,6 +51,8 @@ namespace Unstable
 
         private Dictionary<string, LeaderSanity> _leaderSanities;
 
+        public int Score = 0;
+
         public static int CostToInt(string value)
         {
             return value.ToUpperInvariant() switch
@@ -176,10 +178,19 @@ namespace Unstable
             }).ToArray();
         }
 
+        public int ReduceCostBy = 0;
+
+        public void PreventNextCrisis()
+        {
+            _numberOfRoundsWithoutCrisis -= 5;
+        }
+
         private const float _lightOffset = .005f;
         private float _lightObjective = 0.5f;
         private void FixedUpdate()
         {
+            Score += 100;
+
             var oldVal = _panelLights.color.a;
             _panelLights.color = new Color(
                 _panelLights.color.r,

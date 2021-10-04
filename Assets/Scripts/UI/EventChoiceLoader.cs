@@ -140,6 +140,13 @@ namespace Unstable.UI
 
                 // Remove sanity
                 var cost = GameManager.CostToInt(_choiceData.Cost);
+                cost -= GameManager.Instance.ReduceCostBy * 2;
+                if (cost < 0)
+                {
+                    cost = 0;
+                }
+                GameManager.Instance.ReduceCostBy = 0;
+
                 GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
 
                 GameManager.Instance.EndEvent();

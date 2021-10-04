@@ -696,7 +696,8 @@
                     "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
-                        "BIO": "MED"
+                        "BIO": "MED",
+                        "ANA": "LOW"
                     }
                 },
                 {
@@ -716,7 +717,8 @@
                     "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
-                        "PAC": "MED"
+                        "AST": "MED",
+                        "ANA": "LOW"
                     }
                 },
                 {
@@ -736,7 +738,8 @@
                     "targetTrigram": "RAD",
                     "cost": "NONE",
                     "requirements": {
-                        "AIS": "MED"
+                        "AIS": "MED",
+                        "ANA": "LOW"
                     }
                 },
                 {
@@ -767,6 +770,280 @@
                 },
                 {
                     "description": "There is no need",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Rubber duck",
+            "description": "R&D deparment need an external point of view on a research",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "We will find someone to help",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "ANY": "ONE"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "ADD",
+                            "argument": "RAD ANA 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "There is no time for this",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Preventive medecine",
+            "description": "By paying close attention to the crew we should be able to reduce the impact of the next crisis",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "We need to pay close attention to the mental state of the crew",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "PSY": "LOW",
+                        "INT": "LOW"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "MED",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "We need to increase the security of the ship",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "SEC": "HIGH"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "MED",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "We should prepare an emergency team",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "REP": "LOW",
+                        "SUR": "LOW"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "MED",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "We will manage without it",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Ready for anything",
+            "description": "If we were to join all our forces, we should be able to counter everything",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "Our team should focus on prevention",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "PSY": "LOW",
+                        "MAI": "LOW",
+                        "INT": "LOW",
+                        "REL": "LOW"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "CRI",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "Our team should focus on reacting quickly",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "SUR": "LOW",
+                        "REP": "LOW",
+                        "PAC": "LOW",
+                        "REL": "LOW"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "CRI",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "Our team should focus on renforcing what we already have",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "requirements": {
+                        "MED": "LOW",
+                        "MAI": "LOW",
+                        "SEC": "LOW",
+                        "REL": "LOW"
+                    },
+                    "effects": [
+                        {
+                            "methodName": "CRI",
+                            "argument": ""
+                        }
+                    ]
+                },
+                {
+                    "description": "We don't have the mean for that",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Pressure",
+            "description": "We can pressure our teams a bit to produce more result. Of course, this will lower our team morals",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "Just a little should be fine",
+                    "targetTrigram": null,
+                    "cost": "LOW",
+                    "effects": [
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 1"
+                        }
+                    ]
+                },
+                {
+                    "description": "Let's do this",
+                    "targetTrigram": null,
+                    "cost": "MED",
+                    "effects": [
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We need to produce more whatever the cost",
+                    "targetTrigram": null,
+                    "cost": "HIGH",
+                    "effects": [
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 3"
+                        }
+                    ]
+                },
+                {
+                    "description": "Moral is the key of success",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Shaddy deal",
+            "description": "A crew member know a way to increase our efficiancy, but it would ruin our reputation",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "We must make sacrifices",
+                    "targetTrigram": null,
+                    "cost": "NONE",
+                    "effects": [
+                        {
+                            "methodName": "SCO",
+                            "argument": ""
+                        },
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 2"
+                        }
+                    ]
+                },
+                {
+                    "description": "We can't accept this",
+                    "targetTrigram": null,
+                    "cost": "NONE"
+                }
+            ]
+        },
+        {
+            "name": "Show the example",
+            "description": "We could restore the order by taking a drastic action",
+            "isCrisis": false,
+            "choices": [
+                {
+                    "description": "We could do without the medical faction",
+                    "targetTrigram": null,
+                    "cost": "MED",
+                    "effects": [
+                        {
+                            "methodName": "KIL",
+                            "argument": "MED"
+                        },
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 5"
+                        }
+                    ]
+                },
+                {
+                    "description": "We could do without the engineering faction",
+                    "targetTrigram": null,
+                    "cost": "MED",
+                    "effects": [
+                        {
+                            "methodName": "KIL",
+                            "argument": "ENG"
+                        },
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 5"
+                        }
+                    ]
+                },
+                {
+                    "description": "We could do without the religious faction",
+                    "targetTrigram": null,
+                    "cost": "MED",
+                    "effects": [
+                        {
+                            "methodName": "KIL",
+                            "argument": "REL"
+                        },
+                        {
+                            "methodName": "ADD",
+                            "argument": "ANY ANY 5"
+                        }
+                    ]
+                },
+                {
+                    "description": "We can't succeed alone",
                     "targetTrigram": null,
                     "cost": "NONE"
                 }

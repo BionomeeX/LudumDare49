@@ -66,7 +66,7 @@
             "choices": [
               {
                   "description": "But what was the question, We should try investigate on this point",
-                  "targetTrigram": "SCI",
+                  "targetTrigram": "RAD",
                   "cost": "LOW",
                   "requirements": {
                       "AIS": "LOW"

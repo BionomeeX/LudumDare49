@@ -30,6 +30,30 @@ namespace Unstable
                     }
                     break;
 
+                case "MED":
+                    {
+                        GameManager.Instance.ReduceCostBy++;
+                    }
+                    break;
+
+                case "CRI":
+                    {
+                        GameManager.Instance.PreventNextCrisis();
+                    }
+                    break;
+
+                case "SCO":
+                    {
+                        GameManager.Instance.Score = 0;
+                    }
+                    break;
+
+                case "KIL":
+                    {
+                        GameManager.Instance.LowerSectorSanity(argument, 1000);
+                    }
+                    break;
+
                 default:
                     throw new NotImplementedException("Unknown command " + command);
             }
@@ -55,6 +79,26 @@ namespace Unstable
                 case "REM":
                     {
                         return $"Loose {argument} random cards";
+                    }
+
+                case "MED":
+                    {
+                        return $"Reduce the impact of the next crisis";
+                    }
+
+                case "CRI":
+                    {
+                        return $"Prevent the next crisis to happen";
+                    }
+
+                case "SCO":
+                    {
+                        return $"Reset your score to 0";
+                    }
+
+                case "KIL":
+                    {
+                        return $"Kill the {GameManager.Instance.GetLeaderFromTrigram(argument)} faction leader";
                     }
 
                 default:
