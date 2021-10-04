@@ -768,7 +768,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c6cc9b0a32c2be48b9f9173566cd06f, type: 2}
   _neutralFaction: {fileID: 11400000, guid: 6e0bf67702db82a4ca2867710502cfb1, type: 2}
   _nextDayButton: {fileID: 1650709612}
-  _gameOverButton: {fileID: 0}
+  _gameOverButton: {fileID: 541326108}
   _mr: {fileID: 6851989566464123260}
   _ending: {fileID: 532742703}
   Score: 0
