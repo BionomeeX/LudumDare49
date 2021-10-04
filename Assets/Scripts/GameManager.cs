@@ -342,9 +342,13 @@ namespace Unstable
                             {
                                 Description = "A regretable incident",
                                 Cost = "NONE",
-                                Requirements = new()
+                                Effects = new[]
                                 {
-                                    { "REM", "ANY ANY 1" }
+                                    new Function()
+                                    {
+                                        MethodName = "REM",
+                                        Argument = "ANY ANY 1"
+                                    }
                                 }
                             }
                         }
@@ -362,9 +366,13 @@ namespace Unstable
                             {
                                 Description = "We can still call them later when we will need them",
                                 Cost = "NONE",
-                                Requirements = new()
+                                Effects = new[]
                                 {
-                                    { "REM", "ANY ANY 3" }
+                                    new Function()
+                                    {
+                                        MethodName = "REM",
+                                        Argument = "ANY ANY 3"
+                                    }
                                 }
                             }
                         }
