@@ -1,6 +1,7 @@
 Theme: **Unstable**
 
-You can play here: https://gamejam.zirk.eu/ld49/index.html
+You can play here: https://gamejam.zirk.eu/ld49/index.html  
+Page of the jam: https://ldjam.com/events/ludum-dare/49/$270896
 
 -------------------
 
