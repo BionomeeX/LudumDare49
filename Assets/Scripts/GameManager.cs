@@ -324,7 +324,7 @@ namespace Unstable
                         }
                 });
                 Debug.LogError(e);
-                NextEvent();
+                //NextEvent();
             }
         }
 
@@ -465,7 +465,6 @@ namespace Unstable
             _panelLights.gameObject.SetActive(true);
             _nextDayButton.gameObject.SetActive(false);
         }
-
         public void EndEvent()
         {
             _panelLights.gameObject.SetActive(false);
@@ -580,12 +579,18 @@ namespace Unstable
 
             Dictionary<int, string[]> sentenceDict = leader.SentencesConversation;
 
-            if (curentEvent != null && curentEvent.IsCrisis)
+            if (curentEvent != null)
             {
-                sentenceDict = leader.SentencesCrisis;
+                if(curentEvent.IsCrisis) {
+                    sentenceDict = leader.SentencesCrisis;
+                }
             }
 
-            var possibleTexts = sentenceDict[sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => v < leader.MaxSanity).Max()];
+            int idx = sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => {
+                return v <= _leaderSanities[trigram].Sanity;
+            }).Max();
+            Debug.Log(idx);
+            var possibleTexts = sentenceDict[idx];
             _leaderText.GetComponentInChildren<TMP_Text>().text = possibleTexts[Random.Range(0, possibleTexts.Length)];
         }
 
