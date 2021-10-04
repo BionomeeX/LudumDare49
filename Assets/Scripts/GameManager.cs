@@ -62,7 +62,7 @@ namespace Unstable
                 "MED" => 4,
                 "HIGH" => 6,
                 "EX" => 8,
-                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+                _ => throw new System.ArgumentException("Invalid value " + value, nameof(value))
             };
         }
 
@@ -75,7 +75,7 @@ namespace Unstable
                 "MED" => 6,
                 "HIGH" => 9,
                 "EX" => 12,
-                _ => throw new System.ArgumentException("Invalid value", nameof(value))
+                _ => throw new System.ArgumentException("Invalid value " + value, nameof(value))
             };
         }
 
