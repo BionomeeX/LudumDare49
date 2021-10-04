@@ -118,7 +118,7 @@ namespace Unstable.UI
                 {
                     _effectText.text += "\n";
                 }
-                _effectText.text = "Sanity penalty: " + GameManager.CostToString(_choiceData.Cost);
+                _effectText.text += "Sanity penalty: " + GameManager.CostToString(_choiceData.Cost);
             }
         }
 
