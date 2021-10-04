@@ -273,6 +273,23 @@ namespace Unstable
             }
         }
 
+        public void RemoveSanity(string[] targets, int cost)
+        {
+            var trigrams = targets.Where(x => _leaderSanities.ContainsKey(x)).ToList();
+
+
+            while (cost > 0)
+            {
+                var index = Random.Range(0, trigrams.Count);
+                if (LowerSectorSanity(trigrams[index], 1))
+                {
+                    // Died
+                    trigrams.RemoveAt(index);
+                }
+                --cost;
+            }
+        }
+
         public bool LowerSectorSanity(string trigram, int cost)
         {
             if (!_leaderSanities.ContainsKey(trigram) || _leaderSanities[trigram].Sanity <= 0)

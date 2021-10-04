@@ -156,7 +156,13 @@ namespace Unstable.UI
                 }
                 GameManager.Instance.ReduceCostBy = 0;
 
-                GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
+                var trigrams = GameManager.Instance.GetCurrentEvent().Choices.Select(x => x.TargetTrigram).Where(x => x != null).Distinct().ToList();
+                if (_choiceData.TargetTrigram != null)
+                {
+                    trigrams.Remove(_choiceData.TargetTrigram);
+                }
+                GameManager.Instance.RemoveSanity(trigrams.ToArray(), cost);
+                // GameManager.Instance.RemoveRandomSanity(_choiceData.TargetTrigram, cost);
 
                 GameManager.Instance.EndEvent();
             }
