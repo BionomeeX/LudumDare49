@@ -73,15 +73,16 @@
                   }
               },
               {
-                  "description": "Nevermind, coffee is bad for people health, i will create an anti-addiction program",
-                  "targetTrigram": "MED",
+                  "description": "We should exterminate this false cult",
+                  "targetTrigram": "FAI",
                   "cost": "MED",
                   "requirements": {
-                      "PSY": "LOW"
+                      "REL": "LOW",
+                      "SEC"; "LOW"
                   }
               },
               {
-                  "description": "Whatever, tea machine are still up",
+                  "description": "So long and thanks for all the fish",
                   "targetTrigram": null,
                   "cost": "HIGH"
               }
