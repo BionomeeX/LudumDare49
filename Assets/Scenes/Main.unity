@@ -802,6 +802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2867034621632296758, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2867034621632296759, guid: 0d61beea088bd0541849ff6ee05f0f9a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
