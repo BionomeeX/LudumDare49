@@ -695,16 +695,25 @@
                 {
                     "description": "We will invest in this",
                     "targetTrigram": "RAD",
-                    "cost": "NONE",
+                    "cost": "LOW",
                     "requirements": {
                         "BIO": "MED",
                         "ANA": "LOW"
                     }
                 },
                 {
+                    "description": "We should do some test on animals first",
+                    "targetTrigram": "MED",
+                    "cost": "LOW",
+                    "requirements": {
+                        "SUR": "MED",
+                        "ANA": "LOW"
+                    }
+                },
+                {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "LOW"
+                    "cost": "MED"
                 }
             ]
         },
@@ -717,38 +726,56 @@
                 {
                     "description": "We will invest in this",
                     "targetTrigram": "RAD",
-                    "cost": "NONE",
+                    "cost": "LOW",
                     "requirements": {
                         "AST": "MED",
                         "ANA": "LOW"
                     }
                 },
                 {
+                    "description": "We will invest in this",
+                    "targetTrigram": "FAI",
+                    "cost": "LOW",
+                    "requirements": {
+                        "AST": "LOW",
+                        "FAI": "MED"
+                    }
+                },
+                {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "LOW"
+                    "cost": "MED"
                 }
             ]
         },
         {
-            "name": "System automation",
+            "name": "Cafeteria automation",
             "image": "food",
-            "description": "We can probably automate most of our systems with just a bit more effort",
+            "description": "We can probably automate most of our food systems with just a bit more effort",
             "isCrisis": true,
             "choices": [
                 {
                     "description": "We will invest in this",
                     "targetTrigram": "RAD",
-                    "cost": "NONE",
+                    "cost": "LOW",
                     "requirements": {
                         "AIS": "MED",
                         "ANA": "LOW"
                     }
                 },
                 {
+                    "description": "We should invest in meal balancing instead",
+                    "targetTrigram": "MED",
+                    "cost": "LOW",
+                    "requirements": {
+                        "MED": "MED",
+                        "ANA": "LOW"
+                    }
+                },
+                {
                     "description": "We don't have the time and resources",
                     "targetTrigram": null,
-                    "cost": "LOW"
+                    "cost": "MED"
                 }
             ]
         },
