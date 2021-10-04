@@ -191,6 +191,7 @@ namespace Unstable
                 _crisisEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _standardEvents.RemoveAll(x => x.Choices.Any(c => c.TargetTrigram == "OXY"));
                 _mr.LeadersImages.FirstOrDefault(x => x.Trigram == "OXY").Face.gameObject.SetActive(false);
+                _leaders.RemoveAll(x => x.DomainName == "OXY");
             }
 
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
