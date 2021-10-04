@@ -179,10 +179,11 @@ namespace Unstable
             var images = JsonConvert.DeserializeObject<string[]>(Resources.Load<TextAsset>("ImageKeys").text);
             _eventLoader.Images = images.Select(x =>
             {
+                Debug.Log(x.ToLowerInvariant());
                 return new EventImage()
                 {
                     Code = x.ToLowerInvariant(),
-                    Image = Resources.Load<Sprite>("Images/" + x.ToLowerInvariant())
+                    Image = Resources.Load<Sprite>("Images/event_" + x.ToLowerInvariant())
                 };
             }).ToArray();
 
