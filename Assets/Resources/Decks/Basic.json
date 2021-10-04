@@ -24,7 +24,7 @@
                     ]
                 },
                 {
-                    "description": "We must prioritizing stopping him",
+                    "description": "We must prioritize stopping him",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -47,7 +47,7 @@
         {
             "name": "Influenza epidemic",
             "image": "hospital",
-            "description": "Medics report few case of influenza epidemic",
+            "description": "Medics report few cases of influenza",
             "isCrisis": true,
             "choices": [
                 {
@@ -94,13 +94,13 @@
             ]
         },
         {
-            "name": "The vigilanty",
+            "name": "The vigilante",
             "image": "heroes",
-            "description": "Their is rumours about a guy doing justice on his own",
+            "description": "Their is rumors about a guy doing justice on his own",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "This kind of attitude must be nip in the bud",
+                    "description": "This kind of attitude must be nipped in the bud",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -126,7 +126,7 @@
                     ]
                 },
                 {
-                    "description": "This is just rumours",
+                    "description": "This is just rumors",
                     "targetTrigram": null,
                     "cost": "MED",
                     "effects": [
@@ -139,13 +139,13 @@
             ]
         },
         {
-            "name": "A new cult has appear",
+            "name": "A new cult has appeared",
             "image": "fire",
-            "description": "More and more people are beliving in the the god of fire",
+            "description": "More and more people are beliving in the god of fire",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "This is insanity, we should stop them",
+                    "description": "This is insanity, we have to stop them",
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
@@ -154,7 +154,7 @@
                     }
                 },
                 {
-                    "description": "We should prevent cults of having too much influence on the ship",
+                    "description": "We should prevent cults from having too much influence on the ship",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
@@ -168,7 +168,7 @@
                     ]
                 },
                 {
-                    "description": "As long as they do not represent a threat lets ignore them",
+                    "description": "As long as they do not represent a threat, lets ignore them",
                     "targetTrigram": null,
                     "cost": "HIGH"
                 }
@@ -177,11 +177,11 @@
         {
             "name": "Rebellion attack",
             "image": "car",
-            "description": "Report say that rebbels have escape after an attack, few people are injured",
+            "description": "Report says that rebbels have escaped after an attack, some people are injured",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "This attack must be taken seriously, send us to stop them",
+                    "description": "This attack must be taken seriously, send the troops to stop them",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -195,7 +195,7 @@
                     ]
                 },
                 {
-                    "description": "We must take care of injured people first",
+                    "description": "We must take care of the injured first",
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
@@ -222,7 +222,7 @@
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "Population is higher than production, let us equalize this",
+                    "description": "Population is higher than production, let's us equalize this",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
@@ -236,7 +236,7 @@
                     ]
                 },
                 {
-                    "description": "We should make human sacrifices for better harvest",
+                    "description": "We should make human sacrifices for better harvests",
                     "targetTrigram": "FAI",
                     "cost": "MED",
                     "requirements": {
@@ -258,7 +258,7 @@
                     }
                 },
                 {
-                    "description": "Lets hope this will stabilize",
+                    "description": "Let's hope this will stabilize in time",
                     "targetTrigram": null,
                     "cost": "MED",
                     "effects": [
@@ -277,7 +277,7 @@
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "We must send us to investigate and eliminate the contamination origin",
+                    "description": "We must send troops to investigate and eliminate the contamination origin",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -302,7 +302,7 @@
                     }
                 },
                 {
-                    "description": "Lets dump contaminated food",
+                    "description": "Lets dump the contaminated food",
                     "targetTrigram": null,
                     "cost": "HIGH"
                 }
@@ -311,11 +311,11 @@
         {
             "name": "RIOT",
             "image": "riot",
-            "description": "A riot breaks out in cafeteria",
+            "description": "A riot breaks out in the cafeteria",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "You must send us",
+                    "description": "You must send the troops",
                     "targetTrigram": "DEF",
                     "cost": "NONE",
                     "requirements": {
@@ -337,13 +337,13 @@
             ]
         },
         {
-            "name": "Cult need money",
+            "name": "The cult need money",
             "image": "religion",
-            "description": "To prepare the next cult celebration, cult need money",
+            "description": "To prepare the next cult celebration, the cult need money",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "We don't need this money, god does",
+                    "description": "We don't need this money, God does",
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
@@ -351,7 +351,7 @@
                     }
                 },
                 {
-                    "description": "You should send us to avoid this celebration",
+                    "description": "You should send the troops to avoid this celebration",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
@@ -365,14 +365,14 @@
                     ]
                 },
                 {
-                    "description": "We don't have money for this",
+                    "description": "We don't have the money for this",
                     "targetTrigram": null,
                     "cost": "MED"
                 }
             ]
         },
         {
-            "name": "Cult celebration",
+            "name": "The cult celebration",
             "image": "fire",
             "description": "The cult celebration has just begun",
             "isCrisis": true,
@@ -386,7 +386,7 @@
                     }
                 },
                 {
-                    "description": "You need to send us to avoid riot",
+                    "description": "You need to send the troops to avoid a riot",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
@@ -413,7 +413,7 @@
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "Send us to investigate",
+                    "description": "Send the troops to investigate",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -439,11 +439,11 @@
         {
             "name": "Android riot",
             "image": "riot",
-            "description": "Android has started to attack crew member, they think human is a flew that must be destroyed",
+            "description": "Android has started to attack crew members, they think human is a flaw that must be destroyed",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "Send us to destroy these toaster",
+                    "description": "Send the troops to destroy these toasters",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -475,11 +475,11 @@
         {
             "name": "Material crisis",
             "image": "ressources",
-            "description": "Androids need a lot of materials to be repaired, we are begining to be in lack of raw material",
+            "description": "Androids need a lot of materials to be repaired, we are beginning to be in lack of raw materials",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "We don't need android, let us recycle them",
+                    "description": "We don't need androids, let the troops 'recycle' them",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -487,7 +487,7 @@
                     }
                 },
                 {
-                    "description": "Don't worry we will get new materials",
+                    "description": "Don't worry, we will get new materials",
                     "targetTrigram": "ENG",
                     "cost": "LOW",
                     "requirements": {
@@ -504,11 +504,11 @@
         {
             "name": "Unknown disease detected",
             "image": "virus",
-            "description": "Crew member are begining to complain about headache and yellow turning skin",
+            "description": "Crew members are beginning to complain about headaches and skin turning yellow",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "We must hide this to population and kill them before contamination spread itself",
+                    "description": "We must hide this to the population and kill them before contamination spreads too much",
                     "targetTrigram": "DEF",
                     "cost": "MED",
                     "requirements": {
@@ -522,7 +522,7 @@
                     ]
                 },
                 {
-                    "description": "We must analyse them and find a cure",
+                    "description": "We must analyse this cases and find a cure",
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
@@ -530,7 +530,7 @@
                     }
                 },
                 {
-                    "description": "This is a message from God, we need to sacrifice two Policeman to be saved",
+                    "description": "This is a message from God, we need to sacrifice two Policemen to be saved",
                     "targetTrigram": "FAI",
                     "cost": "MED",
                     "requirements": {
@@ -559,7 +559,7 @@
         {
             "name": "Love triangle",
             "image": "love",
-            "description": "Two crew member have fight because they love the same person",
+            "description": "Two crew members have a fight because they love the same person",
             "isCrisis": true,
             "choices": [
                 {
@@ -571,7 +571,7 @@
                     }
                 },
                 {
-                    "description": "This is insane, they must be converted to our god",
+                    "description": "This is insane, they must see the light of God",
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
@@ -588,7 +588,7 @@
         {
             "name": "Breach in the hull detected",
             "image": "hull",
-            "description": "An asteroid has damaged the hull we must fix this",
+            "description": "An asteroid has damaged the hull, we must fix this",
             "isCrisis": true,
             "choices": [
                 {
@@ -600,7 +600,7 @@
                     }
                 },
                 {
-                    "description": "You must authorize me to send a space patrol to destroy asteroid",
+                    "description": "You must authorize me to send a space patrol to destroy the asteroids",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -629,7 +629,7 @@
                     }
                 },
                 {
-                    "description": "Send us to find out who light up that fire",
+                    "description": "Send the troops to find out who lighted up that fire",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -652,11 +652,11 @@
         {
             "name": "Mad men journey",
             "image": "gun",
-            "description": "A mad men is attacking random crewmate in inferior levels",
+            "description": "A mad men is attacking random crewmates in the inferior levels",
             "isCrisis": true,
             "choices": [
                 {
-                    "description": "Send us to stop this threat",
+                    "description": "Send the troops to stop this threat",
                     "targetTrigram": "DEF",
                     "cost": "LOW",
                     "requirements": {
@@ -664,7 +664,7 @@
                     }
                 },
                 {
-                    "description": "This man need us, we must try to help him",
+                    "description": "This man need assistance, we must try to help him",
                     "targetTrigram": "MED",
                     "cost": "LOW",
                     "requirements": {
@@ -672,7 +672,7 @@
                     }
                 },
                 {
-                    "description": "This man has been forsaken by god, we must convert him",
+                    "description": "This man has been forsaken by God, we must convert him",
                     "targetTrigram": "FAI",
                     "cost": "LOW",
                     "requirements": {
@@ -680,7 +680,7 @@
                     }
                 },
                 {
-                    "description": "This was probably a temporary madness, leave it alone",
+                    "description": "This is probably a temporary madness, leave it alone",
                     "targetTrigram": null,
                     "cost": "HIGH"
                 }
@@ -689,7 +689,7 @@
         {
             "name": "Artificial organs",
             "image": "hospital",
-            "description": "We are close of making huge improvements in artificial organs",
+            "description": "We are close to making huge improvements in artificial organs",
             "isCrisis": true,
             "choices": [
                 {
@@ -782,7 +782,7 @@
         {
             "name": "Rubber duck",
             "image": "exchange",
-            "description": "R&D deparment need an external point of view on a research",
+            "description": "R&D department need an external point of view on a research",
             "isCrisis": false,
             "choices": [
                 {
@@ -921,7 +921,7 @@
                     ]
                 },
                 {
-                    "description": "We don't have the mean for that",
+                    "description": "We don't have the means for that",
                     "targetTrigram": null,
                     "cost": "NONE"
                 }
@@ -956,7 +956,7 @@
                     ]
                 },
                 {
-                    "description": "We need to produce more whatever the cost",
+                    "description": "We need to produce more, whatever the cost",
                     "targetTrigram": null,
                     "cost": "HIGH",
                     "effects": [
