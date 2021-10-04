@@ -288,8 +288,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 529641891}
-  m_RootOrder: 0
+  m_Father: {fileID: 937413908}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14, y: -11}
-  m_SizeDelta: {x: -40, y: -170}
+  m_AnchoredPosition: {x: 4, y: 36}
+  m_SizeDelta: {x: -60, y: -170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259252106
 MonoBehaviour:
@@ -733,7 +733,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Graphisms:\nFran\xE7ois Carr\xE9\n\nMusic:\nNicolas Roche\n\nScenario:\nJean-Baptiste
-    Carluer\n\nProgramming:\nCl\xE9ment Carr\xE9\nChristian Chaux"
+    Carluer\n\nProgramming:\nCl\xE9ment Carr\xE9\nChristian Chaux\n\nTest:\nAntoine
+    Da Cruz"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -767,7 +768,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1312,7 +1313,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 138698528}
   - {fileID: 937413908}
   - {fileID: 1578151825}
   - {fileID: 906967536}
@@ -2623,7 +2623,7 @@ RectTransform:
   - {fileID: 918572192}
   - {fileID: 892836585}
   m_Father: {fileID: 529641891}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2932,8 +2932,9 @@ RectTransform:
   - {fileID: 1915358006}
   - {fileID: 1219933655}
   - {fileID: 881262845}
+  - {fileID: 138698528}
   m_Father: {fileID: 529641891}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3863,7 +3864,7 @@ RectTransform:
   - {fileID: 190990251}
   - {fileID: 259252105}
   m_Father: {fileID: 529641891}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

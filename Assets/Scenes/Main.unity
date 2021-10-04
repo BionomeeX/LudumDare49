@@ -768,7 +768,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c6cc9b0a32c2be48b9f9173566cd06f, type: 2}
   _neutralFaction: {fileID: 11400000, guid: 6e0bf67702db82a4ca2867710502cfb1, type: 2}
   _nextDayButton: {fileID: 1650709612}
-  _gameOverButton: {fileID: 0}
+  _gameOverButton: {fileID: 541326108}
   _mr: {fileID: 6851989566464123260}
   _ending: {fileID: 532742703}
   Score: 0
@@ -1575,8 +1575,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -125, y: 0}
-  m_SizeDelta: {x: -250, y: 200}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -500, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1521042591
 MonoBehaviour:
