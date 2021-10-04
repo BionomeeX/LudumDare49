@@ -72,6 +72,19 @@ namespace Unstable
             };
         }
 
+        public static string CostToString(string value)
+        {
+            return value.ToUpperInvariant() switch
+            {
+                "NONE" => "None",
+                "LOW" => "Low",
+                "MED" => "Medium",
+                "HIGH" => "High",
+                "EX" => "Extreme",
+                _ => throw new System.ArgumentException("Invalid value " + value, nameof(value))
+            };
+        }
+
         public static int RequirementToInt(string value)
         {
             return value.ToUpperInvariant() switch

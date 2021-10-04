@@ -110,6 +110,16 @@ namespace Unstable.UI
                 _effectPanel.SetActive(false);
                 _effectText.text = "";
             }
+
+            if (_choiceData.Cost != "NONE")
+            {
+                _effectPanel.SetActive(true);
+                if (!string.IsNullOrWhiteSpace(_effectText.text))
+                {
+                    _effectText.text += "\n";
+                }
+                _effectText.text = "Sanity penalty: " + GameManager.CostToString(_choiceData.Cost);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
