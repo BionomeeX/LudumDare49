@@ -280,9 +280,10 @@ namespace Unstable
                     if (Score > GlobalData.Instance.BestScore)
                     {
                         GlobalData.Instance.BestScore = Score;
-                        GlobalData.Instance.Save();
                     }
                     var remain = _leaderSanities.First();
+                    GlobalData.Instance.AddEndingData(remain.Key);
+                    GlobalData.Instance.Save();
                     _ending.LoadEnding(_leaders.FirstOrDefault(x => x.Trigram == remain.Key),
                          _mr.LeadersImages.FirstOrDefault(x => x.Trigram == remain.Key).Ending);
                 }
