@@ -164,10 +164,10 @@ namespace Unstable.UI
 
             if (_requirements.Any())
             {
-                bool _areRequirementsSatisfied = false;
+                bool _requirementFound = false;
                 if (card.Effects != null)
                 {
-                    // if _requirement find something => we remove from the req and destroy the card
+                    // if _requirement find something => we remove from the req
                     foreach (var effectValue in card.Effects)
                     {
                         if (_requirements.ContainsKey(effectValue.Key))
@@ -180,13 +180,12 @@ namespace Unstable.UI
                                 _requirements.Remove(effectValue.Key);
                             }
                             UpdateRequirementDisplay();
-                            _areRequirementsSatisfied = true;
-                            break;
+                            _requirementFound = true;
                         }
                     }
                 }
 
-                if (!_areRequirementsSatisfied)
+                if (!_requirementFound)
                 {
                     // here, we have req but no matching effect, we remove 1 at the first 1
                     string key = _requirements.First().Key;
