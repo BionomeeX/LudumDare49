@@ -3478,7 +3478,7 @@ MonoBehaviour:
   _meetingRoom: {fileID: 1678832374}
   _checkboxSanity: {fileID: 822227858}
   _checkboxTutorial: {fileID: 892836587}
-  _bestScore: {fileID: 0}
+  _bestScore: {fileID: 138698529}
 --- !u!1 &1442670068
 GameObject:
   m_ObjectHideFlags: 0
