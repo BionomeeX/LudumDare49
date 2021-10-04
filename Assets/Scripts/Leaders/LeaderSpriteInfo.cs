@@ -11,5 +11,7 @@ namespace Unstable.Leaders
 
         public Image Sprite;
         public TMP_Text DebugSanity;
+
+        public Image Face;
     }
 }

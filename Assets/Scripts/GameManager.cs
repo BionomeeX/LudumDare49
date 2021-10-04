@@ -8,6 +8,7 @@ using Unstable.Leaders;
 using Unstable.Model;
 using Unstable.SO;
 using Unstable.UI;
+using TMPro;
 
 namespace Unstable
 {
@@ -112,6 +113,9 @@ namespace Unstable
         [SerializeField]
         private GameInfo _info;
 
+        [SerializeField]
+        private Image _leaderText;
+
         public string GetEffect(string trigram)
             => _effects[trigram];
 
@@ -123,6 +127,8 @@ namespace Unstable
 
         private void Start()
         {
+            _leaderText.gameObject.SetActive(false);
+
             // Load JSON objects
             _leaders = JsonConvert.DeserializeObject<List<Leader>>(Resources.Load<TextAsset>("Leaders").text);
 
@@ -149,6 +155,9 @@ namespace Unstable
             {
                 var leader = _leaders.FirstOrDefault(f => f.Trigram == x.Trigram);
                 x.DebugSanity.text = leader.MaxSanity.ToString();
+
+                x.Face.GetComponent<LeaderText>().Trigram = x.Trigram;
+
                 return (x.Trigram, new LeaderSanity()
                 {
                     Image = x.Sprite,
@@ -481,18 +490,23 @@ namespace Unstable
             UpdateCardPositions();
         }
 
-        public void RemoveCard(UI.Card card) {
+        public void RemoveCard(UI.Card card)
+        {
             Destroy(card.gameObject);
             _cards.Remove(card);
             UpdateCardPositions();
         }
 
-        public void UpdateCardPositions() {
+        public void UpdateCardPositions()
+        {
             // if <= 6 cards => classic setting
             float step;
-            if(_cards.Count <= 6) {
+            if (_cards.Count <= 6)
+            {
                 step = 1.5f;
-            } else {
+            }
+            else
+            {
                 // if 7 cards or more ??
                 step = (_cards.Count - 1f) / 3f;
             }
@@ -514,6 +528,39 @@ namespace Unstable
             _cards.Add(cardIns);
 
             UpdateCardPositions();
+        }
+
+        public void LeaderSpeaking(string trigram)
+        {
+            _leaderText.gameObject.SetActive(true);
+            // get the leader
+            var leader = GetLeaderFromTrigram(trigram);
+            // get the event
+            var curentEvent = _eventLoader.CurrentEvent;
+
+            if(curentEvent != null) {
+                bool eventIsCrisis = _eventLoader.CurrentEvent.IsCrisis;
+                // TODO: is the leader concerned by the event ?
+
+                Dictionary<int, string[]> sentenceDict;
+                // if crisis
+                if (eventIsCrisis)
+                {
+                    sentenceDict = leader.SentencesCrisis;
+
+                } else {
+                    sentenceDict = leader.SentencesConversation;
+                }
+                var possibleTexts = sentenceDict[sentenceDict.Select(kv => kv.Key).OrderByDescending(x => x).Where(v => v < leader.MaxSanity).Max()];
+
+                _leaderText.GetComponentInChildren<TMP_Text>().text = possibleTexts[Random.Range(0, possibleTexts.Length)];
+
+            }
+        }
+
+        public void LeaderStopSpeaking()
+        {
+            _leaderText.gameObject.SetActive(false);
         }
     }
 }
