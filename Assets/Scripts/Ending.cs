@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unstable.Model;
 
@@ -22,6 +23,11 @@ namespace Unstable
 
             _image.sprite = ending;
             _text.text = string.Join("\n", leader.Endings);
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }
